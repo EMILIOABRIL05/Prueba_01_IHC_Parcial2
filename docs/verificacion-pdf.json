@@ -1,14 +1,15 @@
 {
-  "pages": 72,
+  "pages": 73,
   "textExtracted": true,
   "outOfMargins": [],
   "replacementBoxes": 0,
-  "links": 545,
+  "links": 490,
   "file": "docs/Documentacion_Integral_IHC.pdf",
-  "sha256": "2f206cf058f480b951050ad57cfa1a1860ab79dba1057d04736f9c1786d15207",
-  "renderedPages": 72,
-  "visualReview": "Se revisaron las 72 páginas renderizadas y páginas de detalle; sin texto fuera de márgenes, recortes u objetos superpuestos.",
+  "sha256": "d703ca3a5241418e8ab343d57ae411ce6618c26fbcb3611199bff825ab0345c0",
+  "renderedPages": 73,
+  "visualReview": "Se revisaron las 73 páginas renderizadas, hojas de contacto y detalle de la actualización; sin recortes, texto fuera de márgenes ni superposiciones.",
   "font": "STIX General incorporada; licencia incluida en scripts/fonts/LICENSE_STIX",
   "source": "docs/Documentacion_Integral_IHC.md",
-  "generator": "scripts/generar_documentacion.py"
+  "generator": "scripts/generar_documentacion.py",
+  "revision": "Actualización posterior al PR #20; main 49abf9c, comprobación documental sin alterar la aplicación."
 }
