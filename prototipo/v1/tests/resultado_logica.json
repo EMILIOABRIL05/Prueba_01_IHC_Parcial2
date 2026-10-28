@@ -1,0 +1,152 @@
+{
+  "generatedAt": "2026-10-28T16:43:30.332Z",
+  "scope": "Fuente y lógica de v1. Sin navegador nativo ni participantes.",
+  "passed": 24,
+  "total": 24,
+  "results": [
+    {
+      "id": "A01",
+      "description": "Se reproduce total obsoleto de USD 3,75 frente a USD 5,25",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A02",
+      "description": "Quitar no tiene etiqueta descriptiva y elimina sin confirmación",
+      "kind": "Fuente y lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A03",
+      "description": "El resultado muestra Listo sin desglose en el panel final",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A04",
+      "description": "Se permite envío sin reconocimiento previo de advertencia",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A05",
+      "description": "Se permite procesar USD 5,25 sin validación del presupuesto",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A06",
+      "description": "Dos confirmaciones durante espera producen dos operaciones",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A07",
+      "description": "Se puede saltar a Revisión con datos incompletos",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A08",
+      "description": "Las marcas se pierden al salir del checklist",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A09",
+      "description": "El formulario presenta nombre real y no código",
+      "kind": "Fuente de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A10",
+      "description": "Stepper sin aria-current y sin texto explícito actual",
+      "kind": "Fuente de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A11",
+      "description": "Se conserva la regla CSS que provoca el fallo móvil",
+      "kind": "Fuente de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "A12",
+      "description": "Cierre incompleto y pérdida de progreso al reiniciar v1",
+      "kind": "Lógica de fallo",
+      "status": "OK"
+    },
+    {
+      "id": "V1-13",
+      "description": "Recorrido por Inicio, Menú, Detalle y Mi pedido",
+      "kind": "Lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-14",
+      "description": "El botón del carrito vacío está deshabilitado",
+      "kind": "Fuente y lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-15",
+      "description": "Invocar envío vacío ofrece un error",
+      "kind": "Lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-16",
+      "description": "Fallo de red conserva el carrito y no declara recibido",
+      "kind": "Lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-17",
+      "description": "Reintento después del fallo recupera el envío",
+      "kind": "Lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-18",
+      "description": "La entrada sigue en v1 aunque el dataset externo indique v2",
+      "kind": "Lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-19",
+      "description": "Procesando precede al recibido en un envío normal",
+      "kind": "Lógica",
+      "status": "OK"
+    },
+    {
+      "id": "V1-20",
+      "description": "Escape desde detalle regresa al carrito",
+      "kind": "Manejador de teclado",
+      "status": "OK"
+    },
+    {
+      "id": "V1-21",
+      "description": "Escape en Dashboard vuelve a la etapa anterior",
+      "kind": "Manejador de teclado",
+      "status": "OK"
+    },
+    {
+      "id": "V1-22",
+      "description": "La fuente define un indicador focus-visible",
+      "kind": "Fuente; no medición visual",
+      "status": "OK"
+    },
+    {
+      "id": "V1-23",
+      "description": "Hay viewport y reglas móviles comunes en la fuente",
+      "kind": "Fuente; no medición de layout",
+      "status": "OK"
+    },
+    {
+      "id": "V1-24",
+      "description": "Los doce escenarios están disponibles y fijados a v1",
+      "kind": "Lógica",
+      "status": "OK"
+    }
+  ]
+}
