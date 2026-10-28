@@ -1,14 +1,15 @@
 flowchart TD
- A[Inicio 12] --> B[Datos de sesion]
- B --> C{Datos validos}
- C -->|No X1| D[Corregir datos]
- D --> B
- C -->|Si F1| E[Stepper]
- E --> F[Checklist]
- F --> G{Condicion critica}
- G -->|No X1| H[Mensaje de validacion]
- H -->|Editar E1| F
- G -->|Si F1| I[Revision]
- I --> J{Cerrar o editar}
- J -->|Editar E1| F
- J -->|Cerrar F1| K[Resumen de cierre]
+ A[Inicio Dashboard A12] --> B[Recuperar datos guardados]
+ B --> C[Datos de sesión]
+ C --> D[Checklist: conservar marcas]
+ D --> E[Observaciones: conservar errores y notas]
+ E --> F[Revisión del estado]
+ F --> G{¿Checklist 3/3?}
+ G -->|No X1| H[Alertar: ítem obligatorio N pendiente]
+ H --> I[E1: retornar a Checklist y enfocar el ítem]
+ I --> J[Completar ítem sin borrar datos]
+ J --> D
+ G -->|Sí F1| K[Verificando checklist...]
+ K --> L{¿Sigue completo?}
+ L -->|No| H
+ L -->|Sí| M[Éxito: sesión cerrada]

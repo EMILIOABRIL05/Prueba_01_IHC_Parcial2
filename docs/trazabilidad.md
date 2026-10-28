@@ -77,6 +77,11 @@
 | [IHC-A-12](tarjetas/IHC-A-12.md) | R05 | [F1/E1](../diagramas/IHC-A-12-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
 | [IHC-A-12](tarjetas/IHC-A-12.md) | R06 | [X1](../diagramas/IHC-A-12-flujo.mmd) | Checklist incompleto | Condición contextual | [IHC-A-12-error.svg](../wireframes/IHC-A-12-error.svg) |
 
+## Requisitos R7 · incidencias seleccionadas
+
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R7 | [E1/X1/F1](../diagramas/IHC-A-01-flujo.mmd) | Carrito, revisión del total, confirmación | Subtotal, diferencia, aviso accesible y botón «He revisado» | [Wireframe R7](../wireframes/IHC-A-01-revision-R7.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R7 | [X1/E1/F1](../diagramas/IHC-A-12-flujo.mmd) | Revisión, checklist pendiente, finalización | Validación, alerta con ítem faltante, foco, guardado de estado | [Wireframe R7](../wireframes/IHC-A-12-pendiente-R7.svg) |
+
 ## Verificación de consistencia
 1. Leer el criterio de aceptación del requisito en su ficha.
 2. Localizar la rama correspondiente en su user flow.

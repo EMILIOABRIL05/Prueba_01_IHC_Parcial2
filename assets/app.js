@@ -26,6 +26,10 @@
     itemToRemove: null,
     removalOpenerId: null,
     alertMessage: '',
+    a01ReviewRequired: false,
+    a01PreviousTotal: 0,
+    a01ReviewNote: '',
+    dashboardFinishing: false,
     dashboardData: {
       title: '',
       code: '',
@@ -48,6 +52,9 @@
           }
           if (saved && saved.title) state.dashboardData.title = saved.title;
           if (saved && saved.code) state.dashboardData.code = saved.code;
+          if (saved && typeof saved.errors === 'string') state.dashboardData.errors = saved.errors;
+          if (saved && typeof saved.notes === 'string') state.dashboardData.notes = saved.notes;
+          if (saved && Number.isInteger(saved.dashboardStep) && saved.dashboardStep >= 0 && saved.dashboardStep <= 3) state.dashboardStep = saved.dashboardStep;
         }
       } catch (e) {
         console.warn('LocalStorage error:', e);
@@ -61,7 +68,10 @@
         localStorage.setItem('ihc_a12_state', JSON.stringify({
           checklist: state.dashboardData.checklist,
           title: state.dashboardData.title,
-          code: state.dashboardData.code
+          code: state.dashboardData.code,
+          errors: state.dashboardData.errors,
+          notes: state.dashboardData.notes,
+          dashboardStep: state.dashboardStep
         }));
       } catch (e) {
         console.warn('LocalStorage save error:', e);
@@ -209,7 +219,7 @@
 
       // Alerta de presupuesto para IHC-A-05
       var overBudget = totalActual > 4.25;
-      if (overBudget && isV2) {
+      if (overBudget && isV2 && state.cardId === 'IHC-A-05') {
         html += '<div class="status error" role="alert">';
         html += '  <span><strong>Alerta de presupuesto:</strong> El total actual (' + totalFormatted + ') excede el límite de USD 4,25. Ajuste las cantidades antes de continuar.</span>';
         html += '</div>';
@@ -226,6 +236,7 @@
           html += '  <div class="cart-item-info">';
           html += '    <div class="cart-item-name">' + p.name + '</div>';
           html += '    <div class="cart-item-price">' + formatMoney(p.price) + ' c/u</div>';
+          if (isV2 && state.cardId === 'IHC-A-01') html += '    <div class="cart-item-subtotal">Subtotal: ' + formatMoney(p.price * c.qty) + '</div>';
           html += '  </div>';
           html += '  <div class="cart-controls">';
           html += '    <button class="qty-btn" id="qty-minus-' + p.id + '" data-action="qty" data-item="' + p.id + '" data-delta="-1" aria-label="Disminuir ' + p.name + '">-</button>';
@@ -265,6 +276,15 @@
         html += '    <span id="total" class="summ-total">' + displayedTotal + '</span>';
         html += '  </div>';
 
+        if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewRequired) {
+          var difference = totalActual - state.a01PreviousTotal;
+          html += '  <div class="status info review-change" role="status" aria-live="polite">';
+          html += '    <span>El pedido cambió: total anterior ' + formatMoney(state.a01PreviousTotal) + ', nuevo total ' + totalFormatted + '. ';
+          html += 'Diferencia ' + (difference >= 0 ? '+' : '-') + formatMoney(Math.abs(difference)) + '. Revise antes de confirmar.</span>';
+          html += '  </div><button class="btn-secondary" id="review-total" data-action="review-total">He revisado el nuevo total</button>';
+        } else if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewNote) {
+          html += '  <div class="status success" role="status">' + state.a01ReviewNote + '</div>';
+        }
         html += '  <div style="display:flex; justify-content:space-between; gap:12px; margin-top:16px;">';
         html += '    <button class="btn-secondary" data-action="goto" data-go="menu">Seguir comprando</button>';
 
@@ -432,12 +452,21 @@
 
       var checkedCount = state.dashboardData.checklist.filter(function (x) { return x; }).length;
       html += '  <p><strong>Checklist verificado:</strong> ' + checkedCount + ' de 3 ítems</p>';
+      if (isV2 && state.cardId === 'IHC-A-12') {
+        html += '  <p role="status">' + (checkedCount === 3 ? 'Todas las verificaciones obligatorias están completas.' : 'Pendientes: ' + (3 - checkedCount) + ' ítem(s). No se puede finalizar todavía.') + '</p>';
+        if (checkedCount < 3) html += '  <button class="btn-secondary" data-action="step" data-step="1">Completar checklist pendiente</button>';
+      }
       html += '  <p><strong>Errores:</strong> ' + (state.dashboardData.errors || '0') + '</p>';
       html += '</div>';
 
       html += '<div style="margin-top:20px; display:flex; justify-content:space-between;">';
       html += '  <button class="btn-secondary" data-action="prev">Anterior</button>';
-      html += '  <button class="btn-primary" data-action="finish">Finalizar sesión</button>';
+      if (isV2 && state.cardId === 'IHC-A-12' && state.dashboardFinishing) {
+        html += '  <span class="status info" role="status">Verificando checklist…</span>';
+        html += '  <button class="btn-primary" disabled>Verificando…</button>';
+      } else {
+        html += '  <button class="btn-primary" data-action="finish">Finalizar sesión</button>';
+      }
       html += '</div>';
 
     } else if (state.dashboardStep === 4) {
@@ -481,6 +510,11 @@
         state.dashboardStep = 0;
         state.dialogOpen = false;
         state.cart = [];
+        state.a01ReviewRequired = false;
+        state.a01PreviousTotal = 0;
+        state.a01ReviewNote = '';
+        state.dashboardFinishing = false;
+        state.dashboardData = { title: '', code: '', name: '', checklist: [false, false, false], errors: '', notes: '' };
         loadStorage(state.cardId);
         render();
       });
@@ -530,6 +564,7 @@
     if (errorsInput) {
       errorsInput.addEventListener('input', function (e) {
         state.dashboardData.errors = e.target.value;
+        saveStorage(state.cardId);
       });
     }
 
@@ -537,6 +572,7 @@
     if (notesInput) {
       notesInput.addEventListener('input', function (e) {
         state.dashboardData.notes = e.target.value;
+        saveStorage(state.cardId);
       });
     }
 
@@ -586,6 +622,7 @@
       var item = btn.dataset.item;
       var delta = parseInt(btn.dataset.delta, 10);
       var cartItem = state.cart.find(function (c) { return c.id === item; });
+      var beforeEditTotal = calculateCartTotal();
       if (cartItem) {
         if (isV2 && state.cardId === 'IHC-A-02' && delta < 0 && cartItem.qty === 1) {
           openRemoval(item, btn.id);
@@ -596,7 +633,13 @@
           state.cart = state.cart.filter(function (c) { return c.id !== item; });
         }
       }
-      // En v1: no recalcula el total mostrado en A01 (permanece desactualizado)
+      // R7 A01: después de cambiar una cantidad se exige revisión explícita.
+      if (isV2 && state.cardId === 'IHC-A-01' && calculateCartTotal() !== beforeEditTotal) {
+        state.a01PreviousTotal = beforeEditTotal;
+        state.a01ReviewRequired = true;
+        state.a01ReviewNote = '';
+      }
+      // Se conserva el defecto original en v1 como línea base.
       render();
     } else if (action === 'remove') {
       var rmId = btn.dataset.item;
@@ -611,6 +654,15 @@
       if (isV2 && state.dialogOpen && state.itemToRemove) closeRemoval(true);
     } else if (action === 'remove-cancel') {
       if (isV2 && state.dialogOpen) closeRemoval(false);
+    } else if (action === 'review-total') {
+      if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewRequired) {
+        state.a01ReviewRequired = false;
+        state.a01ReviewNote = 'Desglose revisado. Puede confirmar su pedido.';
+        state.alertMessage = '';
+        render();
+        var confirmButton = document.querySelector('button[data-action="confirm"]');
+        if (confirmButton) confirmButton.focus();
+      }
     } else if (action === 'confirm') {
       handleConfirm();
     } else if (action === 'retry') {
@@ -627,6 +679,7 @@
       handleDashboardFinish();
     } else if (action === 'restart') {
       state.dashboardStep = 0;
+      state.dashboardFinishing = false;
       state.dashboardData = {
         title: '',
         code: '',
@@ -701,6 +754,14 @@
   // Confirmación de orden CaféU
   function handleConfirm() {
     state.alertMessage = '';
+    if (isV2 && state.isSubmitting) return;
+    if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewRequired) {
+      state.alertMessage = 'El importe cambió: revise el nuevo total antes de confirmar el pedido.';
+      render();
+      var reviewButton = document.getElementById('review-total');
+      if (reviewButton) reviewButton.focus();
+      return;
+    }
 
     // IHC-A-04: Alérgenos
     var hasSanduche = state.cart.some(function (c) { return c.id === 'sanduche'; });
@@ -712,7 +773,7 @@
 
     // IHC-A-05: Presupuesto USD 4,25
     var total = calculateCartTotal();
-    if (isV2 && total > 4.25) {
+    if (isV2 && state.cardId === 'IHC-A-05' && total > 4.25) {
       state.alertMessage = 'Presupuesto excedido: límite USD 4,25. Ajuste las cantidades antes de confirmar.';
       render();
       return;
@@ -767,10 +828,12 @@
         }
       }
       state.dashboardStep = targetStep;
+      saveStorage(state.cardId);
       render();
     } else {
       // v1: permite saltar a cualquier paso
       state.dashboardStep = targetStep;
+      saveStorage(state.cardId);
       render();
     }
   }
@@ -793,12 +856,15 @@
         }
       }
       state.dashboardStep = 1;
+      saveStorage(state.cardId);
       render();
     } else if (state.dashboardStep === 1) {
       state.dashboardStep = 2;
+      saveStorage(state.cardId);
       render();
     } else if (state.dashboardStep === 2) {
       state.dashboardStep = 3;
+      saveStorage(state.cardId);
       render();
     }
   }
@@ -812,21 +878,47 @@
     if (state.dashboardStep > 0) {
       state.dashboardStep -= 1;
     }
+    saveStorage(state.cardId);
     render();
   }
 
   function handleDashboardFinish() {
     state.alertMessage = '';
     if (isV2) {
-      // IHC-A-12: Validar checklist obligatorio antes de cerrar
-      var allChecked = state.dashboardData.checklist.every(function (x) { return x; });
-      if (!allChecked) {
-        state.alertMessage = 'Checklist obligatorio pendiente. Debe verificar todas las tareas antes de cerrar la sesión';
+      var firstMissing = state.dashboardData.checklist.findIndex(function (checked) { return !checked; });
+      if (firstMissing !== -1) {
+        state.dashboardFinishing = false;
+        // R7 A12: volver al primer elemento faltante conservando las marcas.
+        if (state.cardId === 'IHC-A-12') state.dashboardStep = 1;
+        state.alertMessage = 'No se puede finalizar: falta completar el ítem obligatorio ' +
+          (firstMissing + 1) + '. Regrese y complételo sin borrar sus datos.';
+        saveStorage(state.cardId);
         render();
+        if (state.cardId === 'IHC-A-12') {
+          var missingCheck = document.getElementById('check-' + firstMissing);
+          if (missingCheck) missingCheck.focus();
+        }
+        return;
+      }
+      if (state.cardId === 'IHC-A-12') {
+        if (state.dashboardFinishing) return;
+        state.dashboardFinishing = true;
+        render();
+        setTimeout(function () {
+          state.dashboardFinishing = false;
+          // Segunda validación antes del estado final: ningún éxito falso.
+          if (!state.dashboardData.checklist.every(Boolean)) {
+            handleDashboardFinish();
+            return;
+          }
+          state.dashboardStep = 4;
+          saveStorage(state.cardId);
+          render();
+        }, 300);
         return;
       }
     }
-    // Finalizar sesión
+    // Mantener el comportamiento de las demás tarjetas y de v1.
     setTimeout(function () {
       state.dashboardStep = 4;
       render();

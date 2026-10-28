@@ -1,15 +1,20 @@
 flowchart TD
- A[Inicio 01] --> B[Explorar productos]
- B --> C[Agregar al carrito]
- C --> D[Editar pedido]
- D --> E{Condicion critica valida}
- E -->|No X1| F[Mensaje y correccion]
- F -->|Editar E1| D
- E -->|Si F1| G[Revision de pedido]
- G --> H{Confirmar o editar}
- H -->|Editar E1| D
- H -->|Confirmar| I[Pendiente]
- I --> J{Respuesta}
- J -->|Error X1| K[Reintentar sin perder pedido]
- K --> D
- J -->|Exito F1| L[Confirmación de compra]
+ A[Inicio CaféU A01] --> B[Menú: agregar café y sánduche]
+ B --> C[Mi pedido: subtotales y total]
+ C --> D{Editar cantidades E1}
+ D -->|Sí| E[Recalcular subtotales y total]
+ E --> F[Mostrar total anterior, nuevo y diferencia]
+ F --> G{¿Revisión explícita completada?}
+ G -->|No X1| H[Bloquear confirmar y solicitar revisión]
+ H --> G
+ G -->|Sí| I[Revisión acreditada en interfaz]
+ D -->|No| I
+ I --> J{¿Alérgenos aceptados?}
+ J -->|No X1| K[Avisar y conservar carrito]
+ K --> C
+ J -->|Sí F1| L[Confirmar pedido]
+ L --> M[Pendiente]
+ M --> N{¿Resultado del envío?}
+ N -->|Error X1| O[Reintentar o editar sin perder carrito]
+ O --> C
+ N -->|Recibido F1| P[Resumen final y acuse]

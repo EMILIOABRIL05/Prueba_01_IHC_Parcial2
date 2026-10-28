@@ -107,6 +107,16 @@ La especificación de arquitectura no acredita por sí misma una observación ex
 - Hipótesis v2: No se muestra éxito con checklist obligatorio incompleto. **No se debe escribir “mejoró” hasta contar con datos observados**.
 - La curva v2 (`diagramas/IHC-A-12-curva-v2-hipotesis.svg`) es hipotética, no resultado de prueba.
 
+## Requisito R7 · incidencia seleccionada A12 (implementación trazable)
+
+**R7:** El sistema impide finalizar si existe un requisito del checklist incompleto. Debe indicar el primer ítem pendiente, devolver la navegación y el foco a la casilla pertinente y conservar datos y verificaciones hasta permitir un éxito realmente comprobado.
+
+**Criterio de aceptación:** Con checklist 2/3, finalizar no muestra éxito y enfoca la casilla restante en Checklist. Se mantienen título, código, errores, notas y casillas previas, incluidos cambios al recargar. Con 3/3, se muestra «Verificando…» antes de «Sesión cerrada».
+
+**Trazabilidad R7:** [Issue #18](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/18) → [flujo F1/E1/X1](../../diagramas/IHC-A-12-flujo.mmd) → «Revisión y cierre» ↔ «Checklist» → alerta + foco + persistencia (`assets/app.js`) → [wireframe R7](../../wireframes/IHC-A-12-pendiente-R7.svg) → [prueba técnica](../../tests/verificar_incidentes_r7.cjs).
+
+**Evidencia no acreditada:** No se afirma una sesión humana nueva ni una hora oficial de anuncio. Ver [registro](../../pruebas/incidencias-R7-ejecucion.md).
+
 ## Fase 5 · Incidencia nueva y defensa
 
 - Esperar el incidente entregado oficialmente y completar `docs/incidencia-sorpresa-plantilla.md`.

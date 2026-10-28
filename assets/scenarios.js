@@ -13,7 +13,7 @@ window.SCENARIOS = {
     task: 'Agregar café y sánduche; confirmar un pedido',
     constraint: '3 minutos, pantalla de 360 px',
     defectV1: 'El total no cambia al variar cantidades (Issue #6)',
-    correctionV2: 'Modificar cantidad actualiza inmediatamente subtotal y total sin recargar',
+    correctionV2: 'Editar cantidades recalcula subtotales y total, indica la diferencia y exige revisar antes de confirmar (R7)',
     initialCart: []
   },
   'IHC-A-02': {
@@ -134,7 +134,7 @@ window.SCENARIOS = {
     task: 'Recuperar checklist y cerrar sesión',
     constraint: 'No perder pasos previamente finalizados ni emitir éxito falso (Issue #8)',
     defectV1: 'Permite finalizar sesión con checklist incompleto y pierde datos al recargar',
-    correctionV2: 'Bloqueo de finalización sin checklist obligatorio completo y recuperación automática desde localStorage',
+    correctionV2: 'R7: impedir éxito falso, volver con foco al ítem pendiente y conservar checklist, notas y métricas',
     initialCart: []
   }
 };

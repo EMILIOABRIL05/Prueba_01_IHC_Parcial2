@@ -108,6 +108,16 @@ La especificación de arquitectura no acredita por sí misma una observación ex
 - Hipótesis v2: El total mostrado refleja la última cantidad editada. **No se debe escribir “mejoró” hasta contar con datos observados**.
 - La curva v2 (`diagramas/IHC-A-01-curva-v2-hipotesis.svg`) es hipotética, no resultado de prueba.
 
+## Requisito R7 · incidencia seleccionada A01 (implementación trazable)
+
+**R7:** Cuando el usuario cambie cantidades, el carrito debe recalcular subtotales y total, anunciar el importe anterior y su diferencia, y solicitar revisión explícita antes de permitir confirmar.
+
+**Criterio de aceptación:** Agregar 1 café (USD 1,50) y 1 sánduche (USD 2,75) produce USD 4,25; aumentar a 2 cafés produce USD 5,75 (diferencia +USD 1,50). Confirmar antes de pulsar «He revisado el nuevo total» **no** envía la solicitud. Tras revisión, permite continuar, incluida la aceptación de alérgenos aplicable.
+
+**Trazabilidad R7:** [Issue #17](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/17) → [flujo F1/E1/X1](../../diagramas/IHC-A-01-flujo.mmd) → pantalla «Mi pedido» → subtotal + alerta de diferencia + botón de revisión (`assets/app.js`) → [wireframe R7](../../wireframes/IHC-A-01-revision-R7.svg) → [prueba técnica](../../tests/verificar_incidentes_r7.cjs).
+
+**Evidencia no acreditada:** No se afirma prueba de navegador ni commit posterior a un anuncio oficial del docente. Ver [registro](../../pruebas/incidencias-R7-ejecucion.md).
+
 ## Fase 5 · Incidencia nueva y defensa
 
 - Esperar el incidente entregado oficialmente y completar `docs/incidencia-sorpresa-plantilla.md`.
