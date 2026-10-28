@@ -118,4 +118,5 @@ function run(){
  });
  console.log('OK: '+passed+'/7 pruebas de lógica integradas sobre DOM simulado. El navegador real y la sesión humana NO fueron probados.');
 }
-run();
+if (require.main === module) run();
+module.exports = {boot};
