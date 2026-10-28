@@ -1,0 +1,70 @@
+{
+  "observedAt": "2026-10-28T22:26:05.462934+00:00",
+  "timezone": "America/Guayaquil",
+  "main": "49abf9cadd269553594142be02dfb068fa53efc3",
+  "tree": "2a077c887da8804c12e76ddbc0143d06fd1b7941",
+  "trackedFiles": 361,
+  "mergedPR": {
+    "number": 20,
+    "state": "closed",
+    "mergedAt": "2026-10-28T22:04:00Z",
+    "head": "e06e6795adbfd6b038af8b63271ef5069821f44f",
+    "humanReviews": 0,
+    "inlineComments": 0,
+    "conversationComments": 0,
+    "note": "Estado consultado, no prueba de una revisión humana."
+  },
+  "integratedCommits": [
+    "787a4fd22baded030dd132343295b952f6290790",
+    "24beaa419eb2bda20a3596eaa50efcae70a54f90",
+    "1f5cd016305ab6c81585c9f17667d9be7d49ed0b",
+    "e06e6795adbfd6b038af8b63271ef5069821f44f"
+  ],
+  "issues": [
+    {
+      "number": 17,
+      "state": "open",
+      "bodyUpdated": true,
+      "technicalImplementation": "integrated-and-tested",
+      "humanEvidence": "pending"
+    },
+    {
+      "number": 18,
+      "state": "open",
+      "bodyUpdated": true,
+      "technicalImplementation": "integrated-and-tested",
+      "humanEvidence": "pending"
+    },
+    {
+      "number": 15,
+      "state": "open",
+      "scope": "preparation"
+    }
+  ],
+  "newBranch": "william/actualizacion-cierre-y-validacion",
+  "browserRun": {
+    "revision": "49abf9cadd269553594142be02dfb068fa53efc3",
+    "generatedAt": "2026-10-28T22:07:57.110467+00:00",
+    "passed": 41,
+    "total": 41,
+    "report": "evidencias/verificacion-post-merge/resultado.json"
+  },
+  "figma": {
+    "files": [
+      "XQP1LByW4KtPfTxyy5ouoV",
+      "bPSF7lzSTecjbFlwLtRzUE"
+    ],
+    "attempted": true,
+    "result": "blocked-starter-plan-tool-call-limit",
+    "remoteContentsRead": false,
+    "remoteModified": false
+  },
+  "historicalSnapshot": "docs/registro-git.json",
+  "pending": [
+    "external-participant-sessions-or-ratification",
+    "A10-real-screen-reader-session",
+    "personal-peer-reviews",
+    "Figma-current-canvas-comparison",
+    "official-announcement-time-if-required"
+  ]
+}

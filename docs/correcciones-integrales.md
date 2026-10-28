@@ -28,4 +28,4 @@ La revisión inicial examinó main 5c525296. Esta rama corrige el contenido y el
 - Navegador: Chromium 153.0.8010.0; 41/41 casos; fecha UTC 2026-10-28T21:20:34.474219+00:00.
 - [Reporte y capturas](../evidencias/ejecucion-actual/README.md).
 - [Actas y pendientes humanos](../pruebas/sesion.md).
-- Los commits del equipo se conservan; la rama actual se revisa mediante un PR que abrirá William.
+- Los commits del equipo se conservan. Las correcciones se integraron mediante [PR #20](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/20), fusionado en main como `49abf9cadd269553594142be02dfb068fa53efc3`; al consultar no tenía revisiones de compañeros. La [verificación posterior](../evidencias/verificacion-post-merge/README.md) volvió a completar 41/41 casos.
