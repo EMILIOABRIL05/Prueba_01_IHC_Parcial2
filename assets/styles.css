@@ -550,3 +550,22 @@ main {
     flex-wrap: wrap;
   }
 }
+
+
+/* Incidencia seleccionada A01 R7: subtotales y revisión visible, incluso a 360 px. */
+body[data-version="v2"] .cart-item-subtotal {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 3px;
+}
+body[data-version="v2"] .review-change {
+  display: block;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  body[data-version="v2"] .cart-row {flex-wrap: wrap;}
+  body[data-version="v2"] .cart-controls {flex-wrap: wrap;}
+  body[data-version="v2"] .cart-summary > div[style*="display:flex"] {flex-wrap: wrap;}
+}
