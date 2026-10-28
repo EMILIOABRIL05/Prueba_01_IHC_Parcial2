@@ -5,6 +5,7 @@ import sys
 def main():
     print("=== Comprobación de entregables de Jonathan Gamboa (jhonatan/pruebas) ===")
     rutas_obligatorias = [
+        "README-JHONATAN.md",
         "docs/defensa.md",
         "docs/revision_pr_emilio.md",
         "docs/incidencia-sorpresa-plantilla.md",
