@@ -3,7 +3,7 @@
 > **No publicado en GitHub.** Hipótesis de hallazgo a verificar durante la sesión, no observación real.
 
 - **Hallazgo candidato:** Jerarquía dispersa en pantalla y pérdida de contexto
-- **Severidad estimada:** Baja; pendiente de contrastar con participantes.
+- **Severidad estimada:** Media; pendiente de contrastar con participantes.
 - **Responsable propuesto:** Manuel Cusme; aceptar formalmente en GitHub.
 - **Pasos de reproducción:** abrir `prototipo/v1/index.html`, seleccionar tarjeta IHC-A-04, ejecutar la tarea principal y revisar el paso asociado.
 - **Comportamiento actual (demostrador):** Jerarquía dispersa en pantalla y pérdida de contexto.

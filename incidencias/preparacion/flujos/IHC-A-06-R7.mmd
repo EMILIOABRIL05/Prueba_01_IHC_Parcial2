@@ -1,0 +1,9 @@
+flowchart TD
+A["Enviar pedido con referencia única"] --> B["Pendiente"]
+B --> C{"¿Se confirma conexión?"}
+C -->|Sí| D["Confirmado tras acuse"]
+C -->|No| E["X1: No confirmado, guardar carrito"]
+E --> F{"¿Reintentar?"}
+F -->|Sí| G["Reutilizar mismo identificador lógico"]
+G --> B
+F -->|No| H["Mantener datos y estado sin éxito"]

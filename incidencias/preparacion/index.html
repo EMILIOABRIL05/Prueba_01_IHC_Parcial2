@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IHC · Ensayo técnico de 12 incidencias sorpresa</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al simulador</a>
+<header class="heading">
+<div class="content"><span class="overline">FISEI · Interacción Humano-Computadora · Laboratorio de preparación</span>
+<h1>12 incidencias sorpresa · Ensayo técnico</h1>
+<p>Simulaciones previas basadas en la hoja de incidencias del docente. <strong>No son la incidencia oficialmente asignada ni evidencia de una prueba presencial.</strong></p></div>
+</header>
+<main class="content" id="main">
+<div class="switch"><label for="tarjeta">Tarjeta a ensayar</label>
+<select id="tarjeta" aria-describedby="tarjeta-ayuda"></select>
+<p id="tarjeta-ayuda">La selección crea un escenario independiente y reinicia su estado.</p></div>
+<section aria-labelledby="case-title" class="sheet"><p id="case-area" class="overline"></p><h2 id="case-title"></h2>
+<div class="columns">
+<div class="pane"><h3>Evento imprevisto</h3><p id="trigger"></p><h3>R7 de preparación</h3><p id="requirement"></p></div>
+<div class="pane"><h3>Objetivo técnico</h3><p id="goal"></p><h3>Prueba mínima</h3><p id="proof"></p></div></div>
+<h3>Acciones del ensayo</h3><div class="controls" id="actions"></div><button id="reset" type="button" class="secondary">Reiniciar ensayo</button>
+<h3>Estado del sistema</h3>
+<div id="status" role="status" aria-live="polite" aria-atomic="true" class="status"></div>
+<div class="state"><div><strong>Datos de la simulación</strong><pre id="state"></pre></div><div><strong>Registro técnico de acciones</strong><ol id="audit"></ol></div></div>
+<div id="semantic"></div>
+</section>
+<section aria-labelledby="limits" class="notice"><h2 id="limits">Qué demuestra este ensayo</h2>
+<p>El modelo aplica reglas y permite comparar condiciones de fallo y corrección. Para afirmar que una incidencia se resolvió durante el examen faltan: anunciarla oficialmente, crear un Issue nuevo, implementar el cambio después del anuncio, registrar un commit posterior, probarlo en navegador, conservar evidencia antes/después, revisión de un compañero y defensa individual.</p>
+<p>Las pruebas de accesibilidad requieren comprobar foco y lector de pantalla reales. El caso de 320 px requiere medir desplazamiento horizontal en el navegador.</p></section>
+</main>
+<script src="./model.js"></script><script src="./app.js"></script>
+</body></html>

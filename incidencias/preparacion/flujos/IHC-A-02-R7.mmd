@@ -1,0 +1,8 @@
+flowchart TD
+A["Carrito con productos"] --> B["E1: Tab + Enter en Quitar"]
+B --> C["Eliminar producto y anunciar cuál"]
+C --> D["Restaurar foco en Deshacer"]
+D --> E{"¿Elegir Deshacer?"}
+E -->|Sí| F["Restaurar producto y foco"]
+F --> A
+E -->|No| G["F1: Continuar con carrito editado"]

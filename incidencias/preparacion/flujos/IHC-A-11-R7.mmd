@@ -1,0 +1,7 @@
+flowchart TD
+A["Vista a 320 px"] --> B["Aplicar diseño de una columna"]
+B --> C["Siguiente visible y en orden DOM"]
+C --> D{"¿Hay desbordamiento horizontal?"}
+D -->|Sí| E["X1: Ajustar anchos y espaciado"]
+E --> B
+D -->|No| F["F1: Tab hasta Siguiente"]

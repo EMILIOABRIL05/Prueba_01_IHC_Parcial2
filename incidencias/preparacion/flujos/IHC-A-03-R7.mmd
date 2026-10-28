@@ -1,0 +1,9 @@
+flowchart TD
+A["Confirmar pedido"] --> B["Pendiente: bloquear segundo envío"]
+B --> C["Esperar ocho segundos"]
+C --> D{"¿Respuesta comprobada?"}
+D -->|Sí| E{"¿Aceptado?"}
+E -->|Sí| F["Confirmado"]
+E -->|No| G["No confirmado"]
+D -->|No| H["Seguir pendiente, sin duplicar"]
+H --> D
