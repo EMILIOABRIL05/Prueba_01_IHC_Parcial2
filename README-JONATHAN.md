@@ -1,5 +1,4 @@
 # Entrega de Pruebas y Evidencias · Jonathan Gamboa
-
 **Responsable:** Jonathan Gamboa ([@Jonathan305g](https://github.com/Jonathan305g))  
 **Rama asignada:** `jhonatan/pruebas`  
 **Issues asignados:**
