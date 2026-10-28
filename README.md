@@ -31,6 +31,7 @@ Elegir tarjeta en la cabecera. No se necesita backend ni una instalación de Nod
 - [Incidencias A01/A12](docs/incidencias-seleccionadas-A01-A12.md).
 - [Colaboración y estado Git](docs/colaboracion.md), [registro consultado](docs/registro-git.json) y [pendientes de cierre](docs/seguimiento-cierre-equipo.md).
 - [Estado posterior al PR #20](docs/estado-post-merge.json), [nueva verificación de main](evidencias/verificacion-post-merge/README.md) y [guía para completar la validación con el equipo](pruebas/GUIA-EJECUCION-EQUIPO.md).
+- [Ensayo de pruebas de las doce tarjetas](pruebas/ensayos/README.md): PDF de 15 páginas con matriz y actas de ejemplo. Sus personajes, métricas y frases son ficticios y están identificados como material de práctica; las sesiones humanas siguen pendientes de registro auténtico.
 
 ## Organización del repositorio
 
@@ -44,6 +45,7 @@ Elegir tarjeta en la cabecera. No se necesita backend ni una instalación de Nod
 | `wireframes/` | Cuarenta y ocho Lo-Fi específicos y dos estados R7. |
 | `figma/` | Doce tableros SVG y enlaces/registro de Figma. |
 | `pruebas/` | Protocolo y actas para observación humana; histórico A12 por validar. |
+| `pruebas/ensayos/` | PDF didáctico con doce actas y matriz ficticias, separado de los registros humanos. |
 | `evidencias/ejecucion-actual/` | Capturas nuevas, 41 resultados de navegador y SHA-256 de las fuentes usadas. |
 | `evidencias/historicas/` | Capturas anteriores conservadas con procedencia; no se presentan como evidencia actual. |
 | `tests/` | Pruebas de lógica, regresiones HTTP y comprobaciones de coherencia. |

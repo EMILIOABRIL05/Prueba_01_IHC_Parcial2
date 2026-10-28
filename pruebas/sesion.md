@@ -33,3 +33,7 @@ El [acta aportada A12](historico/A12-acta-aportada.md) y su [resumen anterior](h
 - [Guía de revisión personal de PR](../github/pr/GUIA-REVISION-PERSONAL.md): cada revisor usa su cuenta y registra lo que realmente examinó.
 - [Contraste Figma/HTML](../figma/CONTRASTE-CON-HTML.md): correspondencia de pantallas y diferencias que deben verificarse.
 - [Nueva ejecución técnica de main](../evidencias/verificacion-post-merge/README.md): 41/41 casos. Mantiene separado el registro humano.
+
+## Ensayo didáctico disponible
+
+[PDF y explicación del ensayo A01-A12](ensayos/README.md): matriz comparativa y doce actas con personajes y datos ficticios. Se incorpora como ejemplo de llenado. No se ejecutaron sesiones humanas al producirlo y no ratifica el aporte histórico A12; los resultados reales se registran en las actas individuales cuando se observen.
