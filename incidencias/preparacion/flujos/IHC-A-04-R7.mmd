@@ -1,0 +1,8 @@
+flowchart TD
+A["Ver detalle de sánduche"] --> B["Alérgeno nuevo detectado"]
+B --> C["Aviso visible y accesible"]
+C --> D{"¿Advertencia revisada?"}
+D -->|No| E["X1: Bloquear confirmar"]
+E --> F["E1: Volver al detalle sin vaciar carrito"]
+F --> C
+D -->|Sí| G["F1: Permitir confirmación"]

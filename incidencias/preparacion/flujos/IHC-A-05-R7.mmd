@@ -1,0 +1,8 @@
+flowchart TD
+A["Pedido listo"] --> B["Subida de precio USD 0,50"]
+B --> C["Actualizar total y explicar diferencia"]
+C --> D{"¿Desea seguir?"}
+D -->|Editar| E["E1: Cambiar cantidades"]
+E --> C
+D -->|Cancelar| F["Cancelar sin pedido"]
+D -->|Revisar y confirmar| G["F1: Confirmación"]

@@ -1,0 +1,8 @@
+flowchart TD
+A["Carrito: 1 café USD 4,25"] --> B["E1: Editar cantidad a 2"]
+B --> C["Recalcular subtotal y total"]
+C --> D["Mostrar diferencia y pedir revisión"]
+D --> E{"¿Desglose revisado?"}
+E -->|No| F["Bloquear confirmación"]
+F --> D
+E -->|Sí| G["F1: Confirmar pedido"]

@@ -1,0 +1,7 @@
+flowchart TD
+A["Revisión del checklist"] --> B{"¿Obligatorios 3/3?"}
+B -->|No| C["X1: Bloquear cierre y anunciar faltante"]
+C --> D["E1: Volver al primer check pendiente"]
+D --> E["Guardar progreso existente"]
+E --> B
+B -->|Sí| F["F1: Cerrar con éxito verificado"]

@@ -1,0 +1,9 @@
+flowchart TD
+A["Checklist: marcar tres casillas"] --> B["Indicar cambios pendientes"]
+B --> C["Guardar valores antes de cambiar etapa"]
+C --> D["Mostrar guardado"]
+D --> E["F1: Entrar Registro"]
+E --> F["E1: Volver al Checklist"]
+F --> G{"¿Se conservaron marcas?"}
+G -->|Sí| H["Estado completo"]
+G -->|No| I["X1: Mostrar error y permitir recuperación"]

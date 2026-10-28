@@ -1,0 +1,7 @@
+flowchart TD
+A["Checklist"] --> B["Agregar verificación obligatoria"]
+B --> C{"¿Todas completadas?"}
+C -->|No| D["X1: Bloquear avanzar y explicar pendiente"]
+D --> E["E1: Retornar al Checklist"]
+E --> C
+C -->|Sí| F["F1: Ejecución con Stepper actualizado"]

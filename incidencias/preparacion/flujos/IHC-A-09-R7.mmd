@@ -1,0 +1,7 @@
+flowchart TD
+A["Datos de participante"] --> B["Sustituir Nombre por Código"]
+B --> C{"¿Código seudónimo válido?"}
+C -->|No| D["X1: Indicar formato, no pedir nombre"]
+D --> B
+C -->|Sí| E["Conservar métricas y omitir nombre"]
+E --> F["F1: Resumen con código y métricas"]

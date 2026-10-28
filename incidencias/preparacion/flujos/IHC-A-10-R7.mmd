@@ -1,0 +1,8 @@
+flowchart TD
+A["Stepper en escala de grises"] --> B["Texto: Paso N (actual)"]
+B --> C["Atributo aria-current=step"]
+C --> D["Tab y Enter para recorrer etapas"]
+D --> E{"¿Paso reconocido?"}
+E -->|Sí| F["F1: Continuar"]
+E -->|No| G["X1: Revisar etiqueta y foco"]
+G --> B
