@@ -828,10 +828,12 @@
         }
       }
       state.dashboardStep = targetStep;
+      saveStorage(state.cardId);
       render();
     } else {
       // v1: permite saltar a cualquier paso
       state.dashboardStep = targetStep;
+      saveStorage(state.cardId);
       render();
     }
   }
@@ -854,12 +856,15 @@
         }
       }
       state.dashboardStep = 1;
+      saveStorage(state.cardId);
       render();
     } else if (state.dashboardStep === 1) {
       state.dashboardStep = 2;
+      saveStorage(state.cardId);
       render();
     } else if (state.dashboardStep === 2) {
       state.dashboardStep = 3;
+      saveStorage(state.cardId);
       render();
     }
   }
@@ -873,21 +878,47 @@
     if (state.dashboardStep > 0) {
       state.dashboardStep -= 1;
     }
+    saveStorage(state.cardId);
     render();
   }
 
   function handleDashboardFinish() {
     state.alertMessage = '';
     if (isV2) {
-      // IHC-A-12: Validar checklist obligatorio antes de cerrar
-      var allChecked = state.dashboardData.checklist.every(function (x) { return x; });
-      if (!allChecked) {
-        state.alertMessage = 'Checklist obligatorio pendiente. Debe verificar todas las tareas antes de cerrar la sesión';
+      var firstMissing = state.dashboardData.checklist.findIndex(function (checked) { return !checked; });
+      if (firstMissing !== -1) {
+        state.dashboardFinishing = false;
+        // R7 A12: volver al primer elemento faltante conservando las marcas.
+        if (state.cardId === 'IHC-A-12') state.dashboardStep = 1;
+        state.alertMessage = 'No se puede finalizar: falta completar el ítem obligatorio ' +
+          (firstMissing + 1) + '. Regrese y complételo sin borrar sus datos.';
+        saveStorage(state.cardId);
         render();
+        if (state.cardId === 'IHC-A-12') {
+          var missingCheck = document.getElementById('check-' + firstMissing);
+          if (missingCheck) missingCheck.focus();
+        }
+        return;
+      }
+      if (state.cardId === 'IHC-A-12') {
+        if (state.dashboardFinishing) return;
+        state.dashboardFinishing = true;
+        render();
+        setTimeout(function () {
+          state.dashboardFinishing = false;
+          // Segunda validación antes del estado final: ningún éxito falso.
+          if (!state.dashboardData.checklist.every(Boolean)) {
+            handleDashboardFinish();
+            return;
+          }
+          state.dashboardStep = 4;
+          saveStorage(state.cardId);
+          render();
+        }, 300);
         return;
       }
     }
-    // Finalizar sesión
+    // Mantener el comportamiento de las demás tarjetas y de v1.
     setTimeout(function () {
       state.dashboardStep = 4;
       render();
