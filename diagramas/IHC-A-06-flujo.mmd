@@ -1,15 +1,19 @@
 flowchart TD
- A[Inicio 06] --> B[Explorar productos]
- B --> C[Agregar al carrito]
- C --> D[Editar pedido]
- D --> E{Condicion critica valida}
- E -->|No X1| F[Mensaje y correccion]
- F -->|Editar E1| D
- E -->|Si F1| G[Revision de pedido]
- G --> H{Confirmar o editar}
- H -->|Editar E1| D
- H -->|Confirmar| I[Pendiente]
- I --> J{Respuesta}
- J -->|Error X1| K[Reintentar sin perder pedido]
- K --> D
- J -->|Exito F1| L[Estado de solicitud]
+ F1["Inicio y menú"] --> D["Consultar detalle y agregar"]
+ D --> P["Mi pedido: productos y total"]
+ P --> E1["Editar cantidades, agregar o quitar"]
+ E1 --> P
+ P --> Q{"¿Puede enviar sin otra operación activa ni recibida?"}
+ Q -->|"Ruta de bloqueo/cancelación X1"| X1["Bloquear reenvío y mutaciones; conservar referencia"]
+ X1 --> P
+ Q -->|"Ruta válida F1"| A{"¿Avisos aplicables revisados?"}
+ A -->|"No"| X1
+ A -->|"Sí"| S["Crear instantánea y referencia del pedido"]
+ S --> V["Pendiente: bloquear cambios y segundo envío"]
+ V --> R{"¿Resultado local del envío?"}
+ R -->|"No confirmado"| ER["Error: conservar referencia y datos"]
+ ER -->|"Reintentar"| V
+ ER -->|"Editar E1"| P
+ R -->|"Recibido"| OK["Acuse y desglose de la instantánea"]
+ OK --> N["Nuevo pedido explícito"]
+ N --> F1

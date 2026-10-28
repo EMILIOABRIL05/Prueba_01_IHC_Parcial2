@@ -1,10 +1,9 @@
-# Diagnóstico emocional · índice
+# Diagnóstico emocional: índice y método
 
-Las 12 fichas en `docs/tarjetas/` incluyen touchpoints, momentos de verdad, curva **estimada** y fallos clasificados con criterios de Nielsen, Gestalt y carga cognitiva.
+Las [doce fichas](requisitos.md) contienen ocho touchpoints de CaféU o siete de Dashboard, dos momentos de verdad específicos, tres fallos candidatos y una curva inicial estimada.
 
-**Método sugerido:** registrar la tarea sin intervención, contrastar la curva con declaraciones y comportamientos, anotar error/pausa/tiempo solo cuando se hayan observado. No transformar hipótesis en hechos.
+Los momentos de verdad se eligen según la decisión crítica de cada tarjeta: importe, eliminación, acuse, alérgenos, presupuesto, recepción, secuencia, conservación, anonimato, semántica, registro móvil o cierre. No se reutiliza una justificación genérica para todos los casos.
 
-- CaféU: 8 touchpoints desde inicio hasta resultado de pedido.
-- Dashboard: 7 touchpoints desde apertura hasta cierre.
-- Dos momentos de verdad por tarjeta, marcados dentro de su ficha.
-- Criterios: visibilidad del estado, control y libertad, prevención de errores, consistencia; proximidad y jerarquía Gestalt; reconocimiento antes que recuerdo.
+Los valores de -3 a +3 representan hipótesis. Las doce curvas SVG coinciden con sus tablas. P1 se prioriza por impedir o falsear la tarea; P2 por incertidumbre; P3 por carga de búsqueda/jerarquía. Nielsen fundamenta visibilidad, control, consistencia y prevención; Gestalt fundamenta proximidad, semejanza y jerarquía; la memoria de trabajo justifica mostrar el contexto en lugar de exigir recordarlo.
+
+La validación humana debe anotar comportamiento, tiempo, pausas, errores y cita literal; contrastar la predicción y registrar el sesgo de aprendizaje. [Protocolo](../pruebas/sesion.md). La coincidencia entre tabla y curva es coherencia documental, no una medida de satisfacción.

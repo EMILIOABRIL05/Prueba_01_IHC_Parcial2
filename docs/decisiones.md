@@ -1,321 +1,134 @@
-# Matriz de Decisiones de Diseño, Accesibilidad y Corrección (v1 → v2)
+# Decisiones de diseño e implementación: v1 a v2
 
-**Proyecto:** Prueba 01 · IHC · Parcial 2 (UTA - Quinto Nivel)  
-**Responsable:** Pablo Lozada ([@idk-Damian](https://github.com/idk-Damian)) · Rama `pablo/prototipo-v2`  
-**Issues vinculados:**
-- [Issue #4 · [Fase 4][Pablo Lozada] Corrección v2, accesibilidad y antes/después](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/4)
-- [Issue #6 · [Hallazgo][A01][Alta] Total no se actualiza al cambiar cantidades](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/6)
-- [Issue #7 · [Hallazgo][A02][Alta] Quitar carece de nombre accesible y confirmación](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/7)
-- [Issue #8 · [Hallazgo][A12][Alta] Cierre exitoso sin validar checklist obligatorio](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/8)
+Base v2 de Pablo Lozada; arquitectura e incidencias iniciales de Emilio Abril; v1 y revisiones de William Martínez. Se conserva la atribución mediante commits y PR.
 
----
+La v1 independiente es una implementación distinta de la v2. Los siguientes fragmentos son referencias de comportamiento, no diffs literales entre el mismo archivo. El navegador ejecuta ambas entradas HTTP reales.
 
-## 1. Metodología de Validación y Distinción de Evidencias
-De acuerdo con las directrices de la cátedra de IHC, se establece una distinción metodológica estricta:
-1. **Mejora técnica demostrada (código, accesibilidad, heurística):** comprobación verificable mediante inspección del DOM, validación de estados ARIA, soporte por teclado, diseño responsive a 360 px y pruebas de ejecución.
-2. **Mejora observada con usuarios reales:** mediciones psicométricas, tiempos de tarea y verbalizaciones obtenidas durante las sesiones presenciales con participantes de otros equipos (registradas en la Fase 5 por Jhonatan Gamboa en `pruebas/sesion.md`).
+## IHC-A-01 · Compra rápida y revisión del importe
+- **Problema:** El total permanece obsoleto al variar cantidades.
+- **Decisión:** Cada cambio del pedido actualiza subtotales y total; en A01 se exige revisar la versión vigente del carrito antes de confirmar.
+- **Fundamento:** Visibilidad del estado y prevención de errores: el importe revisado corresponde al pedido enviado.
+- **Fragmento antes (v1, comportamiento):** El total permanece obsoleto al variar cantidades; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `cartChanged / cartSignature / handleConfirm` en `assets/app.js`.
+- **Prueba técnica:** Un café y un sánduche suman USD 4,25; dos cafés y un sánduche USD 5,75. Agregar, quitar y variar cantidades invalidan la revisión. Antes de revisarla no se envía.
+- **Casos:** `A01-agregar-invalida-revision; A01-quitar-invalida-revision`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-01-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-01-v2.png).
 
----
+## IHC-A-02 · Pedido completo por teclado
+- **Problema:** Quitar no identifica el producto y elimina sin confirmación.
+- **Decisión:** Quitar identifica acción y producto; abre un diálogo con Cancelar inicial, Escape, ciclo de foco y retorno al disparador.
+- **Fundamento:** Control y libertad; reconocimiento de la acción; prevención del borrado accidental.
+- **Fragmento antes (v1, comportamiento):** Quitar no identifica el producto y elimina sin confirmación; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `openRemoval / closeRemoval / render` en `assets/app.js`.
+- **Prueba técnica:** Cancelar o Escape conserva el producto y enfoca el control que abrió el aviso; confirmar elimina solo el elegido. Reducir la última unidad también pide confirmación.
+- **Casos:** `IHC-A-02-v2; A04-detalle-Escape`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-02-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-02-v2.png).
 
-## 2. Matriz de Decisiones por Escenario (IHC-A-01 a IHC-A-12)
+## IHC-A-03 · Acuse visible y privacidad
+- **Problema:** El resultado dice Listo sin número ni desglose.
+- **Decisión:** El acuse identifica el pedido y muestra sus productos, cantidades y total, sin datos personales.
+- **Fundamento:** Visibilidad del estado, reconocimiento y minimización de datos.
+- **Fragmento antes (v1, comportamiento):** El resultado dice Listo sin número ni desglose; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `handleConfirm / pendingOrder / receipt / startNewOrder` en `assets/app.js`.
+- **Prueba técnica:** El recibo utiliza la instantánea del envío. Hacer otro pedido vacía el carrito y produce otra referencia; regresar al carrito no reenvía el pedido recibido.
+- **Casos:** `A03-pedido-nuevo-e-identificador`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-03-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-03-v2.png).
 
-### IHC-A-01 · Recálculo de cantidades y total en tiempo real (Issue #6)
-- **Problema:** En v1, al modificar las cantidades de café o sánduche con los selectores de incremento/decremento, el subtotal y el importe total (`#total`) no se recalculan dinámicamente en el DOM, mostrando un total obsoleto que induce a error al confirmar la compra. Severidad: Alta.
-- **Decisión IHC:** Vincular un oyente de eventos reactivo a la modificación de la colección del carrito que recalcule inmediatamente subtotal y total formateado (`formatMoney(calculateCartTotal())`) en el elemento `#total` sin requerir recarga de página.
-- **Fragmento antes (v1):**
-```javascript
-// v1: se actualiza el objeto en memoria pero se mantiene en pantalla el total inicial
-var cartItem = state.cart.find(c => c.id === item);
-cartItem.qty += delta;
-render(); // #total renderiza state.v1CachedTotal desactualizado
-```
-- **Fragmento después (v2):**
-```javascript
-// v2: recálculo inmediato y actualización reactiva del DOM
-var cartItem = state.cart.find(c => c.id === item);
-cartItem.qty += delta;
-var totalActual = calculateCartTotal();
-document.getElementById('total').innerText = formatMoney(totalActual);
-```
-- **Prueba técnica:** Abrir `prototipo/v2/`, agregar café ($1.50), pulsar `+` en cantidad; verificar que el importe reflejado pase inmediatamente a $3.00.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-01-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-01-v2.png`.
+## IHC-A-04 · Ingredientes, alérgenos y corrección
+- **Problema:** Se permite confirmar sin reconocer la advertencia.
+- **Decisión:** Detalle y carrito exponen los alérgenos. El pedido con sánduche no se confirma sin aceptar el aviso correspondiente al carrito actual.
+- **Fundamento:** Prevención de errores y proximidad entre información de riesgo y acción.
+- **Fragmento antes (v1, comportamiento):** Se permite confirmar sin reconocer la advertencia; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `renderCafeU detail / ackAllergens / cartChanged / handleConfirm` en `assets/app.js`.
+- **Prueba técnica:** Sin marcar la aceptación, Confirmar enfoca su casilla y explica el bloqueo. Nueva tarjeta o edición invalida la aceptación. Escape desde Detalle vuelve sin cambiar el carrito.
+- **Casos:** `A04-aceptacion-contextual; A04-detalle-Escape`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-04-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-04-v2.png).
 
----
+## IHC-A-05 · Pedido dentro del presupuesto
+- **Problema:** La edición produce un sobrecosto sin aviso.
+- **Decisión:** El carrito muestra el total y alerta si excede USD 4,25; la confirmación queda bloqueada hasta ajustar.
+- **Fundamento:** Prevención de errores y carga cognitiva: el usuario compara importes visibles.
+- **Fragmento antes (v1, comportamiento):** La edición produce un sobrecosto sin aviso; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `calculateCartTotal / renderCafeU / handleConfirm A05` en `assets/app.js`.
+- **Prueba técnica:** USD 4,25 es admisible. USD 5,75 muestra exceso y no se procesa. Reducir cantidades conserva los demás productos y permite confirmar tras revisar los avisos aplicables.
+- **Casos:** `IHC-A-05-v2`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-05-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-05-v2.png).
 
-### IHC-A-02 · Accesibilidad por teclado y confirmación de quitar (Issue #7)
-- **Problema:** En v1, el botón para remover productos es un carácter ambiguo `×` sin etiqueta accesible (`aria-label`), inoperable con lector de pantalla y borra el producto inmediatamente al pulsar Enter sin confirmación, impidiendo la recuperación de errores (Heurística de Nielsen #9). Severidad: Alta.
-- **Decisión IHC:** Sustituir el glifo por texto explícito "Quitar" con `aria-label="Quitar café americano del pedido"`. Al activarlo por teclado, se despliega un cuadro de diálogo modal accesible (`role="dialog"`, `aria-modal="true"`) con foco inicial en `#remove-ok`. La tecla `Escape` cancela la operación y devuelve el foco al botón disparador.
-- **Fragmento antes (v1):**
-```html
-<!-- v1: botón sin nombre accesible ni confirmación -->
-<button class="btn-remove" data-action="remove" data-item="cafe">×</button>
-```
-- **Fragmento después (v2):**
-```html
-<!-- v2: botón accesible con modal y restauración de foco -->
-<button class="btn-remove" data-action="remove" data-item="cafe" 
-        aria-label="Quitar café americano del pedido">Quitar</button>
+## IHC-A-06 · Envío único y conexión inestable
+- **Problema:** Pulsar dos veces genera solicitudes duplicadas.
+- **Decisión:** Mientras se procesa se bloquean las mutaciones y el reenvío. El reintento conserva la referencia lógica y el recibo describe la instantánea enviada.
+- **Fundamento:** Visibilidad del estado, consistencia y recuperación de errores.
+- **Fragmento antes (v1, comportamiento):** Pulsar dos veces genera solicitudes duplicadas; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `operation / pendingOrder / handleConfirm / cancelOperation` en `assets/app.js`.
+- **Prueba técnica:** Durante pendiente no aparece éxito. Un fallo conserva datos y referencia; Reintentar puede completar una sola confirmación. Cambiar de tarjeta invalida callbacks anteriores.
+- **Casos:** `A06-pedido-inmutable-y-sin-reenvio; A06-cancelar-operacion-al-cambiar-tarjeta`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-06-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-06-v2.png).
 
-<div class="dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-  <h3 id="dialog-title">¿Quitar del pedido?</h3>
-  <button id="remove-cancel" data-action="remove-cancel">Cancelar (Esc)</button>
-  <button id="remove-ok" data-action="remove-ok">Quitar producto</button>
-</div>
-```
-- **Prueba técnica:** Navegar usando exclusivamente `Tab`, pulsar `Enter` en Quitar, comprobar apertura de modal y foco en botón confirmar; pulsar `Escape` y verificar que el producto permanece y el foco vuelve al botón Quitar.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-02-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-02-v2.png`.
+## IHC-A-07 · Secuencia obligatoria y paso actual
+- **Problema:** El Stepper permite saltar verificaciones incompletas.
+- **Decisión:** Siguiente y Stepper comparten validación. En A07, salir del Checklist requiere sus tres verificaciones.
+- **Fundamento:** Consistencia, reconocimiento y prevención de errores de secuencia.
+- **Fragmento antes (v1, comportamiento):** El Stepper permite saltar verificaciones incompletas; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `navigationProblem / handleStepClick / checklistProblem` en `assets/app.js`.
+- **Prueba técnica:** Con 0/3 o 2/3, Siguiente y el Stepper permanecen en Checklist, explican la falta y enfocan la casilla. Con 3/3 se permite avanzar sin perder marcas.
+- **Casos:** `IHC-A-07-v2`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-07-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-07-v2.png).
 
----
+## IHC-A-08 · Procedimiento y guardado del checklist
+- **Problema:** Las casillas se pierden al cambiar de etapa.
+- **Decisión:** La guía explica la secuencia antes de iniciar; las marcas se conservan al ir y volver, con indicador de guardado real.
+- **Fundamento:** Memoria externa, consistencia y feedback sobre conservación.
+- **Fragmento antes (v1, comportamiento):** Las casillas se pierden al cambiar de etapa; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `storageKey A08 / saveStorage / loadStorage / save-status` en `assets/app.js`.
+- **Prueba técnica:** Tras marcar, avanzar, volver y recargar, las marcas y campos guardados se recuperan en A08. Una excepción de almacenamiento se muestra como Sin guardar.
+- **Casos:** `IHC-A-08-v2`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-08-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-08-v2.png).
 
-### IHC-A-03 · Acuse de recibo explícito y privacidad de datos
-- **Problema:** En v1, la pantalla final muestra un texto genérico "Listo" sin número identificador de orden, sin resumen de los productos despachados ni desglose de pago. Además, en dispositivos compartidos de cafetería, pedir datos personales innecesarios viola el principio de privacidad. Severidad: Media-Alta.
-- **Decisión IHC:** Reemplazar el estado ambiguo por una tarjeta de acuse de recibo estructurada con título "Pedido recibido", número de orden unívoco `#CU-104`, contenedor semántico `<section class="summ-total">` con desglose de cantidades y total abonado, eliminando cualquier recolección de cédula o teléfono.
-- **Fragmento antes (v1):**
-```html
-<!-- v1: estado final opaco -->
-<h2 class="page-title">Listo</h2>
-<div class="receipt-card"><p>Tu orden ha sido procesada.</p></div>
-```
-- **Fragmento después (v2):**
-```html
-<!-- v2: acuse estructurado sin almacenamiento de datos sensibles -->
-<h2 class="page-title">Pedido recibido</h2>
-<div class="receipt-card">
-  <div class="order-badge">#CU-104</div>
-  <section class="session-summary-box">
-    <div class="summ-total">Total abonado: $4.25</div>
-  </section>
-</div>
-```
-- **Prueba técnica:** Confirmar una orden y verificar en el DOM la presencia del badge `#CU-104` y del elemento `.summ-total`.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-03-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-03-v2.png`.
+## IHC-A-09 · Resultados con código anónimo
+- **Problema:** El formulario exige o imprime nombre real.
+- **Decisión:** El dato de participante es un código P-001 a P-999; cualquier ruta de avance o cierre valida ese formato.
+- **Fundamento:** Minimización de datos, consistencia y prevención de exposición accidental.
+- **Fragmento antes (v1, comportamiento):** El formulario exige o imprime nombre real; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `dataProblem / escapeHtml / navigationProblem / finishProblem` en `assets/app.js`.
+- **Prueba técnica:** Nombres, P-000 y códigos fuera del formato se rechazan con foco y explicación. P-001 y P-999 son válidos. El resumen muestra código y nunca interpreta notas como HTML.
+- **Casos:** `A09-limites-de-codigo; Dashboard-texto-no-inserta-HTML`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-09-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-09-v2.png).
 
----
+## IHC-A-10 · Stepper y estados accesibles
+- **Problema:** El paso actual solo se diferencia visualmente.
+- **Decisión:** El paso actual tiene texto y aria-current=step; el cambio de pantalla enfoca su encabezado y actualiza una región de estado persistente.
+- **Fundamento:** Diseño inclusivo y redundancia visual/semántica del feedback.
+- **Fragmento antes (v1, comportamiento):** El paso actual solo se diferencia visualmente; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `render focusId / announce / live-status / renderDashboard` en `assets/app.js`.
+- **Prueba técnica:** Tab y Enter recorren las etapas; después de avanzar el encabezado recibe foco y el estado textual cambia. La inspección de atributos y foco no reemplaza un ensayo con lector.
+- **Casos:** `IHC-A-10-v2`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-10-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-10-v2.png).
 
-### IHC-A-04 · Detección y reconocimiento obligatorio de alérgenos
-- **Problema:** En v1, el sistema permite ordenar productos que contienen alérgenos severos (Gluten, Lactosa) sin advertencia perceptible antes del pago, exponiendo al usuario a riesgos de salud. Severidad: Crítica.
-- **Decisión IHC:** Identificar los productos con alérgenos y presentar un banner de alta notoriedad en el carrito con una casilla de verificación obligatoria (`#ack`). Si el usuario intenta confirmar sin marcarla, se bloquea el envío y se emite un mensaje accesible en `.status.error` (`role="alert"`).
-- **Fragmento antes (v1):**
-```javascript
-// v1: confirmación directa sin comprobar alérgenos
-function handleConfirm() {
-  state.view = 'confirmation';
-  render();
-}
-```
-- **Fragmento después (v2):**
-```javascript
-// v2: compuerta de validación con alerta accesible
-var hasSanduche = state.cart.some(c => c.id === 'sanduche');
-if (hasSanduche && !state.ackAllergens) {
-  state.alertMessage = 'Debe revisar las advertencias de alérgenos y aceptarlas antes de confirmar';
-  render();
-  return;
-}
-```
-- **Prueba técnica:** Agregar sánduche, presionar confirmar sin marcar checkbox; comprobar que se muestra el mensaje de error y el carrito no transiciona a éxito.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-04-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-04-v2.png`.
+## IHC-A-11 · Jerarquía y controles a 360 px
+- **Problema:** La Card UI rígida desborda y dificulta el recorrido.
+- **Decisión:** Stepper, formularios y botones se reorganizan verticalmente; el contenido esencial queda dentro del viewport y el foco sigue el orden DOM.
+- **Fundamento:** Gestalt: proximidad y jerarquía; accesibilidad situacional.
+- **Fragmento antes (v1, comportamiento):** La Card UI rígida desborda y dificulta el recorrido; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `assets/styles.css media max-width 480px / renderDashboard` en `assets/app.js`.
+- **Prueba técnica:** A 360 x 800, los controles visibles no exceden el ancho y el documento no requiere desplazamiento horizontal. Se verifica Datos, Checklist, Observaciones, Revisión y Cierre.
+- **Casos:** `IHC-A-11-v2; 12-tarjetas-controles-dentro-de-360px`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-11-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-11-v2.png).
 
----
+## IHC-A-12 · Reanudación y cierre verificado
+- **Problema:** Se permite finalizar sin validar el checklist obligatorio.
+- **Decisión:** El cierre requiere datos válidos y exactamente tres verificaciones verdaderas. Falta, error de almacenamiento o datos dañados no producen cierre confirmado.
+- **Fundamento:** Prevención de falso éxito, continuidad de tarea y feedback comprobable.
+- **Fragmento antes (v1, comportamiento):** Se permite finalizar sin validar el checklist obligatorio; fuente en `prototipo/v1/assets/app.js`.
+- **Fragmento después (v2, implementación):** `loadStorage / finishProblem / handleDashboardFinish / saveStorage` en `assets/app.js`.
+- **Prueba técnica:** Con 2/3 se anuncia el ítem faltante y se enfoca su casilla. Se preservan campos y etapa; con 3/3 se verifica y guarda. Recargar restaura también la sesión cerrada válida.
+- **Casos:** `IHC-A-12-v2; A12-checklist-persistido-vacio; A12-fallo-guardado-y-reintento`.
+- **Capturas actuales:** [v1](../evidencias/ejecucion-actual/IHC-A-12-v1.png) y [v2](../evidencias/ejecucion-actual/IHC-A-12-v2.png).
 
-### IHC-A-05 · Prevención de sobrecosto por límite presupuestario ($4.25)
-- **Problema:** En v1, un estudiante con presupuesto ajustado de $4.25 puede agregar productos o incrementar unidades por encima del límite sin recibir advertencia ni bloqueo, generando una deuda no prevista en cafetería. Severidad: Alta.
-- **Decisión IHC:** Implementar validación en tiempo real del límite monetario. Si el total supera $4.25, el sistema muestra un banner `.status.error` indicando el límite y el exceso, e inhabilita la confirmación hasta que el usuario reduzca cantidades.
-- **Fragmento antes (v1):**
-```javascript
-// v1: sin comprobación presupuestaria
-handleConfirm(); // procesa sin importar el monto
-```
-- **Fragmento después (v2):**
-```javascript
-// v2: bloqueo de confirmación y advertencia visible
-if (calculateCartTotal() > 4.25) {
-  state.alertMessage = 'Presupuesto excedido: límite USD 4,25. Ajuste las cantidades antes de confirmar.';
-  render();
-  return;
-}
-```
-- **Prueba técnica:** Agregar café y sánduche ($4.25), sumar 1 café adicional ($5.75); comprobar aparición de `.status.error` y retención en el carrito al intentar confirmar.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-05-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-05-v2.png`.
+## Criterios transversales
 
----
-
-### IHC-A-06 · Prevención de doble envío y gestión de red inestable (Hallazgo de Referencia)
-- **Problema:** En redes móviles inestables, el usuario tiende a presionar repetidamente el botón "Confirmar pedido" ante la falta de feedback inmediato. En v1, esto genera solicitudes duplicadas ("Solicitudes confirmadas en esta sesión: 2"). Severidad: Alta.
-- **Decisión IHC:** Al pulsar confirmar, inhabilitar inmediatamente el botón (`disabled`), transicionar a estado intermedio con texto claro "Procesando pedido...", simular timeout de red con opción de reintento (`retry`) y registrar una sola confirmación unívoca (`confirmedCount = 1`).
-- **Fragmento antes (v1):**
-```html
-<!-- v1: botón permanece interactivo durante la petición -->
-<button class="btn-primary" data-action="confirm">Confirmar pedido</button>
-<!-- Cada pulsación incrementa confirmedCount -->
-```
-- **Fragmento después (v2):**
-```html
-<!-- v2: botón inhabilitado durante el envío y reintento seguro -->
-<button class="btn-primary" disabled>Procesando pedido...</button>
-<!-- Si ocurre desconexión, muestra pantalla de error con botón retry -->
-<button class="btn-primary" data-action="retry">Reintentar</button>
-```
-- **Prueba técnica:** Pulsar confirmar dos veces consecutivas en v1 y v2; verificar que en v2 el contador final indica exactamente 1 solicitud confirmada.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-06-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-06-v2.png`.
-
----
-
-### IHC-A-07 · Bloqueo de salto de etapas en Stepper
-- **Problema:** En v1, el Stepper permite pulsar libremente botones de pasos futuros (ej: saltar directamente al paso 4), evadiendo la configuración de datos obligatorios y el checklist. Severidad: Alta.
-- **Decisión IHC:** Implementar navegación secuencial obligatoria. Los pasos superiores quedan bloqueados si los pasos precedentes no han sido validados con éxito, emitiendo una notificación en `[role=alert]` ("Introduce el título y datos requeridos antes de avanzar").
-- **Fragmento antes (v1):**
-```javascript
-// v1: salto incondicional de paso
-function handleStepClick(targetStep) {
-  state.dashboardStep = targetStep;
-  render();
-}
-```
-- **Fragmento después (v2):**
-```javascript
-// v2: compuerta secuencial de navegación
-function handleStepClick(targetStep) {
-  if (targetStep > state.dashboardStep && (!state.dashboardData.title || state.dashboardData.title.trim() === '')) {
-    state.alertMessage = 'Introduce el título y datos requeridos antes de avanzar';
-    render();
-    return;
-  }
-  state.dashboardStep = targetStep;
-  render();
-}
-```
-- **Prueba técnica:** Desde el paso 1, pulsar el botón del paso 4; comprobar que el sistema permanece en el paso 1 y despliega el mensaje de bloqueo.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-07-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-07-v2.png`.
-
----
-
-### IHC-A-08 · Persistencia de marcas del checklist al navegar
-- **Problema:** En v1, si el evaluador marca casillas en el checklist del paso 2, avanza al paso 3 y luego presiona "Anterior", el estado de los checkboxes se reinicia, perdiendo el trabajo realizado. Severidad: Media-Alta.
-- **Decisión IHC:** Mantener el estado booleano de cada ítem en el estado central de la aplicación (`state.dashboardData.checklist`), sincronizándolo en cada evento `change` para que el renderizado preserve los atributos `checked` bidireccionalmente.
-- **Fragmento antes (v1):**
-```javascript
-// v1: restablecimiento al retroceder
-if (action === 'prev') {
-  state.dashboardData.checklist = [false, false, false];
-}
-```
-- **Fragmento después (v2):**
-```javascript
-// v2: persistencia íntegra de marcas
-var checked = state.dashboardData.checklist[idx] ? ' checked' : '';
-html += '<input type="checkbox" id="check-' + idx + '"' + checked + '>';
-```
-- **Prueba técnica:** Marcar `#check-0`, avanzar a Observaciones, regresar con Anterior y verificar que `#check-0` sigue marcado.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-08-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-08-v2.png`.
-
----
-
-### IHC-A-09 · Privacidad de participantes y códigos seudónimos
-- **Problema:** En v1, el paso inicial exige obligatoriamente registrar "Nombre y Apellido completo" del participante (`#name`), violando las normas éticas de evaluación de usabilidad que exigen anonimato. Severidad: Alta.
-- **Decisión IHC:** Cambiar el campo a código seudónimo (`#code`, ej: `P-001`). Si el evaluador ingresa nombres personales reconocibles (patrón de texto con espacios), el sistema rechaza el dato con alerta `role="alert"`: "Debe ingresar un código anónimo válido (ej: P-001). No ingrese nombres reales".
-- **Fragmento antes (v1):**
-```html
-<!-- v1: solicita nombre real obligatorio -->
-<label for="name">Nombre y apellido completo:</label>
-<input type="text" id="name" class="form-control">
-```
-- **Fragmento después (v2):**
-```html
-<!-- v2: campo seudónimo con validación de anonimato -->
-<label for="code">Código anónimo del participante (ej: P-001):</label>
-<input type="text" id="code" class="form-control" placeholder="P-001">
-```
-- **Prueba técnica:** Ingresar "Juan Pérez" en `#code` y pulsar Siguiente; verificar rechazo. Ingresar "P-001" y verificar avance exitoso al paso 2.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-09-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-09-v2.png`.
-
----
-
-### IHC-A-10 · Semántica accesible para tecnología de asistencia en Stepper
-- **Problema:** En v1, el paso activo del Stepper se diferencia de los demás únicamente por una variación cromática (azul vs gris), incumpliendo el criterio WCAG 2.1 - 1.4.1 (Uso del color) y privando de contexto a evaluadores con lectores de pantalla. Severidad: Alta.
-- **Decisión IHC:** Añadir el atributo estándar `aria-current="step"` en el botón del paso activo, acompañado de una etiqueta textual explícita `(actual)` reconocible de forma auditiva y visual.
-- **Fragmento antes (v1):**
-```html
-<!-- v1: distinción puramente visual por clase CSS -->
-<button class="step-item active"><span>1</span> <span>Datos</span></button>
-```
-- **Fragmento después (v2):**
-```html
-<!-- v2: semántica WCAG completa -->
-<button class="step-item active" aria-current="step">
-  <span class="step-num">1</span>
-  <span>Datos de sesión</span>
-  <span style="font-size:0.75rem; font-weight:700;">(actual)</span>
-</button>
-```
-- **Prueba técnica:** Inspeccionar el DOM del paso activo y verificar la presencia de `aria-current="step"` y del texto `(actual)`.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-10-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-10-v2.png`.
-
----
-
-### IHC-A-11 · Jerarquía usable y eliminación de desbordamiento a 360 px
-- **Problema:** En pantallas angostas de dispositivos móviles (360 px), la Card UI de v1 tiene fijado un ancho rígido de `min-width: 460px`, generando desbordamiento horizontal (`scrollWidth > 360 px`), truncamiento de controles y superposición con el Stepper. Severidad: Alta.
-- **Decisión IHC:** Aplicar un modelo de caja fluido con `box-sizing: border-box`, `max-width: 100%`, `overflow-x: hidden` y flex-wrap vertical en botones para garantizar `scrollWidth <= 360 px` en todo el recorrido.
-- **Fragmento antes (v1):**
-```css
-/* v1: ancho rígido que desborda pantallas móviles */
-body[data-version="v1"] .dashboard-card {
-  min-width: 460px;
-}
-```
-- **Fragmento después (v2):**
-```css
-/* v2: fluidéz y contención estricta en 360 px */
-body[data-version="v2"] {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-body[data-version="v2"] * {
-  max-width: 100%;
-}
-```
-- **Prueba técnica:** Ajustar el viewport a 360x780 px y evaluar en consola `document.documentElement.scrollWidth <= 360`; comprobar usabilidad vertical completa.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-11-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-11-v2.png`.
-
----
-
-### IHC-A-12 · Validación de checklist obligatorio y persistencia tras recarga (Issue #8)
-- **Problema:** En v1, el sistema permite presionar "Finalizar sesión" emitiendo un estado final de "Sesión cerrada con éxito" incluso con el checklist obligatorio incompleto (falso positivo grave). Además, si la sesión se interrumpe y la página se recarga, todas las marcas se destruyen. Severidad: Crítica.
-- **Decisión IHC:** Impedir el cierre de sesión si existe algún ítem obligatorio sin verificar, destacando el faltante en un banner `role="alert"`. Integrar persistencia local (`localStorage`) para que al reanudar la sesión se restablezca el progreso sin pérdida de información.
-- **Fragmento antes (v1):**
-```javascript
-// v1: cierre sin compuerta lógica y pérdida de sesión
-function handleDashboardFinish() {
-  state.dashboardStep = 4; // Emite "Sesión cerrada" directamente
-  render();
-}
-```
-- **Fragmento después (v2):**
-```javascript
-// v2: validación 100% de checklist obligatorio y persistencia en localStorage
-function handleDashboardFinish() {
-  var allChecked = state.dashboardData.checklist.every(x => x);
-  if (!allChecked) {
-    state.alertMessage = 'Checklist obligatorio pendiente. Debe verificar todas las tareas antes de cerrar la sesión';
-    render();
-    return;
-  }
-  state.dashboardStep = 4;
-  render();
-}
-```
-- **Prueba técnica:** Marcar 1 de 3 casillas, pulsar finalizar y verificar alerta de bloqueo. Recargar la página y verificar que la casilla marcada continúa seleccionada. Marcar las 3 y verificar finalización autorizada.
-- **Captura comparativa:** `evidencias/capturas-tecnicas/IHC-A-12-v1.png` vs `evidencias/capturas-tecnicas/IHC-A-12-v2.png`.
-
----
-
-## 3. Resumen Cuantitativo de Mejoras Técnicas Implementadas
-| Dimensión | Prototipo v1 | Prototipo v2 | Estándar / Referencia |
-|---|---|---|---|
-| **Contraste de foco visible** | No especificado / outline ausente | 3px solid #2563eb; offset 2px | WCAG 2.1 AA (2.4.7 Foco Visible) |
-| **Operabilidad por teclado** | Requiere ratón en modales | Tab, Enter y Escape completos | WCAG 2.1 AA (2.1.1 Teclado) |
-| **Viewport móvil (360 px)** | Desbordamiento horizontal (460 px) | Fluido sin scroll horizontal (≤360 px) | WCAG 2.1 AA (1.4.10 Reflujo) |
-| **Semántica auditiva** | Solo color para paso activo | `aria-current="step"` y `(actual)` | WCAG 2.1 AA (1.4.1 Uso del Color) |
-| **Prevención de errores** | Falso éxito y doble confirmación | Validación de checklist y bloqueo doble click | Nielsen #5 (Prevención de Errores) |
-| **Recuperabilidad** | Borrado instantáneo sin confirmación | Diálogo modal con cancelación | Nielsen #3 (Control y Libertad del Usuario) |
-| **Protección de datos** | Exigencia de nombres reales | Códigos anónimos seudónimos | Heurística de Privacidad y Consentimiento |
+- Cancelar es el foco inicial del modal; Tab/Shift+Tab quedan dentro y Escape conserva el pedido.
+- Cada cambio relevante invalida revisión/aceptación; el envío usa una instantánea y un identificador por intención. El prototipo no demuestra idempotencia de un backend inexistente.
+- Siguiente, Stepper y cierre comparten validación. El estado guardado se comprueba antes de reanudar.
+- El texto introducido se escapa antes de insertarse en HTML y los errores se validan como enteros no negativos.
+- El contenido móvil se reorganiza; no se oculta el desbordamiento para aparentar cumplimiento.
+- Las comprobaciones de foco, atributos y viewport no equivalen a una certificación global WCAG ni a una prueba humana.

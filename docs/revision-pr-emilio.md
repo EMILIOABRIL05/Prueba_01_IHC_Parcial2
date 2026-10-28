@@ -1,3 +1,5 @@
+> **Registro histórico de revisión aportado por su autor.** Se conserva su contexto original; no describe por sí solo la implementación final ni sustituye una revisión personal publicada en GitHub. Consulte [colaboración](colaboracion.md) y [decisiones](decisiones.md) para el estado actualizado.
+
 # Formulario de Revisión Técnica de Pull Request
 
 **Revisor:** Pablo Lozada ([@idk-Damian](https://github.com/idk-Damian))  

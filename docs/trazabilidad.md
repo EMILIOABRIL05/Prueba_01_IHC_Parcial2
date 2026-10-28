@@ -1,91 +1,83 @@
-# Matriz global de trazabilidad · 12 tarjetas
+# Matriz global de trazabilidad: 74 requisitos
 
-**F1** ruta principal; **E1** editar/volver; **X1** error/recuperación. La matriz debe contrastarse con las pantallas cuando se integre el prototipo.
+F1: ruta principal; E1: edición y retorno; X1: bloqueo/error y recuperación. Cada fila enlaza especificación, flujo y wireframe de la implementación actual.
 
 | Tarjeta | Requisito | Flujo | Pantalla | Componente | Wireframe |
 |---|---|---|---|---|---|
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R01 | [F1](../diagramas/IHC-A-01-flujo.mmd) | Menú y carrito | Navegación / catálogo / pedido | [IHC-A-01-inicio.svg](../wireframes/IHC-A-01-inicio.svg) |
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R02 | [F1/X1](../diagramas/IHC-A-01-flujo.mmd) | Cantidad y total | Control y validación específica | [IHC-A-01-accion.svg](../wireframes/IHC-A-01-accion.svg) |
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R03 | [E1](../diagramas/IHC-A-01-flujo.mmd) | Mi pedido | Editor y botón regresar | [IHC-A-01-accion.svg](../wireframes/IHC-A-01-accion.svg) |
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R04 | [F1/X1](../diagramas/IHC-A-01-flujo.mmd) | Confirmación de compra | Indicadores de estado y acuse | [IHC-A-01-confirmacion.svg](../wireframes/IHC-A-01-confirmacion.svg) |
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R05 | [F1/E1](../diagramas/IHC-A-01-flujo.mmd) | Carrito | Botones etiquetados y foco | [IHC-A-01-accion.svg](../wireframes/IHC-A-01-accion.svg) |
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R06 | [X1](../diagramas/IHC-A-01-flujo.mmd) | Cantidad y total | Alerta o limitación contextual | [IHC-A-01-error.svg](../wireframes/IHC-A-01-error.svg) |
-| [IHC-A-02](tarjetas/IHC-A-02.md) | R01 | [F1](../diagramas/IHC-A-02-flujo.mmd) | Carrito | Navegación / catálogo / pedido | [IHC-A-02-inicio.svg](../wireframes/IHC-A-02-inicio.svg) |
-| [IHC-A-02](tarjetas/IHC-A-02.md) | R02 | [F1/X1](../diagramas/IHC-A-02-flujo.mmd) | Quitar producto | Control y validación específica | [IHC-A-02-accion.svg](../wireframes/IHC-A-02-accion.svg) |
-| [IHC-A-02](tarjetas/IHC-A-02.md) | R03 | [E1](../diagramas/IHC-A-02-flujo.mmd) | Mi pedido | Editor y botón regresar | [IHC-A-02-accion.svg](../wireframes/IHC-A-02-accion.svg) |
-| [IHC-A-02](tarjetas/IHC-A-02.md) | R04 | [F1/X1](../diagramas/IHC-A-02-flujo.mmd) | Confirmación de compra | Indicadores de estado y acuse | [IHC-A-02-confirmacion.svg](../wireframes/IHC-A-02-confirmacion.svg) |
-| [IHC-A-02](tarjetas/IHC-A-02.md) | R05 | [F1/E1](../diagramas/IHC-A-02-flujo.mmd) | Carrito | Botones etiquetados y foco | [IHC-A-02-accion.svg](../wireframes/IHC-A-02-accion.svg) |
-| [IHC-A-02](tarjetas/IHC-A-02.md) | R06 | [X1](../diagramas/IHC-A-02-flujo.mmd) | Quitar producto | Alerta o limitación contextual | [IHC-A-02-error.svg](../wireframes/IHC-A-02-error.svg) |
-| [IHC-A-03](tarjetas/IHC-A-03.md) | R01 | [F1](../diagramas/IHC-A-03-flujo.mmd) | Mi pedido | Navegación / catálogo / pedido | [IHC-A-03-inicio.svg](../wireframes/IHC-A-03-inicio.svg) |
-| [IHC-A-03](tarjetas/IHC-A-03.md) | R02 | [F1/X1](../diagramas/IHC-A-03-flujo.mmd) | Revisar y enviar | Control y validación específica | [IHC-A-03-accion.svg](../wireframes/IHC-A-03-accion.svg) |
-| [IHC-A-03](tarjetas/IHC-A-03.md) | R03 | [E1](../diagramas/IHC-A-03-flujo.mmd) | Mi pedido | Editor y botón regresar | [IHC-A-03-accion.svg](../wireframes/IHC-A-03-accion.svg) |
-| [IHC-A-03](tarjetas/IHC-A-03.md) | R04 | [F1/X1](../diagramas/IHC-A-03-flujo.mmd) | Acuse de recibo | Indicadores de estado y acuse | [IHC-A-03-confirmacion.svg](../wireframes/IHC-A-03-confirmacion.svg) |
-| [IHC-A-03](tarjetas/IHC-A-03.md) | R05 | [F1/E1](../diagramas/IHC-A-03-flujo.mmd) | Carrito | Botones etiquetados y foco | [IHC-A-03-accion.svg](../wireframes/IHC-A-03-accion.svg) |
-| [IHC-A-03](tarjetas/IHC-A-03.md) | R06 | [X1](../diagramas/IHC-A-03-flujo.mmd) | Revisar y enviar | Alerta o limitación contextual | [IHC-A-03-error.svg](../wireframes/IHC-A-03-error.svg) |
-| [IHC-A-04](tarjetas/IHC-A-04.md) | R01 | [F1](../diagramas/IHC-A-04-flujo.mmd) | Detalle de producto | Navegación / catálogo / pedido | [IHC-A-04-inicio.svg](../wireframes/IHC-A-04-inicio.svg) |
-| [IHC-A-04](tarjetas/IHC-A-04.md) | R02 | [F1/X1](../diagramas/IHC-A-04-flujo.mmd) | Advertencia de alérgenos | Control y validación específica | [IHC-A-04-accion.svg](../wireframes/IHC-A-04-accion.svg) |
-| [IHC-A-04](tarjetas/IHC-A-04.md) | R03 | [E1](../diagramas/IHC-A-04-flujo.mmd) | Mi pedido | Editor y botón regresar | [IHC-A-04-accion.svg](../wireframes/IHC-A-04-accion.svg) |
-| [IHC-A-04](tarjetas/IHC-A-04.md) | R04 | [F1/X1](../diagramas/IHC-A-04-flujo.mmd) | Revisión de pedido | Indicadores de estado y acuse | [IHC-A-04-confirmacion.svg](../wireframes/IHC-A-04-confirmacion.svg) |
-| [IHC-A-04](tarjetas/IHC-A-04.md) | R05 | [F1/E1](../diagramas/IHC-A-04-flujo.mmd) | Carrito | Botones etiquetados y foco | [IHC-A-04-accion.svg](../wireframes/IHC-A-04-accion.svg) |
-| [IHC-A-04](tarjetas/IHC-A-04.md) | R06 | [X1](../diagramas/IHC-A-04-flujo.mmd) | Advertencia de alérgenos | Alerta o limitación contextual | [IHC-A-04-error.svg](../wireframes/IHC-A-04-error.svg) |
-| [IHC-A-05](tarjetas/IHC-A-05.md) | R01 | [F1](../diagramas/IHC-A-05-flujo.mmd) | Mi pedido | Navegación / catálogo / pedido | [IHC-A-05-inicio.svg](../wireframes/IHC-A-05-inicio.svg) |
-| [IHC-A-05](tarjetas/IHC-A-05.md) | R02 | [F1/X1](../diagramas/IHC-A-05-flujo.mmd) | Ajustar cantidades | Control y validación específica | [IHC-A-05-accion.svg](../wireframes/IHC-A-05-accion.svg) |
-| [IHC-A-05](tarjetas/IHC-A-05.md) | R03 | [E1](../diagramas/IHC-A-05-flujo.mmd) | Mi pedido | Editor y botón regresar | [IHC-A-05-accion.svg](../wireframes/IHC-A-05-accion.svg) |
-| [IHC-A-05](tarjetas/IHC-A-05.md) | R04 | [F1/X1](../diagramas/IHC-A-05-flujo.mmd) | Confirmación condicionada | Indicadores de estado y acuse | [IHC-A-05-confirmacion.svg](../wireframes/IHC-A-05-confirmacion.svg) |
-| [IHC-A-05](tarjetas/IHC-A-05.md) | R05 | [F1/E1](../diagramas/IHC-A-05-flujo.mmd) | Carrito | Botones etiquetados y foco | [IHC-A-05-accion.svg](../wireframes/IHC-A-05-accion.svg) |
-| [IHC-A-05](tarjetas/IHC-A-05.md) | R06 | [X1](../diagramas/IHC-A-05-flujo.mmd) | Ajustar cantidades | Alerta o limitación contextual | [IHC-A-05-error.svg](../wireframes/IHC-A-05-error.svg) |
-| [IHC-A-06](tarjetas/IHC-A-06.md) | R01 | [F1](../diagramas/IHC-A-06-flujo.mmd) | Mi pedido | Navegación / catálogo / pedido | [IHC-A-06-inicio.svg](../wireframes/IHC-A-06-inicio.svg) |
-| [IHC-A-06](tarjetas/IHC-A-06.md) | R02 | [F1/X1](../diagramas/IHC-A-06-flujo.mmd) | Enviar solicitud | Control y validación específica | [IHC-A-06-accion.svg](../wireframes/IHC-A-06-accion.svg) |
-| [IHC-A-06](tarjetas/IHC-A-06.md) | R03 | [E1](../diagramas/IHC-A-06-flujo.mmd) | Mi pedido | Editor y botón regresar | [IHC-A-06-accion.svg](../wireframes/IHC-A-06-accion.svg) |
-| [IHC-A-06](tarjetas/IHC-A-06.md) | R04 | [F1/X1](../diagramas/IHC-A-06-flujo.mmd) | Estado de solicitud | Indicadores de estado y acuse | [IHC-A-06-confirmacion.svg](../wireframes/IHC-A-06-confirmacion.svg) |
-| [IHC-A-06](tarjetas/IHC-A-06.md) | R05 | [F1/E1](../diagramas/IHC-A-06-flujo.mmd) | Carrito | Botones etiquetados y foco | [IHC-A-06-accion.svg](../wireframes/IHC-A-06-accion.svg) |
-| [IHC-A-06](tarjetas/IHC-A-06.md) | R06 | [X1](../diagramas/IHC-A-06-flujo.mmd) | Enviar solicitud | Alerta o limitación contextual | [IHC-A-06-error.svg](../wireframes/IHC-A-06-error.svg) |
-| [IHC-A-07](tarjetas/IHC-A-07.md) | R01 | [F1](../diagramas/IHC-A-07-flujo.mmd) | Configuración | Stepper / navegación | [IHC-A-07-inicio.svg](../wireframes/IHC-A-07-inicio.svg) |
-| [IHC-A-07](tarjetas/IHC-A-07.md) | R02 | [F1/X1](../diagramas/IHC-A-07-flujo.mmd) | Checklist y stepper | Checklist / validación por etapa | [IHC-A-07-accion.svg](../wireframes/IHC-A-07-accion.svg) |
-| [IHC-A-07](tarjetas/IHC-A-07.md) | R03 | [E1](../diagramas/IHC-A-07-flujo.mmd) | Checklist / edición | Control anterior y estado | [IHC-A-07-accion.svg](../wireframes/IHC-A-07-accion.svg) |
-| [IHC-A-07](tarjetas/IHC-A-07.md) | R04 | [F1/X1](../diagramas/IHC-A-07-flujo.mmd) | Revisión y cierre | Stepper / alerta / resumen | [IHC-A-07-confirmacion.svg](../wireframes/IHC-A-07-confirmacion.svg) |
-| [IHC-A-07](tarjetas/IHC-A-07.md) | R05 | [F1/E1](../diagramas/IHC-A-07-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-07-accion.svg](../wireframes/IHC-A-07-accion.svg) |
-| [IHC-A-07](tarjetas/IHC-A-07.md) | R06 | [X1](../diagramas/IHC-A-07-flujo.mmd) | Checklist y stepper | Condición contextual | [IHC-A-07-error.svg](../wireframes/IHC-A-07-error.svg) |
-| [IHC-A-08](tarjetas/IHC-A-08.md) | R01 | [F1](../diagramas/IHC-A-08-flujo.mmd) | Instrucciones | Stepper / navegación | [IHC-A-08-inicio.svg](../wireframes/IHC-A-08-inicio.svg) |
-| [IHC-A-08](tarjetas/IHC-A-08.md) | R02 | [F1/X1](../diagramas/IHC-A-08-flujo.mmd) | Datos y checklist | Checklist / validación por etapa | [IHC-A-08-accion.svg](../wireframes/IHC-A-08-accion.svg) |
-| [IHC-A-08](tarjetas/IHC-A-08.md) | R03 | [E1](../diagramas/IHC-A-08-flujo.mmd) | Checklist / edición | Control anterior y estado | [IHC-A-08-accion.svg](../wireframes/IHC-A-08-accion.svg) |
-| [IHC-A-08](tarjetas/IHC-A-08.md) | R04 | [F1/X1](../diagramas/IHC-A-08-flujo.mmd) | Resumen | Stepper / alerta / resumen | [IHC-A-08-confirmacion.svg](../wireframes/IHC-A-08-confirmacion.svg) |
-| [IHC-A-08](tarjetas/IHC-A-08.md) | R05 | [F1/E1](../diagramas/IHC-A-08-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-08-accion.svg](../wireframes/IHC-A-08-accion.svg) |
-| [IHC-A-08](tarjetas/IHC-A-08.md) | R06 | [X1](../diagramas/IHC-A-08-flujo.mmd) | Datos y checklist | Condición contextual | [IHC-A-08-error.svg](../wireframes/IHC-A-08-error.svg) |
-| [IHC-A-09](tarjetas/IHC-A-09.md) | R01 | [F1](../diagramas/IHC-A-09-flujo.mmd) | Datos de sesión | Stepper / navegación | [IHC-A-09-inicio.svg](../wireframes/IHC-A-09-inicio.svg) |
-| [IHC-A-09](tarjetas/IHC-A-09.md) | R02 | [F1/X1](../diagramas/IHC-A-09-flujo.mmd) | Código de participante | Checklist / validación por etapa | [IHC-A-09-accion.svg](../wireframes/IHC-A-09-accion.svg) |
-| [IHC-A-09](tarjetas/IHC-A-09.md) | R03 | [E1](../diagramas/IHC-A-09-flujo.mmd) | Checklist / edición | Control anterior y estado | [IHC-A-09-accion.svg](../wireframes/IHC-A-09-accion.svg) |
-| [IHC-A-09](tarjetas/IHC-A-09.md) | R04 | [F1/X1](../diagramas/IHC-A-09-flujo.mmd) | Resultados anónimos | Stepper / alerta / resumen | [IHC-A-09-confirmacion.svg](../wireframes/IHC-A-09-confirmacion.svg) |
-| [IHC-A-09](tarjetas/IHC-A-09.md) | R05 | [F1/E1](../diagramas/IHC-A-09-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-09-accion.svg](../wireframes/IHC-A-09-accion.svg) |
-| [IHC-A-09](tarjetas/IHC-A-09.md) | R06 | [X1](../diagramas/IHC-A-09-flujo.mmd) | Código de participante | Condición contextual | [IHC-A-09-error.svg](../wireframes/IHC-A-09-error.svg) |
-| [IHC-A-10](tarjetas/IHC-A-10.md) | R01 | [F1](../diagramas/IHC-A-10-flujo.mmd) | Stepper | Stepper / navegación | [IHC-A-10-inicio.svg](../wireframes/IHC-A-10-inicio.svg) |
-| [IHC-A-10](tarjetas/IHC-A-10.md) | R02 | [F1/X1](../diagramas/IHC-A-10-flujo.mmd) | Checklist | Checklist / validación por etapa | [IHC-A-10-accion.svg](../wireframes/IHC-A-10-accion.svg) |
-| [IHC-A-10](tarjetas/IHC-A-10.md) | R03 | [E1](../diagramas/IHC-A-10-flujo.mmd) | Checklist / edición | Control anterior y estado | [IHC-A-10-accion.svg](../wireframes/IHC-A-10-accion.svg) |
-| [IHC-A-10](tarjetas/IHC-A-10.md) | R04 | [F1/X1](../diagramas/IHC-A-10-flujo.mmd) | Resumen accesible | Stepper / alerta / resumen | [IHC-A-10-confirmacion.svg](../wireframes/IHC-A-10-confirmacion.svg) |
-| [IHC-A-10](tarjetas/IHC-A-10.md) | R05 | [F1/E1](../diagramas/IHC-A-10-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-10-accion.svg](../wireframes/IHC-A-10-accion.svg) |
-| [IHC-A-10](tarjetas/IHC-A-10.md) | R06 | [X1](../diagramas/IHC-A-10-flujo.mmd) | Checklist | Condición contextual | [IHC-A-10-error.svg](../wireframes/IHC-A-10-error.svg) |
-| [IHC-A-11](tarjetas/IHC-A-11.md) | R01 | [F1](../diagramas/IHC-A-11-flujo.mmd) | Stepper móvil | Stepper / navegación | [IHC-A-11-inicio.svg](../wireframes/IHC-A-11-inicio.svg) |
-| [IHC-A-11](tarjetas/IHC-A-11.md) | R02 | [F1/X1](../diagramas/IHC-A-11-flujo.mmd) | Registro de errores | Checklist / validación por etapa | [IHC-A-11-accion.svg](../wireframes/IHC-A-11-accion.svg) |
-| [IHC-A-11](tarjetas/IHC-A-11.md) | R03 | [E1](../diagramas/IHC-A-11-flujo.mmd) | Checklist / edición | Control anterior y estado | [IHC-A-11-accion.svg](../wireframes/IHC-A-11-accion.svg) |
-| [IHC-A-11](tarjetas/IHC-A-11.md) | R04 | [F1/X1](../diagramas/IHC-A-11-flujo.mmd) | Revisión móvil | Stepper / alerta / resumen | [IHC-A-11-confirmacion.svg](../wireframes/IHC-A-11-confirmacion.svg) |
-| [IHC-A-11](tarjetas/IHC-A-11.md) | R05 | [F1/E1](../diagramas/IHC-A-11-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-11-accion.svg](../wireframes/IHC-A-11-accion.svg) |
-| [IHC-A-11](tarjetas/IHC-A-11.md) | R06 | [X1](../diagramas/IHC-A-11-flujo.mmd) | Registro de errores | Condición contextual | [IHC-A-11-error.svg](../wireframes/IHC-A-11-error.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R01 | [F1](../diagramas/IHC-A-12-flujo.mmd) | Recuperar sesión | Stepper / navegación | [IHC-A-12-inicio.svg](../wireframes/IHC-A-12-inicio.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R02 | [F1/X1](../diagramas/IHC-A-12-flujo.mmd) | Checklist incompleto | Checklist / validación por etapa | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R03 | [E1](../diagramas/IHC-A-12-flujo.mmd) | Checklist / edición | Control anterior y estado | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R04 | [F1/X1](../diagramas/IHC-A-12-flujo.mmd) | Resumen de cierre | Stepper / alerta / resumen | [IHC-A-12-confirmacion.svg](../wireframes/IHC-A-12-confirmacion.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R05 | [F1/E1](../diagramas/IHC-A-12-flujo.mmd) | Etapa actual | Campos accesibles y foco | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R06 | [X1](../diagramas/IHC-A-12-flujo.mmd) | Checklist incompleto | Condición contextual | [IHC-A-12-error.svg](../wireframes/IHC-A-12-error.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Inicio y menú | Subtotal, total, diferencia y revisión explícita | [IHC-A-01-inicio.svg](../wireframes/IHC-A-01-inicio.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Mi pedido / Detalle | Subtotal, total, diferencia y revisión explícita | [IHC-A-01-accion.svg](../wireframes/IHC-A-01-accion.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Edición y retorno | Subtotal, total, diferencia y revisión explícita | [IHC-A-01-accion.svg](../wireframes/IHC-A-01-accion.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Procesando / error / acuse | Subtotal, total, diferencia y revisión explícita | [IHC-A-01-confirmacion.svg](../wireframes/IHC-A-01-confirmacion.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Controles de la etapa actual | Subtotal, total, diferencia y revisión explícita | [IHC-A-01-accion.svg](../wireframes/IHC-A-01-accion.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Estado crítico y recuperación | Subtotal, total, diferencia y revisión explícita | [IHC-A-01-error.svg](../wireframes/IHC-A-01-error.svg) |
+| [IHC-A-01](tarjetas/IHC-A-01.md) | R7 | [F1/E1/X1](../diagramas/IHC-A-01-flujo.mmd) | Mi pedido / Detalle | Subtotal, total, diferencia y revisión explícita | [Estado R7](../wireframes/IHC-A-01-revision-R7.svg) |
+| [IHC-A-02](tarjetas/IHC-A-02.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-02-flujo.mmd) | Inicio y menú | Quitar, diálogo, Cancelar y foco por producto | [IHC-A-02-inicio.svg](../wireframes/IHC-A-02-inicio.svg) |
+| [IHC-A-02](tarjetas/IHC-A-02.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-02-flujo.mmd) | Mi pedido / Detalle | Quitar, diálogo, Cancelar y foco por producto | [IHC-A-02-accion.svg](../wireframes/IHC-A-02-accion.svg) |
+| [IHC-A-02](tarjetas/IHC-A-02.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-02-flujo.mmd) | Edición y retorno | Quitar, diálogo, Cancelar y foco por producto | [IHC-A-02-accion.svg](../wireframes/IHC-A-02-accion.svg) |
+| [IHC-A-02](tarjetas/IHC-A-02.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-02-flujo.mmd) | Procesando / error / acuse | Quitar, diálogo, Cancelar y foco por producto | [IHC-A-02-confirmacion.svg](../wireframes/IHC-A-02-confirmacion.svg) |
+| [IHC-A-02](tarjetas/IHC-A-02.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-02-flujo.mmd) | Controles de la etapa actual | Quitar, diálogo, Cancelar y foco por producto | [IHC-A-02-accion.svg](../wireframes/IHC-A-02-accion.svg) |
+| [IHC-A-02](tarjetas/IHC-A-02.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-02-flujo.mmd) | Estado crítico y recuperación | Quitar, diálogo, Cancelar y foco por producto | [IHC-A-02-error.svg](../wireframes/IHC-A-02-error.svg) |
+| [IHC-A-03](tarjetas/IHC-A-03.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-03-flujo.mmd) | Inicio y menú | Recibo, identificador por intención y nuevo pedido | [IHC-A-03-inicio.svg](../wireframes/IHC-A-03-inicio.svg) |
+| [IHC-A-03](tarjetas/IHC-A-03.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-03-flujo.mmd) | Mi pedido / Detalle | Recibo, identificador por intención y nuevo pedido | [IHC-A-03-accion.svg](../wireframes/IHC-A-03-accion.svg) |
+| [IHC-A-03](tarjetas/IHC-A-03.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-03-flujo.mmd) | Edición y retorno | Recibo, identificador por intención y nuevo pedido | [IHC-A-03-accion.svg](../wireframes/IHC-A-03-accion.svg) |
+| [IHC-A-03](tarjetas/IHC-A-03.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-03-flujo.mmd) | Procesando / error / acuse | Recibo, identificador por intención y nuevo pedido | [IHC-A-03-confirmacion.svg](../wireframes/IHC-A-03-confirmacion.svg) |
+| [IHC-A-03](tarjetas/IHC-A-03.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-03-flujo.mmd) | Controles de la etapa actual | Recibo, identificador por intención y nuevo pedido | [IHC-A-03-accion.svg](../wireframes/IHC-A-03-accion.svg) |
+| [IHC-A-03](tarjetas/IHC-A-03.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-03-flujo.mmd) | Estado crítico y recuperación | Recibo, identificador por intención y nuevo pedido | [IHC-A-03-error.svg](../wireframes/IHC-A-03-error.svg) |
+| [IHC-A-04](tarjetas/IHC-A-04.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-04-flujo.mmd) | Inicio y menú | Detalle, aviso de Gluten/Lactosa y casilla de aceptación | [IHC-A-04-inicio.svg](../wireframes/IHC-A-04-inicio.svg) |
+| [IHC-A-04](tarjetas/IHC-A-04.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-04-flujo.mmd) | Mi pedido / Detalle | Detalle, aviso de Gluten/Lactosa y casilla de aceptación | [IHC-A-04-accion.svg](../wireframes/IHC-A-04-accion.svg) |
+| [IHC-A-04](tarjetas/IHC-A-04.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-04-flujo.mmd) | Edición y retorno | Detalle, aviso de Gluten/Lactosa y casilla de aceptación | [IHC-A-04-accion.svg](../wireframes/IHC-A-04-accion.svg) |
+| [IHC-A-04](tarjetas/IHC-A-04.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-04-flujo.mmd) | Procesando / error / acuse | Detalle, aviso de Gluten/Lactosa y casilla de aceptación | [IHC-A-04-confirmacion.svg](../wireframes/IHC-A-04-confirmacion.svg) |
+| [IHC-A-04](tarjetas/IHC-A-04.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-04-flujo.mmd) | Controles de la etapa actual | Detalle, aviso de Gluten/Lactosa y casilla de aceptación | [IHC-A-04-accion.svg](../wireframes/IHC-A-04-accion.svg) |
+| [IHC-A-04](tarjetas/IHC-A-04.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-04-flujo.mmd) | Estado crítico y recuperación | Detalle, aviso de Gluten/Lactosa y casilla de aceptación | [IHC-A-04-error.svg](../wireframes/IHC-A-04-error.svg) |
+| [IHC-A-05](tarjetas/IHC-A-05.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-05-flujo.mmd) | Inicio y menú | Total, límite, aviso de exceso y cantidades | [IHC-A-05-inicio.svg](../wireframes/IHC-A-05-inicio.svg) |
+| [IHC-A-05](tarjetas/IHC-A-05.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-05-flujo.mmd) | Mi pedido / Detalle | Total, límite, aviso de exceso y cantidades | [IHC-A-05-accion.svg](../wireframes/IHC-A-05-accion.svg) |
+| [IHC-A-05](tarjetas/IHC-A-05.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-05-flujo.mmd) | Edición y retorno | Total, límite, aviso de exceso y cantidades | [IHC-A-05-accion.svg](../wireframes/IHC-A-05-accion.svg) |
+| [IHC-A-05](tarjetas/IHC-A-05.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-05-flujo.mmd) | Procesando / error / acuse | Total, límite, aviso de exceso y cantidades | [IHC-A-05-confirmacion.svg](../wireframes/IHC-A-05-confirmacion.svg) |
+| [IHC-A-05](tarjetas/IHC-A-05.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-05-flujo.mmd) | Controles de la etapa actual | Total, límite, aviso de exceso y cantidades | [IHC-A-05-accion.svg](../wireframes/IHC-A-05-accion.svg) |
+| [IHC-A-05](tarjetas/IHC-A-05.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-05-flujo.mmd) | Estado crítico y recuperación | Total, límite, aviso de exceso y cantidades | [IHC-A-05-error.svg](../wireframes/IHC-A-05-error.svg) |
+| [IHC-A-06](tarjetas/IHC-A-06.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-06-flujo.mmd) | Inicio y menú | Pendiente, referencia, error, reintento y recibo inmutable | [IHC-A-06-inicio.svg](../wireframes/IHC-A-06-inicio.svg) |
+| [IHC-A-06](tarjetas/IHC-A-06.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-06-flujo.mmd) | Mi pedido / Detalle | Pendiente, referencia, error, reintento y recibo inmutable | [IHC-A-06-accion.svg](../wireframes/IHC-A-06-accion.svg) |
+| [IHC-A-06](tarjetas/IHC-A-06.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-06-flujo.mmd) | Edición y retorno | Pendiente, referencia, error, reintento y recibo inmutable | [IHC-A-06-accion.svg](../wireframes/IHC-A-06-accion.svg) |
+| [IHC-A-06](tarjetas/IHC-A-06.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-06-flujo.mmd) | Procesando / error / acuse | Pendiente, referencia, error, reintento y recibo inmutable | [IHC-A-06-confirmacion.svg](../wireframes/IHC-A-06-confirmacion.svg) |
+| [IHC-A-06](tarjetas/IHC-A-06.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-06-flujo.mmd) | Controles de la etapa actual | Pendiente, referencia, error, reintento y recibo inmutable | [IHC-A-06-accion.svg](../wireframes/IHC-A-06-accion.svg) |
+| [IHC-A-06](tarjetas/IHC-A-06.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-06-flujo.mmd) | Estado crítico y recuperación | Pendiente, referencia, error, reintento y recibo inmutable | [IHC-A-06-error.svg](../wireframes/IHC-A-06-error.svg) |
+| [IHC-A-07](tarjetas/IHC-A-07.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-07-flujo.mmd) | Datos y guía | Stepper, validación compartida y primer campo pendiente | [IHC-A-07-inicio.svg](../wireframes/IHC-A-07-inicio.svg) |
+| [IHC-A-07](tarjetas/IHC-A-07.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-07-flujo.mmd) | Checklist / Datos | Stepper, validación compartida y primer campo pendiente | [IHC-A-07-accion.svg](../wireframes/IHC-A-07-accion.svg) |
+| [IHC-A-07](tarjetas/IHC-A-07.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-07-flujo.mmd) | Edición y retorno | Stepper, validación compartida y primer campo pendiente | [IHC-A-07-accion.svg](../wireframes/IHC-A-07-accion.svg) |
+| [IHC-A-07](tarjetas/IHC-A-07.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-07-flujo.mmd) | Revisión / verificación / cierre | Stepper, validación compartida y primer campo pendiente | [IHC-A-07-confirmacion.svg](../wireframes/IHC-A-07-confirmacion.svg) |
+| [IHC-A-07](tarjetas/IHC-A-07.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-07-flujo.mmd) | Controles de la etapa actual | Stepper, validación compartida y primer campo pendiente | [IHC-A-07-accion.svg](../wireframes/IHC-A-07-accion.svg) |
+| [IHC-A-07](tarjetas/IHC-A-07.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-07-flujo.mmd) | Estado crítico y recuperación | Stepper, validación compartida y primer campo pendiente | [IHC-A-07-error.svg](../wireframes/IHC-A-07-error.svg) |
+| [IHC-A-08](tarjetas/IHC-A-08.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-08-flujo.mmd) | Datos y guía | Guía inicial, checklist e indicador de guardado | [IHC-A-08-inicio.svg](../wireframes/IHC-A-08-inicio.svg) |
+| [IHC-A-08](tarjetas/IHC-A-08.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-08-flujo.mmd) | Checklist / Datos | Guía inicial, checklist e indicador de guardado | [IHC-A-08-accion.svg](../wireframes/IHC-A-08-accion.svg) |
+| [IHC-A-08](tarjetas/IHC-A-08.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-08-flujo.mmd) | Edición y retorno | Guía inicial, checklist e indicador de guardado | [IHC-A-08-accion.svg](../wireframes/IHC-A-08-accion.svg) |
+| [IHC-A-08](tarjetas/IHC-A-08.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-08-flujo.mmd) | Revisión / verificación / cierre | Guía inicial, checklist e indicador de guardado | [IHC-A-08-confirmacion.svg](../wireframes/IHC-A-08-confirmacion.svg) |
+| [IHC-A-08](tarjetas/IHC-A-08.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-08-flujo.mmd) | Controles de la etapa actual | Guía inicial, checklist e indicador de guardado | [IHC-A-08-accion.svg](../wireframes/IHC-A-08-accion.svg) |
+| [IHC-A-08](tarjetas/IHC-A-08.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-08-flujo.mmd) | Estado crítico y recuperación | Guía inicial, checklist e indicador de guardado | [IHC-A-08-error.svg](../wireframes/IHC-A-08-error.svg) |
+| [IHC-A-09](tarjetas/IHC-A-09.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-09-flujo.mmd) | Datos y guía | Campo Código, validador común y resumen de texto seguro | [IHC-A-09-inicio.svg](../wireframes/IHC-A-09-inicio.svg) |
+| [IHC-A-09](tarjetas/IHC-A-09.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-09-flujo.mmd) | Checklist / Datos | Campo Código, validador común y resumen de texto seguro | [IHC-A-09-accion.svg](../wireframes/IHC-A-09-accion.svg) |
+| [IHC-A-09](tarjetas/IHC-A-09.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-09-flujo.mmd) | Edición y retorno | Campo Código, validador común y resumen de texto seguro | [IHC-A-09-accion.svg](../wireframes/IHC-A-09-accion.svg) |
+| [IHC-A-09](tarjetas/IHC-A-09.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-09-flujo.mmd) | Revisión / verificación / cierre | Campo Código, validador común y resumen de texto seguro | [IHC-A-09-confirmacion.svg](../wireframes/IHC-A-09-confirmacion.svg) |
+| [IHC-A-09](tarjetas/IHC-A-09.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-09-flujo.mmd) | Controles de la etapa actual | Campo Código, validador común y resumen de texto seguro | [IHC-A-09-accion.svg](../wireframes/IHC-A-09-accion.svg) |
+| [IHC-A-09](tarjetas/IHC-A-09.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-09-flujo.mmd) | Estado crítico y recuperación | Campo Código, validador común y resumen de texto seguro | [IHC-A-09-error.svg](../wireframes/IHC-A-09-error.svg) |
+| [IHC-A-10](tarjetas/IHC-A-10.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-10-flujo.mmd) | Datos y guía | Encabezado enfocable, aria-current y región de estado | [IHC-A-10-inicio.svg](../wireframes/IHC-A-10-inicio.svg) |
+| [IHC-A-10](tarjetas/IHC-A-10.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-10-flujo.mmd) | Checklist / Datos | Encabezado enfocable, aria-current y región de estado | [IHC-A-10-accion.svg](../wireframes/IHC-A-10-accion.svg) |
+| [IHC-A-10](tarjetas/IHC-A-10.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-10-flujo.mmd) | Edición y retorno | Encabezado enfocable, aria-current y región de estado | [IHC-A-10-accion.svg](../wireframes/IHC-A-10-accion.svg) |
+| [IHC-A-10](tarjetas/IHC-A-10.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-10-flujo.mmd) | Revisión / verificación / cierre | Encabezado enfocable, aria-current y región de estado | [IHC-A-10-confirmacion.svg](../wireframes/IHC-A-10-confirmacion.svg) |
+| [IHC-A-10](tarjetas/IHC-A-10.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-10-flujo.mmd) | Controles de la etapa actual | Encabezado enfocable, aria-current y región de estado | [IHC-A-10-accion.svg](../wireframes/IHC-A-10-accion.svg) |
+| [IHC-A-10](tarjetas/IHC-A-10.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-10-flujo.mmd) | Estado crítico y recuperación | Encabezado enfocable, aria-current y región de estado | [IHC-A-10-error.svg](../wireframes/IHC-A-10-error.svg) |
+| [IHC-A-11](tarjetas/IHC-A-11.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-11-flujo.mmd) | Datos y guía | Card fluida, Stepper vertical y botones adaptables | [IHC-A-11-inicio.svg](../wireframes/IHC-A-11-inicio.svg) |
+| [IHC-A-11](tarjetas/IHC-A-11.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-11-flujo.mmd) | Checklist / Datos | Card fluida, Stepper vertical y botones adaptables | [IHC-A-11-accion.svg](../wireframes/IHC-A-11-accion.svg) |
+| [IHC-A-11](tarjetas/IHC-A-11.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-11-flujo.mmd) | Edición y retorno | Card fluida, Stepper vertical y botones adaptables | [IHC-A-11-accion.svg](../wireframes/IHC-A-11-accion.svg) |
+| [IHC-A-11](tarjetas/IHC-A-11.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-11-flujo.mmd) | Revisión / verificación / cierre | Card fluida, Stepper vertical y botones adaptables | [IHC-A-11-confirmacion.svg](../wireframes/IHC-A-11-confirmacion.svg) |
+| [IHC-A-11](tarjetas/IHC-A-11.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-11-flujo.mmd) | Controles de la etapa actual | Card fluida, Stepper vertical y botones adaptables | [IHC-A-11-accion.svg](../wireframes/IHC-A-11-accion.svg) |
+| [IHC-A-11](tarjetas/IHC-A-11.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-11-flujo.mmd) | Estado crítico y recuperación | Card fluida, Stepper vertical y botones adaptables | [IHC-A-11-error.svg](../wireframes/IHC-A-11-error.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R01 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Datos y guía | Recuperación, checklist, alerta, foco y estado cerrado | [IHC-A-12-inicio.svg](../wireframes/IHC-A-12-inicio.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R02 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Checklist / Datos | Recuperación, checklist, alerta, foco y estado cerrado | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R03 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Edición y retorno | Recuperación, checklist, alerta, foco y estado cerrado | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R04 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Revisión / verificación / cierre | Recuperación, checklist, alerta, foco y estado cerrado | [IHC-A-12-confirmacion.svg](../wireframes/IHC-A-12-confirmacion.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R05 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Controles de la etapa actual | Recuperación, checklist, alerta, foco y estado cerrado | [IHC-A-12-accion.svg](../wireframes/IHC-A-12-accion.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R06 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Estado crítico y recuperación | Recuperación, checklist, alerta, foco y estado cerrado | [IHC-A-12-error.svg](../wireframes/IHC-A-12-error.svg) |
+| [IHC-A-12](tarjetas/IHC-A-12.md) | R7 | [F1/E1/X1](../diagramas/IHC-A-12-flujo.mmd) | Checklist / Datos | Recuperación, checklist, alerta, foco y estado cerrado | [Estado R7](../wireframes/IHC-A-12-pendiente-R7.svg) |
 
-## Requisitos R7 · incidencias seleccionadas
-
-| [IHC-A-01](tarjetas/IHC-A-01.md) | R7 | [E1/X1/F1](../diagramas/IHC-A-01-flujo.mmd) | Carrito, revisión del total, confirmación | Subtotal, diferencia, aviso accesible y botón «He revisado» | [Wireframe R7](../wireframes/IHC-A-01-revision-R7.svg) |
-| [IHC-A-12](tarjetas/IHC-A-12.md) | R7 | [X1/E1/F1](../diagramas/IHC-A-12-flujo.mmd) | Revisión, checklist pendiente, finalización | Validación, alerta con ítem faltante, foco, guardado de estado | [Wireframe R7](../wireframes/IHC-A-12-pendiente-R7.svg) |
-
-## Verificación de consistencia
-1. Leer el criterio de aceptación del requisito en su ficha.
-2. Localizar la rama correspondiente en su user flow.
-3. Comparar la pantalla/componente propuesto con el prototipo integrado.
-4. Abrir el wireframe enlazado.
-5. Si el prototipo cambia, actualizar ficha, diagrama y matriz en el mismo PR.
-6. No confundir prototipo preparado con mejora observada en una sesión de usuario.
+## Cómo comprobar una fila
+Leer aceptación en la ficha, recorrer F1/E1/X1, operar el prototipo v2 y contrastar el wireframe con el componente. El resultado técnico está en evidencias/ejecucion-actual; la observación humana se documenta aparte.

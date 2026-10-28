@@ -1,123 +1,84 @@
-# IHC-A-10 · Dashboard · Navegación semántica
+# IHC-A-10 · Dashboard UX · Stepper y estados accesibles
 
-**Ficha de preparación y especificación de diseño.** Los diagnósticos emocionales son hipótesis; esta ficha no acredita por sí sola una ejecución real ni un incidente sorpresa resuelto.
+**Procedencia:** arquitectura base de Emilio Abril y diagnóstico del equipo; revisión integral de William Martínez. Los commits de cada integrante se conservan en Git.
 
-## Persona, tarea y alcance
-
-- **Persona:** Evaluador que utiliza lector de pantalla.
-- **Tarea crítica:** Navegar Stepper y checklist.
-- **Restricción:** Anunciar semánticamente acción y resultado.
-- **Fallo descrito en tarjeta docente:** Paso activo depende solo del color.
-- **Recurso complementario:** CaféU (editar/error y confirmación visible).
-- Recorrido de diagnóstico: usar stepper y checklist con lector de pantalla.
-- Hipótesis de mejora para v2: **Paso activo se anuncia por texto y atributo semántico**.
+## Persona, tarea y contexto
+- Persona: Evaluador que utiliza lector de pantalla.
+- Tarea: Navegar por etapas y operar el checklist.
+- Restricción: Comunicar acción, estado y resultado sin depender del color.
+- Fallo de referencia en v1: El paso actual solo se diferencia visualmente.
+- Complemento entre recursos: se aplica arquitectura confirmar/editar de CaféU y evaluación emocional/Stepper/checklist del Dashboard.
 
 ## Fase 1 · Diagnóstico emocional
-**Ningún valor de esta tabla ha sido medido.** Se proponen touchpoints para diseñar una prueba; la curva en `diagramas/IHC-A-10-curva-antes.svg` es una predicción de diseño.
+Las emociones siguientes son **estimaciones de diseño**, no mediciones de participantes. La curva inicial utiliza la misma escala de -3 a +3 y los mismos valores que esta tabla.
 
-| # | Touchpoint | Importancia | Emoción estimada | Tipo de evidencia |
+| Punto | Touchpoint | Importancia | Emoción estimada | Evidencia |
 |---|---|---|---|---|
-| T1 | Abrir dashboard | Punto de contacto | +1 | Estimación, no observación |
-| T2 | Configurar sesión | Punto de contacto | +1 | Estimación, no observación |
-| T3 | Identificar paso | Punto de contacto | 0 | Estimación, no observación |
-| T4 | Marcar checklist | Punto de contacto | −2 | Estimación, no observación |
-| T5 | Registrar hallazgos | Momento de verdad 1 | −2 | Estimación, no observación |
-| T6 | Revisar resumen | Punto de contacto | 0 | Estimación, no observación |
-| T7 | Cerrar sesión | Momento de verdad 2 | 0 | Estimación, no observación |
+| T1 | Abrir o recuperar sesión | Punto de contacto | +1 | Hipótesis, sin observación humana |
+| T2 | Configurar datos y revisar procedimiento | Punto de contacto | +1 | Hipótesis, sin observación humana |
+| T3 | Reconocer semánticamente el paso actual | Momento de verdad 1 | 0 | Hipótesis, sin observación humana |
+| T4 | Operar y conocer el estado de una casilla | Momento de verdad 2 | −2 | Hipótesis, sin observación humana |
+| T5 | Registrar errores y observaciones | Punto de contacto | −2 | Hipótesis, sin observación humana |
+| T6 | Revisar resumen | Punto de contacto | 0 | Hipótesis, sin observación humana |
+| T7 | Cerrar sesión | Punto de contacto | 0 | Hipótesis, sin observación humana |
 
-**Momentos de verdad:** T5, cuando estado accesible puede causar un error decisivo; T7, cuando la persona comprueba el resultado de su tarea.
+**Momentos de verdad:** T3 y T4. Diseño inclusivo y redundancia visual/semántica del feedback.
+[Curva inicial](../../diagramas/IHC-A-10-curva-antes.svg). No se presenta una curva posterior como observada sin datos de una sesión.
 
-| ID | Hallazgo candidato | Severidad preliminar | Marco y justificación |
+| ID | Hallazgo candidato | Severidad preliminar | Fundamento |
 |---|---|---|---|
-| P1 | Fallo principal: paso actual indicado solo con color | Alta | Regla de visibilidad del estado vulnerada; la tarea crítica puede resultar incorrecta. |
-| P2 | Retroalimentación insuficiente en transición | Media | Visibilidad del estado de Nielsen: incertidumbre durante procesamiento o cambio. |
-| P3 | Jerarquía dispersa en pantalla y pérdida de contexto | Media | Gestalt y carga cognitiva: obliga a recordar el contexto en lugar de reconocerlo. |
+| P1 | El paso actual solo se diferencia visualmente | Alta | Diseño inclusivo y redundancia visual/semántica del feedback. |
+| P2 | Incertidumbre durante transición o recuperación | Media | Visibilidad del estado: comprobar el mensaje y la posibilidad de recuperar. |
+| P3 | Jerarquía o agrupación puede aumentar esfuerzo de búsqueda | Media | Gestalt y carga cognitiva: validar proximidad, orden y reconocimiento en la tarea concreta. |
 
-Se preparan borradores de Issue en `github/issues/IHC-A-10-P1.md`, P2 y P3; deben publicarse con asignación y reproducibilidad real durante la sesión.
+Borradores: `github/issues/IHC-A-10-P1.md`, P2 y P3. Solo los Issues publicados y enlazados acreditan seguimiento en GitHub.
 
 ## Fase 2 · Requisitos verificables
 
 | ID | Requisito | Criterio de aceptación |
 |---|---|---|
-| R01 | Completar «Navegar Stepper y checklist» siguiendo etapas identificables. | Recorrido llega a revisión y cierre desde inicio con Stepper. |
-| R02 | Resolver condición crítica: Paso actual se anuncia en texto y con aria-current="step". | Paso actual se anuncia en texto y con aria-current="step". Repetir el fallo inicial en v1 y comprobar que no ocurre en v2 para el escenario. |
-| R03 | Volver a una etapa anterior y corregir sin perder progreso válido. | Regresar y avanzar mantiene las selecciones anteriores. Después de editar o cancelar, los datos pertinentes siguen disponibles. |
-| R04 | Distinguir progreso, error de validación y cierre correcto. Los estados normal y de edición también se identifican. | Mensaje de estado comprensible; error indica cómo recuperar. Cada estado muestra texto descriptivo y se distingue visual y semánticamente. |
-| R05 | Permitir interacción por teclado con etiquetas semánticas. | Tab y Enter operan controles; foco visible; estado no depende del color. Escape permite volver donde aplique. |
-| R06 | Cumplir restricción contextual: Anunciar semánticamente acción y resultado. La información crítica debe comprenderse a 360 px cuando corresponda. | Campos y botones tienen nombre y foco visible. Texto legible, acciones esenciales visibles y ruta de recuperación identificable. |
+| R01 | Completar la tarea: Navegar por etapas y operar el checklist. | Recorrer Datos, Checklist, Observaciones, Revisión y cierre; la guía aparece antes de iniciar. |
+| R02 | El paso actual tiene texto y aria-current=step; el cambio de pantalla enfoca su encabezado y actualiza una región de estado persistente. | Tab y Enter recorren las etapas; después de avanzar el encabezado recibe foco y el estado textual cambia. La inspección de atributos y foco no reemplaza un ensayo con lector. |
+| R03 | Editar, cancelar o regresar sin perder datos pertinentes. | Volver conserva título, código, métricas y marcas; nueva sesión requiere una acción explícita. |
+| R04 | Comunicar estado normal, validación, procesamiento, error y resultado. | Un campo inválido se identifica y enfoca; Verificando precede al cierre y el guardado refleja su resultado real. |
+| R05 | Permitir teclado, foco visible y nombres semánticos de las acciones. | Tab y Enter operan etapas y casillas; el paso actual tiene texto, número y aria-current; el cambio enfoca encabezado o campo inválido. |
+| R06 | Cumplir la restricción contextual: Comunicar acción, estado y resultado sin depender del color. | Tab y Enter recorren las etapas; después de avanzar el encabezado recibe foco y el estado textual cambia. La inspección de atributos y foco no reemplaza un ensayo con lector. |
 
-### Arquitectura de información
-
-- [Sitemap](../../diagramas/IHC-A-10-sitemap.mmd) con todas las páginas y regreso.
-- [User flow](../../diagramas/IHC-A-10-flujo.mmd): **F1** principal, **E1** edición, **X1** error.
-- **Secuencia principal:** Inicio → datos → Stepper → checklist → registro → revisión → cierre.
-- **Condición principal a comprobar:** Paso actual se anuncia en texto y con aria-current="step".
-- **Recuperación:** mostrar el problema en texto, ofrecer una ruta de edición y conservar los datos pertinentes.
-- Ramas: F1 Datos→Checklist→Registro→Revisión→Cierre; E1 revisión→paso anterior; X1 validación→paso correspondiente.
-
-### Componentes
-
-Navegación y título de pantalla, Checklist, Stepper semántico y checklist, indicador de estado, aviso textual, botones etiquetados y foco visible.
-
-- Componentes clave: navegación, aria-current y foco visible, feedback de error, botón de acción, resumen visible, controles accesibles.
-
-### Matriz de trazabilidad
+### Arquitectura, componentes y trazabilidad
+- [Sitemap](../../diagramas/IHC-A-10-sitemap.mmd).
+- [Flujo F1/E1/X1](../../diagramas/IHC-A-10-flujo.mmd).
+- Componente crítico: Encabezado enfocable, aria-current y región de estado.
+- Implementación: `render focusId / announce / live-status / renderDashboard` en `assets/app.js`, con estilos en `assets/styles.css`.
 
 | Requisito | Flujo | Pantalla | Componente | Wireframe |
 |---|---|---|---|---|
-| R01 | F1 | Stepper; Inicio/Acción | Stepper / navegación; aria-current y foco visible | [inicio](../../wireframes/IHC-A-10-inicio.svg) |
-| R02 | F1/X1 | Checklist; Etapas | Checklist / validación por etapa; aria-current y foco visible | [accion](../../wireframes/IHC-A-10-accion.svg) |
-| R03 | E1 | Checklist / edición; Error/Confirmación | Control anterior y estado; aria-current y foco visible | [accion](../../wireframes/IHC-A-10-accion.svg) |
-| R04 | F1/X1 | Resumen accesible; Etapas | Stepper / alerta / resumen; aria-current y foco visible | [confirmacion](../../wireframes/IHC-A-10-confirmacion.svg) / [error](../../wireframes/IHC-A-10-error.svg) |
-| R05 | F1/E1 | Etapa actual; Inicio/Acción | Campos accesibles y foco; aria-current y foco visible | [accion](../../wireframes/IHC-A-10-accion.svg) |
-| R06 | X1/F1/E1 | Checklist; Error/Confirmación | Condición contextual; aria-current y foco visible | [error](../../wireframes/IHC-A-10-error.svg) / [confirmacion](../../wireframes/IHC-A-10-confirmacion.svg) |
+| R01 | F1 | Datos y guía | Encabezado enfocable, aria-current y región de estado | [inicio](../../wireframes/IHC-A-10-inicio.svg) |
+| R02 | F1/E1/X1 | Checklist / Datos | Encabezado enfocable, aria-current y región de estado | [accion](../../wireframes/IHC-A-10-accion.svg) |
+| R03 | E1 | Edición y retorno | Encabezado enfocable, aria-current y región de estado | [accion](../../wireframes/IHC-A-10-accion.svg) |
+| R04 | F1/E1/X1 | Revisión / verificación / cierre | Encabezado enfocable, aria-current y región de estado | [confirmacion](../../wireframes/IHC-A-10-confirmacion.svg) |
+| R05 | F1/E1/X1 | Controles de la etapa actual | Encabezado enfocable, aria-current y región de estado | [accion](../../wireframes/IHC-A-10-accion.svg) |
+| R06 | F1/E1/X1 | Estado crítico y recuperación | Encabezado enfocable, aria-current y región de estado | [error](../../wireframes/IHC-A-10-error.svg) |
 
-### Cuatro wireframes Lo-Fi
+## Fase 3 · Prototipos y estados
+- v1: `prototipo/v1/index.html`, implementación independiente que conserva el fallo de referencia.
+- v2: `prototipo/v2/index.html`, aplicación corregida compartida para doce tarjetas.
+- Fidelidad: Lo-Fi en SVG para estructura; media/alta en HTML/CSS/JS para validar interacción real de navegador.
+- El prototipo local no integra pagos, cocina, red de pedidos ni un servicio de investigación real.
+- v1 y v2 tienen catálogos distintos: sánduche USD 2,25 en v1 y USD 2,75 en v2. Comparar comportamiento y calcular cada importe con su catálogo.
 
-- [inicio](../../wireframes/IHC-A-10-inicio.svg)
-- [accion](../../wireframes/IHC-A-10-accion.svg)
-- [error](../../wireframes/IHC-A-10-error.svg)
-- [confirmacion](../../wireframes/IHC-A-10-confirmacion.svg)
+## Fase 4 · Verificación técnica y prueba con participante
+- [Captura técnica v1](../../evidencias/ejecucion-actual/IHC-A-10-v1.png) y [captura técnica v2](../../evidencias/ejecucion-actual/IHC-A-10-v2.png).
+- Casos: `IHC-A-10-v2` y `IHC-A-10-v2`, ejecutados por `tests/navegador_integral.py` sobre las entradas HTTP reales.
+- [Resultado, entorno y huellas de fuentes](../../evidencias/ejecucion-actual/README.md). Estas comprobaciones no son una sesión humana.
+- [Acta de la tarjeta](../../pruebas/IHC-A-10-sesion.md): registrar participante de otro equipo, tarea sin ayuda, tiempo, errores, pausas, resultado y cita literal cuando se ejecute.
+- La mejora técnica puede comprobarse en código/navegador; la mejora de experiencia exige observación. No se infieren tiempos o satisfacción de las capturas.
 
-### Comprobación técnica al integrar el prototipo
-
-1. Seleccionar IHC-A-10 y ejecutar **F1**; observar estados y resultado.
-2. Probar la ruta **E1** y el error **X1**, preservando información pertinente.
-3. Verificar R02: Paso actual se anuncia en texto y con aria-current="step".
-4. Verificar R06: Campos y botones tienen nombre y foco visible.
-5. Guardar evidencia con versión, fecha, acción y resultado real.
-
-La especificación de arquitectura no acredita por sí misma una observación externa; el prototipo y su preparación de prueba se describen en las fases siguientes.
-
-**Referencia GitHub:** [Issue #2](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/2).
-
-## Fase 3 · Prototipo
-
-- v1: `prototipo/v1/index.html` → seleccionar `IHC-A-10` y reproducir: paso actual indicado solo con color.
-- v2: `prototipo/v2/index.html` → seleccionar `IHC-A-10` → comprobar la hipótesis: Paso activo se anuncia por texto y atributo semántico.
-- Estados previstos: normal, editando, validando/procesando (CaféU), error y éxito; Dashboard dispone de etapas normales, error de validación y resultado.
-- Herramienta: HTML + CSS + JS, ejecutado localmente, fidelidad media/alta; wireframes SVG de baja fidelidad.
-- Decisión arquitectónica: mismo flujo de control para 12 escenarios, diferencias controladas por tarjeta y versión.
-
-## Fase 4 · Prueba cognitiva
-
-- Guion: `usar stepper y checklist con lector de pantalla`. Una persona **de otro equipo** debe completar la tarea sin ayudas.
-- Registrar de manera real: hora, duración, errores, pausas, resultado, cita textual y consentimiento para evidencias.
-- Acta específica (no completada): `pruebas/IHC-A-10-sesion.md`.
-- Hipótesis v2: Paso activo se anuncia por texto y atributo semántico. **No se debe escribir “mejoró” hasta contar con datos observados**.
-- La curva v2 (`diagramas/IHC-A-10-curva-v2-hipotesis.svg`) es hipotética, no resultado de prueba.
-
-## Fase 5 · Incidencia nueva y defensa
-
-- Esperar el incidente entregado oficialmente y completar `docs/incidencia-sorpresa-plantilla.md`.
-- Demostrar requisito R02, falla/solución y trazabilidad a un Issue/PR genuino.
-- Pregunta preparatoria: ¿cómo compruebas que estado accesible comunica el estado correcto sin depender solo del aspecto visual?
+## Fase 5 · Incidencia y control de cambios
+- El laboratorio `incidencias/preparacion/` es material de ensayo; no representa incidencias oficiales adicionales asignadas a esta tarjeta.
 
 ## Estado de evidencia
-
-- [x] Diseño de ejemplo y prototipos generados.
-- [ ] Observación externa y mediciones reales.
-- [ ] Capturas de navegador de v1/v2 como evidencia de ejecución.
-- [ ] Issues y PR publicados y revisados en GitHub.
-- [ ] Incidencia recibida y cambio con commit posterior.
-- [ ] Defensa individual realizada.
+- [x] Requisitos, flujo, sitemap, componentes y cuatro Lo-Fi específicos.
+- [x] Pruebas técnicas de navegador y evidencia de la ejecución indicada en su registro.
+- [ ] Sesión humana confirmada con registros originales y consentimiento.
+- [ ] Ensayo con lector de pantalla cuando corresponda.
+- [ ] Revisión personal fundamentada del PR de esta rama por otro integrante.

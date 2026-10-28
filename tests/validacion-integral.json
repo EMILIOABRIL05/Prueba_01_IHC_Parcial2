@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-10-28T21:44:11.947552+00:00",
+  "scope": "Comprobaciones ejecutadas de lógica, sintaxis y coherencia; no participantes.",
+  "checks": [
+    {
+      "command": "node tests/regresiones_integrales.cjs",
+      "exitCode": 0,
+      "output": "[OK] Agregar después de revisión invalida el importe\n[OK] Quitar después de revisión exige revisar nuevamente\n[OK] Pedido enviado inmóvil y no se confirma dos veces\n[OK] Pedido nuevo vacía carrito y conserva recibo anterior independiente\n[OK] Nueva tarjeta no hereda aceptación de alérgenos\n[OK] A07 usa misma validación en siguiente y Stepper\n[OK] Código inválido no pasa por ninguna ruta\n[OK] Errores negativos o decimales no pasan a revisión\n[OK] Checklist vacío guardado nunca autoriza cierre\n[OK] Se restaura la sesión cerrada y nueva sesión elimina su registro\n[OK] Fallo de guardado no anuncia cierre y conserva los datos\n[OK] Temporizador del pedido anterior no altera otra tarjeta\n[OK] Texto de usuario se escapa al volver a renderizar\n[OK] A08 conserva y comunica guardado al recargar\nOK: 14/14 regresiones de lógica; navegador y participantes se registran por separado.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tests/verificar_incidentes_r7.cjs",
+      "exitCode": 0,
+      "output": "[OK] A01: actualizar cantidad, subtotal, total y diferencia; requerir revisión\n[OK] A01: cada edición posterior vuelve a requerir revisión\n[OK] A01: v1 mantiene el defecto original para contraste\n[OK] A12: impide cierre falso, identifica ítem y devuelve foco\n[OK] A12: con 3/3 muestra verificación y solo después éxito\n[OK] A12: recupera checklist, paso y notas al recargar\n[OK] Regresión: v2 A05 conserva límite de USD 4,25\nOK: 7/7 pruebas de lógica integradas sobre DOM simulado. El navegador real y la sesión humana NO fueron probados.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node tests/issue7-logica.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"scope\": \"Manejadores y HTML con DOM reducido. Sin layout nativo ni tecnologías de asistencia.\",\n  \"generatedAt\": \"2026-10-28T21:44:10.306Z\",\n  \"passed\": 11,\n  \"total\": 11,\n  \"results\": [\n    {\n      \"name\": \"Nombre descriptivo por producto\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Abrir no borra; foco inicial en Cancelar\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Escape restaura foco al segundo producto\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Cancelar restaura foco al disparador\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Confirmar quita solo el elegido y enfoca el restante\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Último producto deja foco en volver al menú\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Tab cierra ciclo al último control\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Shift+Tab cierra ciclo al primero\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Reducir a cero en A02 también exige confirmación\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"Un clic de fondo no abre otro diálogo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"name\": \"La variante v1 compartida mantiene eliminación directa\",\n      \"status\": \"OK\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node prototipo/v1/tests/verificar_logica.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"generatedAt\": \"2026-10-28T21:44:10.440Z\",\n  \"scope\": \"Fuente y lógica de v1. Sin navegador nativo ni participantes.\",\n  \"passed\": 24,\n  \"total\": 24,\n  \"results\": [\n    {\n      \"id\": \"A01\",\n      \"description\": \"Se reproduce total obsoleto de USD 3,75 frente a USD 5,25\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A02\",\n      \"description\": \"Quitar no tiene etiqueta descriptiva y elimina sin confirmación\",\n      \"kind\": \"Fuente y lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A03\",\n      \"description\": \"El resultado muestra Listo sin desglose en el panel final\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A04\",\n      \"description\": \"Se permite envío sin reconocimiento previo de advertencia\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A05\",\n      \"description\": \"Se permite procesar USD 5,25 sin validación del presupuesto\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A06\",\n      \"description\": \"Dos confirmaciones durante espera producen dos operaciones\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A07\",\n      \"description\": \"Se puede saltar a Revisión con datos incompletos\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A08\",\n      \"description\": \"Las marcas se pierden al salir del checklist\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A09\",\n      \"description\": \"El formulario presenta nombre real y no código\",\n      \"kind\": \"Fuente de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A10\",\n      \"description\": \"Stepper sin aria-current y sin texto explícito actual\",\n      \"kind\": \"Fuente de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A11\",\n      \"description\": \"Se conserva la regla CSS que provoca el fallo móvil\",\n      \"kind\": \"Fuente de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"A12\",\n      \"description\": \"Cierre incompleto y pérdida de progreso al reiniciar v1\",\n      \"kind\": \"Lógica de fallo\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-13\",\n      \"description\": \"Recorrido por Inicio, Menú, Detalle y Mi pedido\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-14\",\n      \"description\": \"El botón del carrito vacío está deshabilitado\",\n      \"kind\": \"Fuente y lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-15\",\n      \"description\": \"Invocar envío vacío ofrece un error\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-16\",\n      \"description\": \"Fallo de red conserva el carrito y no declara recibido\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-17\",\n      \"description\": \"Reintento después del fallo recupera el envío\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-18\",\n      \"description\": \"La entrada sigue en v1 aunque el dataset externo indique v2\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-19\",\n      \"description\": \"Procesando precede al recibido en un envío normal\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-20\",\n      \"description\": \"Escape desde detalle regresa al carrito\",\n      \"kind\": \"Manejador de teclado\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-21\",\n      \"description\": \"Escape en Dashboard vuelve a la etapa anterior\",\n      \"kind\": \"Manejador de teclado\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-22\",\n      \"description\": \"La fuente define un indicador focus-visible\",\n      \"kind\": \"Fuente; no medición visual\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-23\",\n      \"description\": \"Hay viewport y reglas móviles comunes en la fuente\",\n      \"kind\": \"Fuente; no medición de layout\",\n      \"status\": \"OK\"\n    },\n    {\n      \"id\": \"V1-24\",\n      \"description\": \"Los doce escenarios están disponibles y fijados a v1\",\n      \"kind\": \"Lógica\",\n      \"status\": \"OK\"\n    }\n  ],\n  \"output\": \"/tmp/ihc-v1-logica-8f7h2z\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node incidencias/preparacion/tests/verificar-modelo.cjs",
+      "exitCode": 0,
+      "output": "17/17 pruebas puras OK; las comprobaciones visuales, foco real, y sesiones humanas siguen pendientes.\n",
+      "stderr": ""
+    },
+    {
+      "command": "node incidencias/preparacion/tests/verificar-documentacion.cjs",
+      "exitCode": 0,
+      "output": "12/12 curvas y severidades coherentes; datos de estimación, no observación.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python tests/comprobar_arquitectura.py",
+      "exitCode": 0,
+      "output": "OK: 12 fichas; 74 requisitos únicos (72 base + 2 R7); 24 diagramas; 50 wireframes\n",
+      "stderr": ""
+    },
+    {
+      "command": "python tests/comprobar_prototipo_v2.py",
+      "exitCode": 0,
+      "output": "=== Comprobación de Entregables · Pablo Lozada (Fase 4) ===\n1. Comprobando existencia de archivos obligatorios...\n  [OK] assets/scenarios.js\n  [OK] assets/styles.css\n  [OK] assets/app.js\n  [OK] prototipo/v1/index.html\n  [OK] prototipo/v2/index.html\n  [OK] docs/decisiones.md\n  [OK] docs/revision-pr-emilio.md\n  [OK] docs/guia-defensa-pablo.md\n  [OK] README-PABLO.md\n2. Comprobando capturas técnicas comparativas (24 imágenes)...\n  [OK] 24 capturas técnicas comparativas presentes.\n3. Validando contenido de docs/decisiones.md...\n  [OK] 12 escenarios documentados con formato problema/decisión/antes/después/prueba.\n4. Validando escenarios en assets/scenarios.js...\n  [OK] 12 tarjetas y catálogo configurados en scenarios.js.\n5. Validando plantillas HTML de prototipos...\n  [OK] Plantillas HTML de prototipo v1 y v2 correctas.\n6. Validando funciones de accesibilidad y correcciones en assets/app.js...\n  [OK] Referencias de implementación presentes; ejecutar navegador_integral.py para comprobar comportamiento.\n\n[ÉXITO] Comprobaciones estáticas conformes; no acreditan conformidad WCAG, pruebas humanas ni cierre total del trabajo.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python tests/comprobar_pruebas_jhonatan.py",
+      "exitCode": 0,
+      "output": "=== Comprobación de entregables de Jonathan Gamboa (jhonatan/pruebas) ===\n [OK] README-JONATHAN.md\n [OK] docs/defensa.md\n [OK] docs/revision_pr_emilio.md\n [OK] docs/incidencia-sorpresa-plantilla.md\n [OK] evidencias/IHC-A-12/README.md\n [OK] evidencias/ejecucion-actual/IHC-A-12-v1.png\n [OK] evidencias/ejecucion-actual/IHC-A-12-v2.png\n [OK] pruebas/README.md\n [OK] pruebas/sesion.md\n [OK] pruebas/IHC-A-12-sesion.md\n [OK] tests/casos-manuales.md\n [OK] tests/resultados_automatizados.md\n\n[OK] Estructura de pruebas y 24 capturas presentes. Las actas no se consideran ejecutadas por existir; consulte pruebas/sesion.md.\n",
+      "stderr": ""
+    }
+  ],
+  "localBrokenLinks": [],
+  "svgCount": 74,
+  "mermaidSyntax": {
+    "count": 36,
+    "status": "parsed in Chromium with Mermaid"
+  },
+  "sourceHashesMatchBrowserRun": true,
+  "v1Unchanged": true
+}

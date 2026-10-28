@@ -1,3 +1,5 @@
+> **Registro histórico de revisión aportado por su autor.** Se conserva su contexto original; no describe por sí solo la implementación final ni sustituye una revisión personal publicada en GitHub. Consulte [colaboración](colaboracion.md) y [decisiones](decisiones.md) para el estado actualizado.
+
 # Revisión fundamentada de Pull Request ajeno (PR #9)
 
 - **Revisor (cuenta propia):** Jonathan Gamboa ([@Jonathan305g](https://github.com/Jonathan305g))

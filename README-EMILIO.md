@@ -1,16 +1,7 @@
-# Entrega de Emilio Abril · Arquitectura y trazabilidad
+# Aporte de Emilio Abril
 
-Rama: `emilio/arquitectura` · [Issue #2](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/2)
+Arquitectura de doce tarjetas, 72 requisitos base, flujos y Lo-Fi. Preparación de incidencias y primera integración de dos R7. PR #9, #16 y #19; Issues #2, #15, #17 y #18.
 
-## Contenido
-- docs/requisitos.md
-- docs/trazabilidad.md
-- docs/tarjetas/ (12 fichas)
-- diagramas/ (12 sitemaps y 12 user flows Mermaid)
-- wireframes/ (48 archivos SVG)
-- docs/guia-arquitectura-emilio.md
+El historial Git conserva la contribución original y las correcciones posteriores de otros integrantes. El estado vigente se consulta en [README raíz](README.md), [colaboración](docs/colaboracion.md) y [documentación integral](docs/Documentacion_Integral_IHC.pdf).
 
-**Estado:** documentación de diseño preparada. Las 12 tarjetas permiten practicar; la evaluación se centra en la tarjeta sorteada. Los prototipos se integran desde las ramas de William y Pablo. Las sesiones humanas y la revisión de PR ajeno deben hacerse de verdad.
-
-## Verificación
-Se comprobaron la existencia de 12 fichas, 72 filas de trazabilidad, 24 diagramas y 48 wireframes SVG.
+La ejecución actual tiene 41/41 pruebas de navegador y 33 capturas en [evidencias/ejecucion-actual](evidencias/ejecucion-actual/README.md). Las imágenes anteriores se conservan en [evidencias/historicas](evidencias/historicas/README.md). Las actas humanas no se consideran ejecutadas por existir; el aporte A12 requiere ratificación según [pruebas/sesion.md](pruebas/sesion.md).

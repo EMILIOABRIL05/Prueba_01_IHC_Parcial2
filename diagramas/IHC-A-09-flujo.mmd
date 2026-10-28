@@ -1,14 +1,21 @@
 flowchart TD
- A[Inicio 09] --> B[Datos de sesion]
- B --> C{Datos validos}
- C -->|No X1| D[Corregir datos]
- D --> B
- C -->|Si F1| E[Stepper]
- E --> F[Checklist]
- F --> G{Condicion critica}
- G -->|No X1| H[Mensaje de validacion]
- H -->|Editar E1| F
- G -->|Si F1| I[Revision]
- I --> J{Cerrar o editar}
- J -->|Editar E1| F
- J -->|Cerrar F1| K[Resultados anónimos]
+ F1["Datos: guía, título y código P-001 a P-999"] --> Q{"¿Datos válidos?"}
+ Q -->|"No X1"| X1["Explicar y enfocar campo inválido"]
+ X1 --> F1
+ Q -->|"Sí"| C["Checklist: conservar verificaciones"]
+ C --> G["Conservar marcas al avanzar y volver; A12 verifica obligatorios al cerrar"]
+ G --> O["Observaciones: errores enteros no negativos y notas"]
+ O --> M{"¿Métricas válidas?"}
+ M -->|"No"| O
+ M -->|"Sí"| R["Revisión"]
+ R -->|"Editar E1"| E1["Regresar sin borrar datos"]
+ E1 --> C
+ E1 --> F1
+ R --> H{"¿Datos y tres obligatorios válidos?"}
+ H -->|"No X1"| P["Identificar faltante y enfocar su campo o casilla"]
+ P --> C
+ H -->|"Sí"| V["Verificando: bloquear acciones concurrentes"]
+ V --> S{"¿Se conserva el registro según la tarjeta?"}
+ S -->|"Error de guardado"| ER["Sin guardar: conservar datos y reintentar cierre"]
+ ER --> R
+ S -->|"Correcto"| OK["Sesión cerrada; A08/A12 recuperan estado persistido"]
