@@ -13,10 +13,12 @@ Recalcular subtotal/total, mostrar diferencia y exigir revisar antes de confirma
 ## Requisito R7 propuesto (sin activar en trazabilidad oficial)
 R7: tras editar cantidad, actualizar subtotal y total y bloquear confirmación hasta revisión del desglose.
 
-**Criterio de aceptación de ensayo:** Edición 1→2, total actualizado (ensayo USD 8,50), revisión antes de confirmar.
+**Criterio de aceptación de ensayo:** Edición 1→2, total actualizado (ensayo USD 5,75), revisión antes de confirmar.
 
 ## Trazabilidad preparatoria
 R7 (borrador) → [flujo propuesto](../flujos/IHC-A-01-R7.mmd) → vista de [simulador de ensayo](../index.html) → componente/estado «normal, diferencia pendiente, bloqueado, revisado, confirmado» → evidencia por obtener en navegador real.
+
+**Supuesto de simulación:** el documento da un total anterior de USD 4,25 sin detallar todos los productos. El ensayo conserva ese total y aplica +USD 1,50 por un café adicional según el catálogo base: nuevo total de práctica USD 5,75. El cálculo oficial debe utilizar el carrito realmente asignado.
 
 ## Guion antes/después
 1. Tomar referencia del problema descrito y, si existe un prototipo v1 disponible, reproducirlo sin atribuirlo a un participante.

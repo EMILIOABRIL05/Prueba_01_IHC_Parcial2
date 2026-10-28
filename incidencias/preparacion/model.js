@@ -18,7 +18,7 @@ function initial(id){
 if(!cards.find(c=>c.id===id))throw Error("Tarjeta desconocida: "+id);
 const common={id,status:"normal",notice:"Preparación técnica, no incidencia oficial",audit:[]};
 switch(id){
-case "IHC-A-01":return {...common,qty:1,unitPrice:4.25,total:4.25,reviewed:true};
+case "IHC-A-01":return {...common,qty:1,baseTotal:4.25,cafeUnitPrice:1.50,total:4.25,reviewed:true};
 case "IHC-A-02":return {...common,cart:["Café","Sánduche"],removed:null,focus:"quitar",notice:"Carrito de demostración"};
 case "IHC-A-03":return {...common,requests:0,elapsed:0,status:"sin enviar"};
 case "IHC-A-04":return {...common,cart:["Sánduche"],newAllergen:false,ack:false};
@@ -37,7 +37,7 @@ const s=JSON.parse(JSON.stringify(state));
 let note="";const card=s.id;
 const set=(status,message)=>{s.status=status;note=message;};
 if(card==="IHC-A-01"){
-if(act==="edit"){s.qty=2;s.total=+(s.qty*s.unitPrice).toFixed(2);s.reviewed=false;set("revisar","Cantidad 1→2. Total recalculado a USD "+s.total.toFixed(2)+". Revise antes de confirmar.");}
+if(act==="edit"){s.qty=2;s.total=+(s.baseTotal+(s.qty-1)*s.cafeUnitPrice).toFixed(2);s.reviewed=false;set("revisar","Cantidad 1→2. Total recalculado a USD "+s.total.toFixed(2)+". Revise antes de confirmar.");}
 if(act==="review"){s.reviewed=true;set("revisado","Desglose revisado y aceptado.");}
 if(act==="confirm")set(s.reviewed?"confirmado":"bloqueado",s.reviewed?"Pedido confirmado en ensayo.":"Confirme primero la revisión del nuevo total.");
 }

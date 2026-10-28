@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict');
 const M=require('../model.js');
 const cases=["IHC-A-01","IHC-A-01","IHC-A-02","IHC-A-02","IHC-A-03","IHC-A-04","IHC-A-04","IHC-A-05","IHC-A-06","IHC-A-07","IHC-A-07","IHC-A-08","IHC-A-09","IHC-A-10","IHC-A-11","IHC-A-12","IHC-A-12"];
-{let s=M.initial('IHC-A-01');for(const a of ["edit","confirm"])s=M.transition(s,a);assert.ok(s.total===8.5&&s.status==='bloqueado','Caso 1 IHC-A-01');}
+{let s=M.initial('IHC-A-01');for(const a of ["edit","confirm"])s=M.transition(s,a);assert.ok(s.total===5.75&&s.status==='bloqueado','Caso 1 IHC-A-01');}
 {let s=M.initial('IHC-A-01');for(const a of ["edit","review","confirm"])s=M.transition(s,a);assert.ok(s.status==='confirmado','Caso 2 IHC-A-01');}
 {let s=M.initial('IHC-A-02');for(const a of ["remove"])s=M.transition(s,a);assert.ok(s.focus==='deshacer'&&s.removed==='Café','Caso 3 IHC-A-02');}
 {let s=M.initial('IHC-A-02');for(const a of ["remove","undo"])s=M.transition(s,a);assert.ok(s.cart.length===2&&s.removed===null,'Caso 4 IHC-A-02');}
