@@ -1,0 +1,13 @@
+flowchart TD
+ A[Inicio] --> B[Menu]
+ B --> C[Detalle de producto]
+ B --> D[Mi pedido]
+ C --> D
+ D --> E[Revisar y enviar]
+ E --> D
+ D --> F[Revision]
+ F -->|Editar| D
+ F --> G[Procesando]
+ G --> H[Acuse de recibo]
+ G --> I[Error y recuperacion]
+ I --> D

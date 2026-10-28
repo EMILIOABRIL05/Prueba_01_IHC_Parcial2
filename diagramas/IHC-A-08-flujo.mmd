@@ -1,0 +1,14 @@
+flowchart TD
+ A[Inicio 08] --> B[Datos de sesion]
+ B --> C{Datos validos}
+ C -->|No X1| D[Corregir datos]
+ D --> B
+ C -->|Si F1| E[Stepper]
+ E --> F[Checklist]
+ F --> G{Condicion critica}
+ G -->|No X1| H[Mensaje de validacion]
+ H -->|Editar E1| F
+ G -->|Si F1| I[Revision]
+ I --> J{Cerrar o editar}
+ J -->|Editar E1| F
+ J -->|Cerrar F1| K[Resumen]
