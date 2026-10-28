@@ -510,6 +510,11 @@
         state.dashboardStep = 0;
         state.dialogOpen = false;
         state.cart = [];
+        state.a01ReviewRequired = false;
+        state.a01PreviousTotal = 0;
+        state.a01ReviewNote = '';
+        state.dashboardFinishing = false;
+        state.dashboardData = { title: '', code: '', name: '', checklist: [false, false, false], errors: '', notes: '' };
         loadStorage(state.cardId);
         render();
       });
@@ -559,6 +564,7 @@
     if (errorsInput) {
       errorsInput.addEventListener('input', function (e) {
         state.dashboardData.errors = e.target.value;
+        saveStorage(state.cardId);
       });
     }
 
@@ -566,6 +572,7 @@
     if (notesInput) {
       notesInput.addEventListener('input', function (e) {
         state.dashboardData.notes = e.target.value;
+        saveStorage(state.cardId);
       });
     }
 
@@ -615,6 +622,7 @@
       var item = btn.dataset.item;
       var delta = parseInt(btn.dataset.delta, 10);
       var cartItem = state.cart.find(function (c) { return c.id === item; });
+      var beforeEditTotal = calculateCartTotal();
       if (cartItem) {
         if (isV2 && state.cardId === 'IHC-A-02' && delta < 0 && cartItem.qty === 1) {
           openRemoval(item, btn.id);
@@ -625,7 +633,13 @@
           state.cart = state.cart.filter(function (c) { return c.id !== item; });
         }
       }
-      // En v1: no recalcula el total mostrado en A01 (permanece desactualizado)
+      // R7 A01: después de cambiar una cantidad se exige revisión explícita.
+      if (isV2 && state.cardId === 'IHC-A-01' && calculateCartTotal() !== beforeEditTotal) {
+        state.a01PreviousTotal = beforeEditTotal;
+        state.a01ReviewRequired = true;
+        state.a01ReviewNote = '';
+      }
+      // Se conserva el defecto original en v1 como línea base.
       render();
     } else if (action === 'remove') {
       var rmId = btn.dataset.item;
@@ -640,6 +654,15 @@
       if (isV2 && state.dialogOpen && state.itemToRemove) closeRemoval(true);
     } else if (action === 'remove-cancel') {
       if (isV2 && state.dialogOpen) closeRemoval(false);
+    } else if (action === 'review-total') {
+      if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewRequired) {
+        state.a01ReviewRequired = false;
+        state.a01ReviewNote = 'Desglose revisado. Puede confirmar su pedido.';
+        state.alertMessage = '';
+        render();
+        var confirmButton = document.querySelector('button[data-action="confirm"]');
+        if (confirmButton) confirmButton.focus();
+      }
     } else if (action === 'confirm') {
       handleConfirm();
     } else if (action === 'retry') {
@@ -656,6 +679,7 @@
       handleDashboardFinish();
     } else if (action === 'restart') {
       state.dashboardStep = 0;
+      state.dashboardFinishing = false;
       state.dashboardData = {
         title: '',
         code: '',
@@ -730,6 +754,14 @@
   // Confirmación de orden CaféU
   function handleConfirm() {
     state.alertMessage = '';
+    if (isV2 && state.isSubmitting) return;
+    if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewRequired) {
+      state.alertMessage = 'El importe cambió: revise el nuevo total antes de confirmar el pedido.';
+      render();
+      var reviewButton = document.getElementById('review-total');
+      if (reviewButton) reviewButton.focus();
+      return;
+    }
 
     // IHC-A-04: Alérgenos
     var hasSanduche = state.cart.some(function (c) { return c.id === 'sanduche'; });
@@ -741,7 +773,7 @@
 
     // IHC-A-05: Presupuesto USD 4,25
     var total = calculateCartTotal();
-    if (isV2 && total > 4.25) {
+    if (isV2 && state.cardId === 'IHC-A-05' && total > 4.25) {
       state.alertMessage = 'Presupuesto excedido: límite USD 4,25. Ajuste las cantidades antes de confirmar.';
       render();
       return;
