@@ -1,0 +1,14 @@
+{
+  "pages": 72,
+  "textExtracted": true,
+  "outOfMargins": [],
+  "replacementBoxes": 0,
+  "links": 545,
+  "file": "docs/Documentacion_Integral_IHC.pdf",
+  "sha256": "2f206cf058f480b951050ad57cfa1a1860ab79dba1057d04736f9c1786d15207",
+  "renderedPages": 72,
+  "visualReview": "Se revisaron las 72 páginas renderizadas y páginas de detalle; sin texto fuera de márgenes, recortes u objetos superpuestos.",
+  "font": "STIX General incorporada; licencia incluida en scripts/fonts/LICENSE_STIX",
+  "source": "docs/Documentacion_Integral_IHC.md",
+  "generator": "scripts/generar_documentacion.py"
+}

@@ -1,16 +1,20 @@
-# Casos de verificación manual (no ejecutados automáticamente)
+# Guion manual por tarjeta
 
-| Escenario | Versión | Pasos | Expectativa |
-|---|---|---|---|
-| A01 | v1 / v2 | Añadir dos productos, cambiar cantidad | v1 precio mostrado obsoleto; v2 refleja importe |
-| A02 | v1 / v2 | Tab al botón Quitar; Enter; Escape | v2 nombre y confirmación, v1 omisión |
-| A03 | v1 / v2 | Confirmar pedido | v2 identifica y resume; v1 solo Listo |
-| A04 | v1 / v2 | Añadir sin reconocer alérgenos, confirmar | v2 exige revisión, v1 permite |
-| A05 | v1 / v2 | Sobrepasar 4,25 con cantidades | v2 alerta y detiene envío |
-| A06 | v1 / v2 | Confirmar dos veces y simular offline | v2 única confirmación y estados claros |
-| A07 | v1 / v2 | Saltar al paso 4 sin completar | v2 bloquea salto con explicación |
-| A08 | v1 / v2 | Marcar checklist, avanzar y volver | v2 conserva marcas |
-| A09 | v1 / v2 | Registrar participante P-001 | v2 admite código, v1 pide nombre |
-| A10 | v1 / v2 | Navegar stepper con lector | v2 anuncia paso actual con semántica |
-| A11 | v1 / v2 | Ancho 360 px, recorrer pasos | v2 no superpone Card/Stepper |
-| A12 | v1 / v2 | Finalizar incompleto y recargar | v2 recupera marcas y bloquea cierre inválido |
+Repetir en navegador con teclado y, donde corresponda, lector de pantalla. Registrar versión, fecha y resultado; no marcar ejecutado por contar con una captura automática.
+
+| Tarjeta | Tarea y criterio |
+|---|---|
+| A01 | Un café y un sánduche suman USD 4,25; dos cafés y un sánduche USD 5,75. Agregar, quitar y variar cantidades invalidan la revisión. Antes de revisarla no se envía. |
+| A02 | Cancelar o Escape conserva el producto y enfoca el control que abrió el aviso; confirmar elimina solo el elegido. Reducir la última unidad también pide confirmación. |
+| A03 | El recibo utiliza la instantánea del envío. Hacer otro pedido vacía el carrito y produce otra referencia; regresar al carrito no reenvía el pedido recibido. |
+| A04 | Sin marcar la aceptación, Confirmar enfoca su casilla y explica el bloqueo. Nueva tarjeta o edición invalida la aceptación. Escape desde Detalle vuelve sin cambiar el carrito. |
+| A05 | USD 4,25 es admisible. USD 5,75 muestra exceso y no se procesa. Reducir cantidades conserva los demás productos y permite confirmar tras revisar los avisos aplicables. |
+| A06 | Durante pendiente no aparece éxito. Un fallo conserva datos y referencia; Reintentar puede completar una sola confirmación. Cambiar de tarjeta invalida callbacks anteriores. |
+| A07 | Con 0/3 o 2/3, Siguiente y el Stepper permanecen en Checklist, explican la falta y enfocan la casilla. Con 3/3 se permite avanzar sin perder marcas. |
+| A08 | Tras marcar, avanzar, volver y recargar, las marcas y campos guardados se recuperan en A08. Una excepción de almacenamiento se muestra como Sin guardar. |
+| A09 | Nombres, P-000 y códigos fuera del formato se rechazan con foco y explicación. P-001 y P-999 son válidos. El resumen muestra código y nunca interpreta notas como HTML. |
+| A10 | Tab y Enter recorren las etapas; después de avanzar el encabezado recibe foco y el estado textual cambia. La inspección de atributos y foco no reemplaza un ensayo con lector. |
+| A11 | A 360 x 800, los controles visibles no exceden el ancho y el documento no requiere desplazamiento horizontal. Se verifica Datos, Checklist, Observaciones, Revisión y Cierre. |
+| A12 | Con 2/3 se anuncia el ítem faltante y se enfoca su casilla. Se preservan campos y etapa; con 3/3 se verifica y guarda. Recargar restaura también la sesión cerrada válida. |
+
+Las sesiones humanas se registran en [pruebas/sesion.md](../pruebas/sesion.md).

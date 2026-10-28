@@ -2,9 +2,9 @@
 
 ## Entregables
 - 12 fichas con persona, tarea, restricción, fallo y 6 requisitos.
-- 72 filas de trazabilidad en docs/trazabilidad.md.
+- 74 filas de trazabilidad (72 base y dos R7) en docs/trazabilidad.md.
 - 12 sitemaps y 12 user flows Mermaid.
-- 48 wireframes Lo-Fi (inicio, acción, error y confirmación).
+- 50 wireframes Lo-Fi (48 base y dos R7) (inicio, acción, error y confirmación).
 
 ## Decisiones IHC
 **CaféU:** menú, detalle y carrito minimizan la necesidad de memorizar; la edición conserva datos y el resultado separa espera, error y acuse.

@@ -1,20 +1,19 @@
 flowchart TD
- A[Inicio CaféU A01] --> B[Menú: agregar café y sánduche]
- B --> C[Mi pedido: subtotales y total]
- C --> D{Editar cantidades E1}
- D -->|Sí| E[Recalcular subtotales y total]
- E --> F[Mostrar total anterior, nuevo y diferencia]
- F --> G{¿Revisión explícita completada?}
- G -->|No X1| H[Bloquear confirmar y solicitar revisión]
- H --> G
- G -->|Sí| I[Revisión acreditada en interfaz]
- D -->|No| I
- I --> J{¿Alérgenos aceptados?}
- J -->|No X1| K[Avisar y conservar carrito]
- K --> C
- J -->|Sí F1| L[Confirmar pedido]
- L --> M[Pendiente]
- M --> N{¿Resultado del envío?}
- N -->|Error X1| O[Reintentar o editar sin perder carrito]
- O --> C
- N -->|Recibido F1| P[Resumen final y acuse]
+ F1["Inicio y menú"] --> D["Consultar detalle y agregar"]
+ D --> P["Mi pedido: productos y total"]
+ P --> E1["Editar cantidades, agregar o quitar"]
+ E1 --> P
+ P --> Q{"¿Versión actual del pedido revisada?"}
+ Q -->|"Ruta de bloqueo/cancelación X1"| X1["Mostrar subtotal, total anterior/nuevo y diferencia; solicitar revisión"]
+ X1 --> P
+ Q -->|"Ruta válida F1"| A{"¿Avisos aplicables revisados?"}
+ A -->|"No"| X1
+ A -->|"Sí"| S["Crear instantánea y referencia del pedido"]
+ S --> V["Pendiente: bloquear cambios y segundo envío"]
+ V --> R{"¿Resultado local del envío?"}
+ R -->|"No confirmado"| ER["Error: conservar referencia y datos"]
+ ER -->|"Reintentar"| V
+ ER -->|"Editar E1"| P
+ R -->|"Recibido"| OK["Acuse y desglose de la instantánea"]
+ OK --> N["Nuevo pedido explícito"]
+ N --> F1

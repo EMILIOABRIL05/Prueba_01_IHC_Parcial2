@@ -1,11 +1,19 @@
 # Guía de ejecución y reproducción
 
-No requiere Node ni servidor para el prototipo: abre los archivos HTML de `prototipo/v1/` y `prototipo/v2/`.
+Servir desde la raíz con `python -m http.server 8000`. Abrir `/prototipo/v1/` o `/prototipo/v2/` y elegir la tarjeta. El servidor no agrega un backend de pedidos; ofrece un origen HTTP estable para archivos y almacenamiento.
 
-**Tarea CaféU:** ir a Menú → agregar café y sánduche → Mi pedido → editar cantidad → confirmar → observar procesamiento, error (cuando aplique) y recibo. La tarjeta 02 requiere repetir con Tab, Enter y Escape. En A04 abrir detalle y revisar alérgenos. En A05 incrementar hasta superar USD 4,25. En A06 activar «Simular fallo de red», confirmar, observar error, reintentar y comprobar duplicados.
+## CaféU
 
-**Tarea Dashboard:** registrar un título y un código P-001 → avanzar → checklist → registro de errores/observaciones → revisión → finalizar. En A07 intentar saltar de Datos a Revisión; en A08 marcar, salir y volver; en A09 comparar dato nominal vs seudónimo; en A10 comprobar paso actual sin color; en A11 estrechar ventana a 360 px; en A12 actualizar la página tras marcar checklist y contrastar recuperación.
+Inicio → Menú → Ver detalle (Escape vuelve) → Agregar → Mi pedido → editar o quitar → revisar total/avisos aplicables → confirmar → pendiente → error/reintento o recibo. En A01, cualquier edición exige revisar el total vigente; A05 aplica el presupuesto USD 4,25. Durante envío se bloquean cambios; después del acuse se usa Hacer otro pedido para iniciar un carrito vacío.
 
-**Capturas requeridas:** cada tarjeta tiene directorio preparado en `evidencias/` (usar capturas propias). Se recomienda screenshot del fallo v1, de la corrección v2, del Issue en GitHub y de la prueba realmente realizada.
+## Dashboard UX
 
-**Limitación:** no hay comunicación de red real; latencia y error son simulados con temporizador. No se debe atribuir a un servicio de pedidos existente.
+Datos y procedimiento → título/código P-001 a P-999 → Checklist → Observaciones → Revisión → Verificando → Sesión cerrada. A07 bloquea salir de Checklist incompleto. A12 permite llegar a la revisión de pendientes, pero no cerrar hasta completar 3/3; el error lleva a la casilla faltante. A08/A12 conservan el progreso y el cierre en este navegador; compruebe Guardado/Sin guardar. Errores debe ser un entero no negativo.
+
+## Validación
+
+Seguir [tests/README.md](../tests/README.md). La prueba HTTP usa ambas implementaciones reales, no una página reconstruida con fuentes compartidas. Capturas y metadatos se guardan en una salida nueva. [Evidencia actual](../evidencias/ejecucion-actual/README.md).
+
+## Práctica con personas
+
+Usar [pruebas/sesion.md](../pruebas/sesion.md). Registrar observación externa, cita auténtica y captura de esa ejecución. No reutilizar imágenes técnicas para acreditar participantes.

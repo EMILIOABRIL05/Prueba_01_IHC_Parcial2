@@ -1,11 +1,5 @@
-# Verificaciones complementarias automatizadas
+# Resultados actuales e históricos
 
-> Estas verificaciones en navegador no son observación humana.
+La ejecución vigente y sus metadatos están en [evidencias/ejecucion-actual](../evidencias/ejecucion-actual/README.md): 41/41 casos de navegador.
 
-| Caso | Resultado |
-|---|---|
-| Tarjeta 02: Enter y Escape con foco | OK |
-| Tarjeta 06: desconexión y recuperación | OK |
-| Tarjeta 04: confirmar tras leer advertencia | OK |
-| Tarjeta 09: validación seudónimos | OK |
-| 12 tarjetas: pantalla de 360px en v2 | OK |
+El [reporte anterior](historico/resultados_adicionales.md) se conserva por procedencia; no acredita el código actual.

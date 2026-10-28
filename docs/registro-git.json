@@ -1,0 +1,448 @@
+{
+  "observedAt": "2026-10-28T21:24:25.992Z",
+  "main": "5c5252962805b24468a8b98fca8ddd78a6cb84fd",
+  "implementation": "787a4fd22baded030dd132343295b952f6290790",
+  "branch": "william/correcciones-integrales-documentacion",
+  "issues": [
+    {
+      "number": 18,
+      "title": "[IMPLEMENTACIÓN SELECCIONADA][A12] R7 — Dashboard UX",
+      "state": "open",
+      "assignees": [
+        "EMILIOABRIL05"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/18"
+    },
+    {
+      "number": 17,
+      "title": "[IMPLEMENTACIÓN SELECCIONADA][A01] R7 — CaféU",
+      "state": "open",
+      "assignees": [
+        "EMILIOABRIL05"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/17"
+    },
+    {
+      "number": 15,
+      "title": "[PREPARACIÓN · NO INCIDENCIA OFICIAL] Ensayo técnico R7 de las 12 tarjetas",
+      "state": "open",
+      "assignees": [
+        "EMILIOABRIL05"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/15"
+    },
+    {
+      "number": 8,
+      "title": "[Hallazgo][A12][Alta] Cierre exitoso sin validar checklist obligatorio",
+      "state": "closed",
+      "assignees": [
+        "Jonathan305g",
+        "idk-Damian"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/8"
+    },
+    {
+      "number": 7,
+      "title": "[Hallazgo][A02][Alta] Quitar carece de nombre accesible y confirmación",
+      "state": "closed",
+      "assignees": [
+        "idk-Damian",
+        "william-martinez5101"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/7"
+    },
+    {
+      "number": 6,
+      "title": "[Hallazgo][A01][Alta] Total no se actualiza al cambiar cantidades",
+      "state": "closed",
+      "assignees": [
+        "ManuelCusme",
+        "idk-Damian"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/6"
+    },
+    {
+      "number": 5,
+      "title": "[Fases 4–5][Jhonatan Gamboa] Prueba cognitiva, evidencias y defensa",
+      "state": "closed",
+      "assignees": [
+        "Jonathan305g"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/5"
+    },
+    {
+      "number": 4,
+      "title": "[Fase 4][Pablo Lozada] Corrección v2, accesibilidad y antes/después",
+      "state": "closed",
+      "assignees": [
+        "idk-Damian"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/4"
+    },
+    {
+      "number": 3,
+      "title": "[Fase 3][William Martínez] Prototipo v1 y reproducción de fallos",
+      "state": "closed",
+      "assignees": [
+        "william-martinez5101"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/3"
+    },
+    {
+      "number": 2,
+      "title": "[Fase 2][Emilio Abril] Requisitos, sitemap, user flows y trazabilidad",
+      "state": "closed",
+      "assignees": [
+        "EMILIOABRIL05"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/2"
+    },
+    {
+      "number": 1,
+      "title": "[Fase 1][Manuel Cusme] Diagnóstico emocional de las 12 tarjetas",
+      "state": "closed",
+      "assignees": [
+        "ManuelCusme"
+      ],
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/1"
+    }
+  ],
+  "pulls": [
+    {
+      "number": 19,
+      "title": "[IHC][R7] Implementar incidencias elegidas A01 y A12 en v2",
+      "state": "closed",
+      "author": "EMILIOABRIL05",
+      "head": "a38fad177ebfe3935c1512bfd9fc871edfbc5b05",
+      "mergedAt": "2026-10-28T17:47:54Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/19"
+    },
+    {
+      "number": 16,
+      "title": "[IHC][Preparación] Simulador funcional y R7 para 12 incidencias sorpresa",
+      "state": "closed",
+      "author": "EMILIOABRIL05",
+      "head": "5bf63a2a5ddb29b7450733616aabc64809cb9080",
+      "mergedAt": "2026-10-28T17:35:00Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/16"
+    },
+    {
+      "number": 14,
+      "title": "fix(A02): mejorar confirmación de eliminación y restauración del foco (#7)",
+      "state": "closed",
+      "author": "william-martinez5101",
+      "head": "b1544f512aa07055eaae69cd8b6033bc63dd0f48",
+      "mergedAt": "2026-10-28T17:13:39Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/14"
+    },
+    {
+      "number": 13,
+      "title": "feat(v1): integrar prototipo y reproducción de fallos A01–A12 (#3)",
+      "state": "closed",
+      "author": "william-martinez5101",
+      "head": "68d5c3656e4177ea0ab852d66ed9e841d7c66306",
+      "mergedAt": "2026-10-28T16:59:38Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/13"
+    },
+    {
+      "number": 12,
+      "title": "[Fase 4][Pablo Lozada] Prototipo v2, accesibilidad WCAG y comparativas antes/después",
+      "state": "closed",
+      "author": "idk-Damian",
+      "head": "2c4daa782ea6dc397dfb789dc5c5590562c9982f",
+      "mergedAt": "2026-10-28T16:53:33Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/12"
+    },
+    {
+      "number": 11,
+      "title": "[Fase 1] Diagnóstico emocional y hallazgos UX - Manuel Cusme",
+      "state": "closed",
+      "author": "ManuelCusme",
+      "head": "b76c3f2d4b137e25143bb1e1713bc58f1ab9e39d",
+      "mergedAt": "2026-10-28T17:10:18Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/11"
+    },
+    {
+      "number": 10,
+      "title": "[IHC] Protocolo de pruebas cognitivas, evidencias v1/v2 y hallazgo A12 (Jonathan Gamboa)",
+      "state": "closed",
+      "author": "Jonathan305g",
+      "head": "8a1b208ce6e8d236581a98f2f0773f25ef784b2c",
+      "mergedAt": "2026-10-28T16:37:48Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/10"
+    },
+    {
+      "number": 9,
+      "title": "[IHC] Arquitectura y trazabilidad de las 12 tarjetas (Emilio Abril)",
+      "state": "closed",
+      "author": "EMILIOABRIL05",
+      "head": "0f17c013eec6431b3f5b64c3a180b054e48db1d8",
+      "mergedAt": "2026-10-28T16:44:10Z",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/9"
+    }
+  ],
+  "commits": [
+    {
+      "sha": "5c5252962805b24468a8b98fca8ddd78a6cb84fd",
+      "date": "2026-10-28T17:47:54Z",
+      "author": "ManuelCusme",
+      "message": "Merge pull request #19 from EMILIOABRIL05/emilio/implementacion-a01-a12-r7\n\n[IHC][R7] Implementar incidencias elegidas A01 y A12 en v2",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/5c5252962805b24468a8b98fca8ddd78a6cb84fd"
+    },
+    {
+      "sha": "a38fad177ebfe3935c1512bfd9fc871edfbc5b05",
+      "date": "2026-10-28T17:45:01Z",
+      "author": "EMILIOABRIL05",
+      "message": "docs+test(r7): trazabilidad A01/A12, wireframes y 7 pruebas de integración (#17 #18)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/a38fad177ebfe3935c1512bfd9fc871edfbc5b05"
+    },
+    {
+      "sha": "033e6334b96660f543269d7da214204ae08ff101",
+      "date": "2026-10-28T17:42:12Z",
+      "author": "EMILIOABRIL05",
+      "message": "feat(r7-a12): impedir falso cierre y conservar progreso al corregir (#18)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/033e6334b96660f543269d7da214204ae08ff101"
+    },
+    {
+      "sha": "9d82a2077b7d22796d358b9d4708b84ad6f40c4b",
+      "date": "2026-10-28T17:41:45Z",
+      "author": "EMILIOABRIL05",
+      "message": "feat(r7-a01): obligar revisión de diferencia de precio antes del pedido (#17)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/9d82a2077b7d22796d358b9d4708b84ad6f40c4b"
+    },
+    {
+      "sha": "7a3daf77a9932941e7d1d40fb0966e89af308c62",
+      "date": "2026-10-28T17:41:19Z",
+      "author": "EMILIOABRIL05",
+      "message": "feat(r7): mostrar estados de revisión A01 y cierre A12 (#17 #18)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/7a3daf77a9932941e7d1d40fb0966e89af308c62"
+    },
+    {
+      "sha": "dba76b961c30da992462d5ffd6147f61410ec02e",
+      "date": "2026-10-28T17:34:59Z",
+      "author": "EMILIOABRIL05",
+      "message": "Merge pull request #16 from EMILIOABRIL05/emilio/preparacion-incidencias-12\n\n[IHC][Preparación] Simulador funcional y R7 para 12 incidencias sorpresa",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/dba76b961c30da992462d5ffd6147f61410ec02e"
+    },
+    {
+      "sha": "5bf63a2a5ddb29b7450733616aabc64809cb9080",
+      "date": "2026-10-28T17:32:45Z",
+      "author": "EMILIOABRIL05",
+      "message": "fix(ihc): aclarar importe A01 usando precio unitario real de café (#15)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/5bf63a2a5ddb29b7450733616aabc64809cb9080"
+    },
+    {
+      "sha": "360d1a543b22c721763cea2536c95044b1bebaeb",
+      "date": "2026-10-28T17:30:51Z",
+      "author": "EMILIOABRIL05",
+      "message": "fix(ihc): alinear 12 curvas y severidad P3 en diagnóstico (#15)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/360d1a543b22c721763cea2536c95044b1bebaeb"
+    },
+    {
+      "sha": "6c4b5401d4a06a15b87f0b41629f06a44e8ddbdb",
+      "date": "2026-10-28T17:27:45Z",
+      "author": "EMILIOABRIL05",
+      "message": "feat(ihc): preparar simulador, flujos y R7 de 12 incidencias (#15)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/6c4b5401d4a06a15b87f0b41629f06a44e8ddbdb"
+    },
+    {
+      "sha": "c1af035e0ee2bf3f76b98e2a86576133f1ebf7db",
+      "date": "2026-10-28T17:13:38Z",
+      "author": "william-martinez5101",
+      "message": "Merge pull request #14 from EMILIOABRIL05/william/issue-7-quitar-accesible\n\nfix(A02): mejorar confirmación de eliminación y restauración del foco (#7)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/c1af035e0ee2bf3f76b98e2a86576133f1ebf7db"
+    },
+    {
+      "sha": "1996e1e8f119d4acc789b2787e6de6770b7364e4",
+      "date": "2026-10-28T17:10:17Z",
+      "author": "EMILIOABRIL05",
+      "message": "Merge pull request #11 from EMILIOABRIL05/manuel/diagnostico\n\n[Fase 1] Diagnóstico emocional y hallazgos UX - Manuel Cusme",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/1996e1e8f119d4acc789b2787e6de6770b7364e4"
+    },
+    {
+      "sha": "b1544f512aa07055eaae69cd8b6033bc63dd0f48",
+      "date": "2026-10-28T17:10:12Z",
+      "author": "william-martinez5101",
+      "message": "test(a02): verificar cancelación y foco y documentar comparación v1-v2 (Refs #7)\n\nAñadir 11 pruebas de manejadores/HTML, resultado ejecutado y guion de navegador con captura comparativa pendiente. Reconocer el aporte previo de Pablo y distinguir evidencia técnica de sesión humana.",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/b1544f512aa07055eaae69cd8b6033bc63dd0f48"
+    },
+    {
+      "sha": "ba44d3e831ff7b52c4902a486e33480e8e16a32d",
+      "date": "2026-10-28T17:09:58Z",
+      "author": "william-martinez5101",
+      "message": "fix(a02): contener diálogo de quitar y restaurar foco exacto (Refs #7)\n\nComplementar la base v2 del PR #12 con cancelación segura, foco por producto, fondo inerte y confirmación al reducir la última unidad. Conservar v1 para reproducción.",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/ba44d3e831ff7b52c4902a486e33480e8e16a32d"
+    },
+    {
+      "sha": "b76c3f2d4b137e25143bb1e1713bc58f1ab9e39d",
+      "date": "2026-10-28T17:03:56Z",
+      "author": "ManuelCusme",
+      "message": "merge: integrar diagnostico emocional con cambios de main",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/b76c3f2d4b137e25143bb1e1713bc58f1ab9e39d"
+    },
+    {
+      "sha": "79eac43b60f560e48f561a5bee43978aad486628",
+      "date": "2026-10-28T16:59:38Z",
+      "author": "william-martinez5101",
+      "message": "Merge pull request #13 from EMILIOABRIL05/william/prototipo-v1\n\nfeat(v1): integrar prototipo y reproducción de fallos A01–A12 (#3)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/79eac43b60f560e48f561a5bee43978aad486628"
+    },
+    {
+      "sha": "68d5c3656e4177ea0ab852d66ed9e841d7c66306",
+      "date": "2026-10-28T16:57:16Z",
+      "author": "william-martinez5101",
+      "message": "merge(main): resolver entrada independiente de v1 (Refs #3)\n\nIntegrar los cambios actuales de main en william/prototipo-v1. Resolver el conflicto de index.html conservando recursos locales de v1 y el aviso noscript. Mantener intactos los demás aportes del equipo.",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/68d5c3656e4177ea0ab852d66ed9e841d7c66306"
+    },
+    {
+      "sha": "78d29df91b2b78b55883ccab42e88ed9c3171bd3",
+      "date": "2026-10-28T16:53:32Z",
+      "author": "Jonathan305g",
+      "message": "Merge pull request #12 from EMILIOABRIL05/pablo/prototipo-v2\n\n[Fase 4][Pablo Lozada] Prototipo v2, accesibilidad WCAG y comparativas antes/después",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/78d29df91b2b78b55883ccab42e88ed9c3171bd3"
+    },
+    {
+      "sha": "e9656ae3e43167d47734d059772440870716f86f",
+      "date": "2026-10-28T16:49:29Z",
+      "author": "william-martinez5101",
+      "message": "test(v1): documentar reproducción y evidencias técnicas (Refs #3)\n\nAñadir 24 comprobaciones de fuente/lógica, guion de navegador pendiente y doce capturas v1 del ZIP con procedencia SHA-256. Distinguir ejecución técnica, material base y verificación humana pendiente.",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/e9656ae3e43167d47734d059772440870716f86f"
+    },
+    {
+      "sha": "d1daa11e8bb8180a78f62598ebf054f85e9657de",
+      "date": "2026-10-28T16:48:51Z",
+      "author": "Jonathan305g",
+      "message": "Rename README-JHONATAN.md to README-JONATHAN.md",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/d1daa11e8bb8180a78f62598ebf054f85e9657de"
+    },
+    {
+      "sha": "02be511117de2a316d52c88103b593dd3903917e",
+      "date": "2026-10-28T16:47:14Z",
+      "author": "Jonathan305g",
+      "message": "docs: restaurar README-JHONATAN.md con resumen completo de entregables",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/02be511117de2a316d52c88103b593dd3903917e"
+    },
+    {
+      "sha": "2c4daa782ea6dc397dfb789dc5c5590562c9982f",
+      "date": "2026-10-28T16:46:23Z",
+      "author": "idk-Damian",
+      "message": "feat(prototipo): implementar prototipo v2, accesibilidad WCAG y matriz antes/despues (#4)\n\n- Prototipo interactivo v1 (reproduccion) y v2 (refinado) para 12 tarjetas\n- Cumplimiento WCAG 2.1 AA (foco visible, teclado Tab/Enter/Escape, aria-current, semantica)\n- Resolucion de hallazgo de referencia A06 (doble pulsacion) y hallazgos A01 (#6), A02 (#7), A12 (#8)\n- Matriz de decisiones y comparativas en docs/decisiones.md\n- Guia de defensa oral y revision tecnica fundamentada de PR #9\n- Closes #4, Refs #6, Refs #7, Refs #8",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/2c4daa782ea6dc397dfb789dc5c5590562c9982f"
+    },
+    {
+      "sha": "b8cde7717dffd61e0bbde8b68a0949c57130d505",
+      "date": "2026-10-28T16:45:38Z",
+      "author": "william-martinez5101",
+      "message": "feat(v1): integrar prototipo y pantallas A01-A12 (Refs #3)\n\nAislar la entrada v1 y sus recursos del ZIP del equipo; fijar la versión y documentar los recorridos reproducibles. Incluye solo prototipo/v1.",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/b8cde7717dffd61e0bbde8b68a0949c57130d505"
+    },
+    {
+      "sha": "9a58227eeaaae424f40d619bfcf54aacc5daf39e",
+      "date": "2026-10-28T16:45:28Z",
+      "author": "Jonathan305g",
+      "message": "Merge branch 'main' of https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/9a58227eeaaae424f40d619bfcf54aacc5daf39e"
+    },
+    {
+      "sha": "699e07a8181942b3bf1284bfbc90e39468ed2702",
+      "date": "2026-10-28T16:44:59Z",
+      "author": "Jonathan305g",
+      "message": "feat(evidencias): incrustar capturas comparativas v1/v2 y completar acta de prueba A12 (#5, #8)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/699e07a8181942b3bf1284bfbc90e39468ed2702"
+    },
+    {
+      "sha": "ad6d066e5d5b7b08af7be8b11ba92b94018ae68c",
+      "date": "2026-10-28T16:44:09Z",
+      "author": "ManuelCusme",
+      "message": "Merge pull request #9 from EMILIOABRIL05/emilio/arquitectura\n\n[IHC] Arquitectura y trazabilidad de las 12 tarjetas (Emilio Abril)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/ad6d066e5d5b7b08af7be8b11ba92b94018ae68c"
+    },
+    {
+      "sha": "d104015064d48fbf9877e196b6d8ec6eea207d39",
+      "date": "2026-10-28T16:40:30Z",
+      "author": "ManuelCusme",
+      "message": "docs: incorporar hallazgos de usabilidad y criterios de severidad",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/d104015064d48fbf9877e196b6d8ec6eea207d39"
+    },
+    {
+      "sha": "a6dc7e29541eb672e67437b071447b421f39c7eb",
+      "date": "2026-10-28T16:39:21Z",
+      "author": "Jonathan305g",
+      "message": "chore: eliminar README-JHONATAN.md tras merge de PR #10",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/a6dc7e29541eb672e67437b071447b421f39c7eb"
+    },
+    {
+      "sha": "ae96e73925cd3f30a519f095d6c80fc35013c029",
+      "date": "2026-10-28T16:37:56Z",
+      "author": "ManuelCusme",
+      "message": "docs: incorporar curvas emocionales iniciales de las 12 tarjetas",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/ae96e73925cd3f30a519f095d6c80fc35013c029"
+    },
+    {
+      "sha": "626e693ee6bc1183cedd900ea380a22f4ac7e556",
+      "date": "2026-10-28T16:37:48Z",
+      "author": "Jonathan305g",
+      "message": "Merge pull request #10 from EMILIOABRIL05/jhonatan/pruebas\n\n[IHC] Protocolo de pruebas cognitivas, evidencias v1/v2 y hallazgo A12 (Jonathan Gamboa)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/626e693ee6bc1183cedd900ea380a22f4ac7e556"
+    },
+    {
+      "sha": "3ea647b6472219996544f5c07980bf06b78f4d6a",
+      "date": "2026-10-28T16:35:01Z",
+      "author": "ManuelCusme",
+      "message": "docs: incorporar diagnostico emocional y touchpoints de las 12 tarjetas",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/3ea647b6472219996544f5c07980bf06b78f4d6a"
+    },
+    {
+      "sha": "8a1b208ce6e8d236581a98f2f0773f25ef784b2c",
+      "date": "2026-10-28T16:32:49Z",
+      "author": "Jonathan305g",
+      "message": "docs(defensa): estructurar defensa IHC-A-12 y revisión fundamentada de PR #9 (#5, #8)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/8a1b208ce6e8d236581a98f2f0773f25ef784b2c"
+    },
+    {
+      "sha": "d3086fa493eb420cac0690c0274c65653f247bc7",
+      "date": "2026-10-28T16:32:44Z",
+      "author": "Jonathan305g",
+      "message": "test(evidencias): registrar capturas comparativas v1/v2 y casos de prueba técnicos (#8)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/d3086fa493eb420cac0690c0274c65653f247bc7"
+    },
+    {
+      "sha": "2e7c459f1c3ff782ea85d156a6a37f6631fa38cf",
+      "date": "2026-10-28T16:32:39Z",
+      "author": "Jonathan305g",
+      "message": "docs(pruebas): preparar protocolo y 12 actas de sesión cognitiva (#5)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/2e7c459f1c3ff782ea85d156a6a37f6631fa38cf"
+    },
+    {
+      "sha": "0f17c013eec6431b3f5b64c3a180b054e48db1d8",
+      "date": "2026-10-28T16:26:56Z",
+      "author": "EMILIOABRIL05",
+      "message": "docs(figma): preparar tableros SVG de las 12 tarjetas (#2)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/0f17c013eec6431b3f5b64c3a180b054e48db1d8"
+    },
+    {
+      "sha": "2d49eab697960b4a75cfc720012ed53c5f0a8ee1",
+      "date": "2026-10-28T16:17:03Z",
+      "author": "EMILIOABRIL05",
+      "message": "feat(ihc): diseñar requisitos, flujos y wireframes para 12 tarjetas (#2)",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/2d49eab697960b4a75cfc720012ed53c5f0a8ee1"
+    },
+    {
+      "sha": "33a750a7d4316c78dc17d26f7c92e049b8dc2f34",
+      "date": "2026-10-28T16:13:37Z",
+      "author": "EMILIOABRIL05",
+      "message": "chore: inicializar repositorio IHC con guía de integración",
+      "url": "https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/33a750a7d4316c78dc17d26f7c92e049b8dc2f34"
+    }
+  ],
+  "branchCommits": [
+    {
+      "sha": "787a4fd22baded030dd132343295b952f6290790",
+      "message": "fix(ihc): cerrar brechas de revisión, navegación, persistencia y foco"
+    },
+    {
+      "sha": "24beaa419eb2bda20a3596eaa50efcae70a54f90",
+      "message": "test(ihc): verificar 41 casos HTTP reales y conservar evidencia actual"
+    }
+  ]
+}

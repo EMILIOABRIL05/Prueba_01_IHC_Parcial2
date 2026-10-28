@@ -36,9 +36,9 @@ def test_archivos_obligatorios():
 
 def test_evidencias_capturas():
     print("2. Comprobando capturas técnicas comparativas (24 imágenes)...")
-    dir_cap = ROOT / "evidencias" / "capturas-tecnicas"
+    dir_cap = ROOT / "evidencias" / "ejecucion-actual"
     if not dir_cap.exists():
-        raise AssertionError("Directorio evidencias/capturas-tecnicas no existe.")
+        raise AssertionError("Directorio evidencias/ejecucion-actual no existe.")
     
     faltantes = []
     for i in range(1, 13):
@@ -90,18 +90,18 @@ def test_codigo_app_js():
     assert "role=\"dialog\"" in app_text or 'role="dialog"' in app_text, "A02 modal accesible"
     assert "remove-ok" in app_text, "A02 confirmación de borrado"
     assert "Escape" in app_text, "A02 tecla escape"
-    assert "#CU-104" in app_text, "A03 acuse de recibo"
+    assert "state.receipt.id" in app_text and "orderSequence" in app_text, "A03 referencia por pedido"
     assert "summ-total" in app_text, "A03 resumen final"
     assert "ackAllergens" in app_text or 'ack' in app_text, "A04 alérgenos"
     assert "4.25" in app_text, "A05 presupuesto límite"
     assert "disabled" in app_text, "A06 bloqueo doble click"
     assert "offline" in app_text and "retry" in app_text, "A06 modo offline y reintento"
-    assert "targetStep > state.dashboardStep" in app_text, "A07 bloqueo salto stepper"
+    assert "navigationProblem" in app_text and "checklistProblem" in app_text, "A07 validadores compartidos"
     assert "check-" in app_text, "A08 checklist"
     assert "code" in app_text, "A09 código anónimo"
     assert "aria-current" in app_text, "A10 semántica activa"
     assert "ihc_a12_state" in app_text or "localStorage" in app_text, "A12 persistencia"
-    print("  [OK] Todas las reglas de negocio y accesibilidad de app.js verificadas.")
+    print("  [OK] Referencias de implementación presentes; ejecutar navegador_integral.py para comprobar comportamiento.")
 
 def main():
     print("=== Comprobación de Entregables · Pablo Lozada (Fase 4) ===")
@@ -112,7 +112,7 @@ def main():
         test_scenarios_js()
         test_prototipos_html()
         test_codigo_app_js()
-        print("\n[ÉXITO] Todos los entregables del Issue #4 y prototipo v2 están completos y conformes.")
+        print("\n[ÉXITO] Comprobaciones estáticas conformes; no acreditan conformidad WCAG, pruebas humanas ni cierre total del trabajo.")
         return 0
     except AssertionError as e:
         print(f"\n[FALLO] {e}")

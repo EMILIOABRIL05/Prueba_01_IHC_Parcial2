@@ -1,0 +1,218 @@
+[
+  {
+    "n": 1,
+    "title": "Compra rápida y revisión del importe",
+    "persona": "Estudiante de primer nivel que compra entre clases",
+    "task": "Agregar café y sánduche, variar cantidad y confirmar",
+    "constraint": "Tres minutos; pantalla de 360 px",
+    "failure": "El total permanece obsoleto al variar cantidades",
+    "critical": "Cada cambio del pedido actualiza subtotales y total; en A01 se exige revisar la versión vigente del carrito antes de confirmar.",
+    "accept": "Un café y un sánduche suman USD 4,25; dos cafés y un sánduche USD 5,75. Agregar, quitar y variar cantidades invalidan la revisión. Antes de revisarla no se envía.",
+    "mot": {
+      "5": "Editar cantidades y comprobar el nuevo total",
+      "8": "Comprobar el acuse y el importe del pedido recibido"
+    },
+    "control": "Subtotal, total, diferencia y revisión explícita",
+    "method": "Visibilidad del estado y prevención de errores: el importe revisado corresponde al pedido enviado.",
+    "code": "cartChanged / cartSignature / handleConfirm",
+    "check": "A01-agregar-invalida-revision; A01-quitar-invalida-revision"
+  },
+  {
+    "n": 2,
+    "title": "Pedido completo por teclado",
+    "persona": "Estudiante que usa teclado por una lesión temporal",
+    "task": "Editar y finalizar un pedido con Tab, Enter y Escape",
+    "constraint": "Operar sin ratón y mantener el foco visible",
+    "failure": "Quitar no identifica el producto y elimina sin confirmación",
+    "critical": "Quitar identifica acción y producto; abre un diálogo con Cancelar inicial, Escape, ciclo de foco y retorno al disparador.",
+    "accept": "Cancelar o Escape conserva el producto y enfoca el control que abrió el aviso; confirmar elimina solo el elegido. Reducir la última unidad también pide confirmación.",
+    "mot": {
+      "5": "Quitar un producto y decidir si se conserva",
+      "8": "Confirmar el resultado sin perder la ubicación del teclado"
+    },
+    "control": "Quitar, diálogo, Cancelar y foco por producto",
+    "method": "Control y libertad; reconocimiento de la acción; prevención del borrado accidental.",
+    "code": "openRemoval / closeRemoval / render",
+    "check": "IHC-A-02-v2; A04-detalle-Escape"
+  },
+  {
+    "n": 3,
+    "title": "Acuse visible y privacidad",
+    "persona": "Estudiante que comparte el dispositivo y debe retirarse",
+    "task": "Confirmar un pedido y comprobar que se recibió",
+    "constraint": "No solicitar ni conservar datos personales o financieros",
+    "failure": "El resultado dice Listo sin número ni desglose",
+    "critical": "El acuse identifica el pedido y muestra sus productos, cantidades y total, sin datos personales.",
+    "accept": "El recibo utiliza la instantánea del envío. Hacer otro pedido vacía el carrito y produce otra referencia; regresar al carrito no reenvía el pedido recibido.",
+    "mot": {
+      "7": "Enviar la solicitud y reconocer que sigue pendiente",
+      "8": "Leer el identificador y comprobar el detalle recibido"
+    },
+    "control": "Recibo, identificador por intención y nuevo pedido",
+    "method": "Visibilidad del estado, reconocimiento y minimización de datos.",
+    "code": "handleConfirm / pendingOrder / receipt / startNewOrder",
+    "check": "A03-pedido-nuevo-e-identificador"
+  },
+  {
+    "n": 4,
+    "title": "Ingredientes, alérgenos y corrección",
+    "persona": "Estudiante con una alergia alimentaria declarada",
+    "task": "Consultar el detalle de producto, revisar alérgenos y corregir el pedido",
+    "constraint": "Mostrar advertencias antes de confirmar y permitir volver sin perder el carrito",
+    "failure": "Se permite confirmar sin reconocer la advertencia",
+    "critical": "Detalle y carrito exponen los alérgenos. El pedido con sánduche no se confirma sin aceptar el aviso correspondiente al carrito actual.",
+    "accept": "Sin marcar la aceptación, Confirmar enfoca su casilla y explica el bloqueo. Nueva tarjeta o edición invalida la aceptación. Escape desde Detalle vuelve sin cambiar el carrito.",
+    "mot": {
+      "3": "Consultar ingredientes y alérgenos del producto",
+      "7": "Revisar la advertencia antes de confirmar"
+    },
+    "control": "Detalle, aviso de Gluten/Lactosa y casilla de aceptación",
+    "method": "Prevención de errores y proximidad entre información de riesgo y acción.",
+    "code": "renderCafeU detail / ackAllergens / cartChanged / handleConfirm",
+    "check": "A04-aceptacion-contextual; A04-detalle-Escape"
+  },
+  {
+    "n": 5,
+    "title": "Pedido dentro del presupuesto",
+    "persona": "Estudiante con presupuesto máximo de USD 4,25",
+    "task": "Agregar productos y ajustar cantidades antes de confirmar",
+    "constraint": "Advertir el exceso y no enviar un pedido superior a USD 4,25",
+    "failure": "La edición produce un sobrecosto sin aviso",
+    "critical": "El carrito muestra el total y alerta si excede USD 4,25; la confirmación queda bloqueada hasta ajustar.",
+    "accept": "USD 4,25 es admisible. USD 5,75 muestra exceso y no se procesa. Reducir cantidades conserva los demás productos y permite confirmar tras revisar los avisos aplicables.",
+    "mot": {
+      "5": "Ajustar las cantidades al presupuesto",
+      "6": "Comparar total y límite antes de enviar"
+    },
+    "control": "Total, límite, aviso de exceso y cantidades",
+    "method": "Prevención de errores y carga cognitiva: el usuario compara importes visibles.",
+    "code": "calculateCartTotal / renderCafeU / handleConfirm A05",
+    "check": "IHC-A-05-v2"
+  },
+  {
+    "n": 6,
+    "title": "Envío único y conexión inestable",
+    "persona": "Estudiante que confirma desde una red móvil inestable",
+    "task": "Confirmar una vez, reconocer un fallo y reintentar sin duplicar",
+    "constraint": "Distinguir pendiente, no confirmado y recibido",
+    "failure": "Pulsar dos veces genera solicitudes duplicadas",
+    "critical": "Mientras se procesa se bloquean las mutaciones y el reenvío. El reintento conserva la referencia lógica y el recibo describe la instantánea enviada.",
+    "accept": "Durante pendiente no aparece éxito. Un fallo conserva datos y referencia; Reintentar puede completar una sola confirmación. Cambiar de tarjeta invalida callbacks anteriores.",
+    "mot": {
+      "7": "Enviar y esperar sin repetir la intención",
+      "8": "Distinguir el fallo del acuse confirmado"
+    },
+    "control": "Pendiente, referencia, error, reintento y recibo inmutable",
+    "method": "Visibilidad del estado, consistencia y recuperación de errores.",
+    "code": "operation / pendingOrder / handleConfirm / cancelOperation",
+    "check": "A06-pedido-inmutable-y-sin-reenvio; A06-cancelar-operacion-al-cambiar-tarjeta"
+  },
+  {
+    "n": 7,
+    "title": "Secuencia obligatoria y paso actual",
+    "persona": "Investigadora novata que prepara una prueba de usabilidad",
+    "task": "Configurar datos, completar checklist y avanzar por etapas",
+    "constraint": "Identificar el paso actual y bloquear omisiones de pasos obligatorios",
+    "failure": "El Stepper permite saltar verificaciones incompletas",
+    "critical": "Siguiente y Stepper comparten validación. En A07, salir del Checklist requiere sus tres verificaciones.",
+    "accept": "Con 0/3 o 2/3, Siguiente y el Stepper permanecen en Checklist, explican la falta y enfocan la casilla. Con 3/3 se permite avanzar sin perder marcas.",
+    "mot": {
+      "3": "Reconocer el paso actual y la secuencia",
+      "4": "Intentar avanzar con verificaciones pendientes"
+    },
+    "control": "Stepper, validación compartida y primer campo pendiente",
+    "method": "Consistencia, reconocimiento y prevención de errores de secuencia.",
+    "code": "navigationProblem / handleStepClick / checklistProblem",
+    "check": "IHC-A-07-v2"
+  },
+  {
+    "n": 8,
+    "title": "Procedimiento y guardado del checklist",
+    "persona": "Docente evaluador que prepara una sesión contrarreloj",
+    "task": "Leer el procedimiento y completar datos y checklist",
+    "constraint": "Conservar marcas e informar el estado de guardado",
+    "failure": "Las casillas se pierden al cambiar de etapa",
+    "critical": "La guía explica la secuencia antes de iniciar; las marcas se conservan al ir y volver, con indicador de guardado real.",
+    "accept": "Tras marcar, avanzar, volver y recargar, las marcas y campos guardados se recuperan en A08. Una excepción de almacenamiento se muestra como Sin guardar.",
+    "mot": {
+      "2": "Comprender el procedimiento antes de comenzar",
+      "4": "Guardar y recuperar las verificaciones marcadas"
+    },
+    "control": "Guía inicial, checklist e indicador de guardado",
+    "method": "Memoria externa, consistencia y feedback sobre conservación.",
+    "code": "storageKey A08 / saveStorage / loadStorage / save-status",
+    "check": "IHC-A-08-v2"
+  },
+  {
+    "n": 9,
+    "title": "Resultados con código anónimo",
+    "persona": "Investigadora que trabaja con participantes anónimos",
+    "task": "Registrar observaciones y cerrar sin publicar nombres",
+    "constraint": "Usar códigos de participante y conservar las métricas",
+    "failure": "El formulario exige o imprime nombre real",
+    "critical": "El dato de participante es un código P-001 a P-999; cualquier ruta de avance o cierre valida ese formato.",
+    "accept": "Nombres, P-000 y códigos fuera del formato se rechazan con foco y explicación. P-001 y P-999 son válidos. El resumen muestra código y nunca interpreta notas como HTML.",
+    "mot": {
+      "2": "Registrar el código sin identificar a la persona",
+      "6": "Revisar el resumen antes de compartir resultados"
+    },
+    "control": "Campo Código, validador común y resumen de texto seguro",
+    "method": "Minimización de datos, consistencia y prevención de exposición accidental.",
+    "code": "dataProblem / escapeHtml / navigationProblem / finishProblem",
+    "check": "A09-limites-de-codigo; Dashboard-texto-no-inserta-HTML"
+  },
+  {
+    "n": 10,
+    "title": "Stepper y estados accesibles",
+    "persona": "Evaluador que utiliza lector de pantalla",
+    "task": "Navegar por etapas y operar el checklist",
+    "constraint": "Comunicar acción, estado y resultado sin depender del color",
+    "failure": "El paso actual solo se diferencia visualmente",
+    "critical": "El paso actual tiene texto y aria-current=step; el cambio de pantalla enfoca su encabezado y actualiza una región de estado persistente.",
+    "accept": "Tab y Enter recorren las etapas; después de avanzar el encabezado recibe foco y el estado textual cambia. La inspección de atributos y foco no reemplaza un ensayo con lector.",
+    "mot": {
+      "3": "Reconocer semánticamente el paso actual",
+      "4": "Operar y conocer el estado de una casilla"
+    },
+    "control": "Encabezado enfocable, aria-current y región de estado",
+    "method": "Diseño inclusivo y redundancia visual/semántica del feedback.",
+    "code": "render focusId / announce / live-status / renderDashboard",
+    "check": "IHC-A-10-v2"
+  },
+  {
+    "n": 11,
+    "title": "Jerarquía y controles a 360 px",
+    "persona": "Evaluadora que usa teléfono o una pantalla pequeña",
+    "task": "Registrar etapa, errores y observaciones",
+    "constraint": "Evitar superposición y controles ocultos a 360 px",
+    "failure": "La Card UI rígida desborda y dificulta el recorrido",
+    "critical": "Stepper, formularios y botones se reorganizan verticalmente; el contenido esencial queda dentro del viewport y el foco sigue el orden DOM.",
+    "accept": "A 360 x 800, los controles visibles no exceden el ancho y el documento no requiere desplazamiento horizontal. Se verifica Datos, Checklist, Observaciones, Revisión y Cierre.",
+    "mot": {
+      "3": "Ubicarse en una jerarquía legible a 360 px",
+      "5": "Registrar errores y notas sin superposición"
+    },
+    "control": "Card fluida, Stepper vertical y botones adaptables",
+    "method": "Gestalt: proximidad y jerarquía; accesibilidad situacional.",
+    "code": "assets/styles.css media max-width 480px / renderDashboard",
+    "check": "IHC-A-11-v2; 12-tarjetas-controles-dentro-de-360px"
+  },
+  {
+    "n": 12,
+    "title": "Reanudación y cierre verificado",
+    "persona": "Investigadora que retoma una sesión interrumpida",
+    "task": "Recuperar el progreso, completar el checklist y cerrar",
+    "constraint": "No perder verificaciones ni declarar éxito incompleto",
+    "failure": "Se permite finalizar sin validar el checklist obligatorio",
+    "critical": "El cierre requiere datos válidos y exactamente tres verificaciones verdaderas. Falta, error de almacenamiento o datos dañados no producen cierre confirmado.",
+    "accept": "Con 2/3 se anuncia el ítem faltante y se enfoca su casilla. Se preservan campos y etapa; con 3/3 se verifica y guarda. Recargar restaura también la sesión cerrada válida.",
+    "mot": {
+      "1": "Recuperar la sesión y reconocer el progreso anterior",
+      "7": "Comprobar que el cierre valida todos los obligatorios"
+    },
+    "control": "Recuperación, checklist, alerta, foco y estado cerrado",
+    "method": "Prevención de falso éxito, continuidad de tarea y feedback comprobable.",
+    "code": "loadStorage / finishProblem / handleDashboardFinish / saveStorage",
+    "check": "IHC-A-12-v2; A12-checklist-persistido-vacio; A12-fallo-guardado-y-reintento"
+  }
+]

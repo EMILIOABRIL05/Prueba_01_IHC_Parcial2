@@ -1,0 +1,265 @@
+{
+  "generatedAt": "2026-10-28T21:20:34.474219+00:00",
+  "revision": "787a4fd22baded030dd132343295b952f6290790",
+  "scope": "Navegador Chromium real por HTTP; ejecución automática, sin participantes ni lector de pantalla.",
+  "browser": "153.0.8010.0",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "viewport": {
+    "width": 360,
+    "height": 800
+  },
+  "sourceSha256": {
+    "assets/app.js": "528ccd983a91d161f2e6872e5d3e71c46a8de7c1a49d433ae84c7434fb8861df",
+    "assets/scenarios.js": "7582b6c7a91ebf5438ac202c38614fa62f0d0130b77db1274ef2be0a9434a9b4",
+    "assets/styles.css": "def9a7fbe9d3bbd59e533828f85bc38478d6a6c8c4a18ed5c3ac3b6b62ee2b86",
+    "prototipo/v2/index.html": "7aef3d399eba1d6668719e227426ed6f4490c3e257314ef40056648e8a345ad0",
+    "prototipo/v1/index.html": "04df10d780769ecf7ef5fcf42bd1fd2bff1cddf8e61972e55cd403e613eb1b97",
+    "prototipo/v1/assets/app.js": "69a434e4166855645bd1d1089bbe2fb60090b8c20ac80871f0cc766a670be4e7",
+    "prototipo/v1/assets/scenarios.js": "e1641d2dd870d559fdb9c0aa4e0ce4f75a2eef9ac7905bc7c8f0795557263976",
+    "prototipo/v1/assets/styles.css": "a88d7a5c42610608579fb59bc90f0dc720fbd0c98046512104706dfdbb1f248c"
+  },
+  "passed": 41,
+  "total": 41,
+  "results": [
+    {
+      "case": "IHC-A-01-v1",
+      "status": "OK",
+      "capture": "IHC-A-01-v1.png"
+    },
+    {
+      "case": "IHC-A-01-v2",
+      "status": "OK",
+      "capture": "IHC-A-01-v2.png"
+    },
+    {
+      "case": "IHC-A-02-v1",
+      "status": "OK",
+      "capture": "IHC-A-02-v1.png"
+    },
+    {
+      "case": "IHC-A-02-v2",
+      "status": "OK",
+      "capture": "IHC-A-02-v2.png"
+    },
+    {
+      "case": "IHC-A-03-v1",
+      "status": "OK",
+      "capture": "IHC-A-03-v1.png"
+    },
+    {
+      "case": "IHC-A-03-v2",
+      "status": "OK",
+      "capture": "IHC-A-03-v2.png"
+    },
+    {
+      "case": "IHC-A-04-v1",
+      "status": "OK",
+      "capture": "IHC-A-04-v1.png"
+    },
+    {
+      "case": "IHC-A-04-v2",
+      "status": "OK",
+      "capture": "IHC-A-04-v2.png"
+    },
+    {
+      "case": "IHC-A-05-v1",
+      "status": "OK",
+      "capture": "IHC-A-05-v1.png"
+    },
+    {
+      "case": "IHC-A-05-v2",
+      "status": "OK",
+      "capture": "IHC-A-05-v2.png"
+    },
+    {
+      "case": "IHC-A-06-v1",
+      "status": "OK",
+      "capture": "IHC-A-06-v1.png"
+    },
+    {
+      "case": "IHC-A-06-v2",
+      "status": "OK",
+      "capture": "IHC-A-06-v2.png"
+    },
+    {
+      "case": "IHC-A-07-v1",
+      "status": "OK",
+      "capture": "IHC-A-07-v1.png"
+    },
+    {
+      "case": "IHC-A-07-v2",
+      "status": "OK",
+      "capture": "IHC-A-07-v2.png"
+    },
+    {
+      "case": "IHC-A-08-v1",
+      "status": "OK",
+      "capture": "IHC-A-08-v1.png"
+    },
+    {
+      "case": "IHC-A-08-v2",
+      "status": "OK",
+      "capture": "IHC-A-08-v2.png"
+    },
+    {
+      "case": "IHC-A-09-v1",
+      "status": "OK",
+      "capture": "IHC-A-09-v1.png"
+    },
+    {
+      "case": "IHC-A-09-v2",
+      "status": "OK",
+      "capture": "IHC-A-09-v2.png"
+    },
+    {
+      "case": "IHC-A-10-v1",
+      "status": "OK",
+      "capture": "IHC-A-10-v1.png"
+    },
+    {
+      "case": "IHC-A-10-v2",
+      "status": "OK",
+      "capture": "IHC-A-10-v2.png"
+    },
+    {
+      "case": "IHC-A-11-v1",
+      "status": "OK",
+      "capture": "IHC-A-11-v1.png"
+    },
+    {
+      "case": "IHC-A-11-v2",
+      "status": "OK",
+      "capture": "IHC-A-11-v2.png"
+    },
+    {
+      "case": "IHC-A-12-v1",
+      "status": "OK",
+      "capture": "IHC-A-12-v1.png"
+    },
+    {
+      "case": "IHC-A-12-v2",
+      "status": "OK",
+      "capture": "IHC-A-12-v2.png"
+    },
+    {
+      "case": "A01-agregar-invalida-revision",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A01-quitar-invalida-revision",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A06-pedido-inmutable-y-sin-reenvio",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A03-pedido-nuevo-e-identificador",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A04-aceptacion-contextual",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A04-detalle-Escape",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A06-cancelar-operacion-al-cambiar-tarjeta",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A12-checklist-persistido-vacio",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A12-JSON-danado",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "Dashboard-errores-enteros-no-negativos",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "Dashboard-texto-no-inserta-HTML",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "Dashboard-datos-invalidos-via-Stepper",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A12-fallo-guardado-y-reintento",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A12-cierre-no-contamina-otra-tarjeta",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "A09-limites-de-codigo",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "12-tarjetas-controles-dentro-de-360px",
+      "status": "OK",
+      "capture": null
+    },
+    {
+      "case": "CafeU-carrito-vacio",
+      "status": "OK",
+      "capture": null
+    }
+  ],
+  "captures": {
+    "A01-R7-01-antes.png": "26e4b9cc96ef6fa38fcee964350d47a79b3a2c46c10a96598f16ca430e37a498",
+    "A01-R7-02-edicion.png": "b5f8e5120e7fb7f49d449b53c26ee3e910366a08163405bb1540b0b1b29aa6e5",
+    "A01-R7-03-bloqueo.png": "1b5c45f0002270a2d4e971bf7f0cb0091b5db8fe4111292a25fdda159b66aca5",
+    "A01-R7-04-recibido.png": "84d8abfe00a51229ef70030e26c8d471441d11f8ba139eecb4af271d09fb89ff",
+    "A02-dialogo-teclado.png": "4008f6578e672a2653d56704a36e9e2ed0944f5c6b92fb66573fa4cd0738e7e8",
+    "A12-R7-01-revision-2de3.png": "8fd18484454fbfcddaafd4f1c4b17d415bc91f24b881b76dd582d3287003827f",
+    "A12-R7-02-bloqueo-foco.png": "6b3ba3430d64d98d9c2428f768589f071a7dc2c95589b74bccadd7d039033e8a",
+    "A12-R7-03-recuperado.png": "5590ee4b9c0453486b681ebf7d2207bc29655f5ed97827d636db6880e7b76706",
+    "A12-R7-04-cerrado.png": "b91209be5e88a009b543c0f1f63921423b490199662ff605868553a5c7f9a7aa",
+    "IHC-A-01-v1.png": "033a060ef57fa80dc3341a91d638c85c4df50a47aea4b17c8685886a510281aa",
+    "IHC-A-01-v2.png": "84d8abfe00a51229ef70030e26c8d471441d11f8ba139eecb4af271d09fb89ff",
+    "IHC-A-02-v1.png": "f7b234ec20aea772aa11d8d3db326e2235df7fb1fa35d9ee797e33bf63201512",
+    "IHC-A-02-v2.png": "4405bb9c8fb67463176c1f43a1ff62a9ae5c88b52c9c22cc716b867c3f0c527d",
+    "IHC-A-03-v1.png": "d69bc28d5573adcc5290bcc18189d5533b50980c4109b0437c404178151b1235",
+    "IHC-A-03-v2.png": "a1ad057f808172bd0c55d8050bb5213f359a462385ad6134bd3e615adbe57b2a",
+    "IHC-A-04-v1.png": "e52a1f3677f41032c5cbbfcae02b4d8728d40cb4760e33e7bfb75c224db7e550",
+    "IHC-A-04-v2.png": "1cf12b4542bdd14b4e97beae0426b2b703f61968f20ade4e3d5970aa8ee5122c",
+    "IHC-A-05-v1.png": "46d5191c8cd5c5f07df16e77bb4dcf6ffeceff49b73ae092b763877e1bef5f7e",
+    "IHC-A-05-v2.png": "24d797f3c4dd14ec5b178410bb14ccfb3cfde2e06299f92c4260fc53728c3355",
+    "IHC-A-06-v1.png": "5dfd4ea4da2ec77d029558d9b2ce9e88fb69be5d4290c98e80bc15c5269869f7",
+    "IHC-A-06-v2.png": "797cf33004f019313cb0563e8943a812fa3da8b11a06f92b65d7e4f6e106f08b",
+    "IHC-A-07-v1.png": "d7d417243917c6708fd590f0e540d8535f45f57ab0a8b45b06df57588f4ee517",
+    "IHC-A-07-v2.png": "73384303e47accab53baf4f45305a048076b66f1d24ec0cdc17578b51ea01ea9",
+    "IHC-A-08-v1.png": "67dbdf2e29597494e0d54f3dc504b778c75a02ad8a8219ead8fe65529acfa5af",
+    "IHC-A-08-v2.png": "78ade0230b80a52a22220b92e9d3a2487b918262632f57c71652f7612e52d924",
+    "IHC-A-09-v1.png": "aa1660fe84ea2d972f317f9e8e59ce65a8f065a2683ca4d26668ecc473f486fc",
+    "IHC-A-09-v2.png": "f2f15dbeb0cd397cc155c5db7b457474f499aa072437bab7f379b799fde0ed48",
+    "IHC-A-10-v1.png": "d1e198ce32d5bbd807aefa222ae0b4225d962074e8925de7991ccec93f8fd959",
+    "IHC-A-10-v2.png": "07f0e2394799cc3359e4f517dc667e05e3a7424b3ce19680160a01041e5e4c3a",
+    "IHC-A-11-v1.png": "e56c4264cb14d5d9102b9eb13ad8ffaf90969ec0cfc1800285b77383920b8492",
+    "IHC-A-11-v2.png": "e9d60d7a3bfe576bf333de20db9ceffeb113925035ac888044d6b6ac3f0c7d44",
+    "IHC-A-12-v1.png": "6da8767d40a5cb20361d17fae5cb84faed49cbf7ed285f0faccffb9e421ac5fb",
+    "IHC-A-12-v2.png": "53855ce745c26d96ba57c0a8216a52ff90a0d0d3968f7885eba4cc4bcfefc31d"
+  }
+}

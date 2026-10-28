@@ -1,10 +1,15 @@
 flowchart TD
- A[Inicio y guia] --> B[Datos de sesion]
- B --> C[Stepper paso actual]
- C --> D[Checklist y stepper]
- D --> E[Registro]
- E --> F[Revision]
- F -->|Editar| D
- F --> G[Revisión y cierre]
- C --> X[Error de validacion]
- X --> C
+ F1["Datos y procedimiento inicial"] --> C["Checklist"]
+ C --> O["Observaciones"]
+ O --> R["Revisión"]
+ R --> V["Verificando"]
+ V --> F["Sesión cerrada"]
+ R --> E1["Volver a una etapa anterior"]
+ E1 --> C
+ E1 --> F1
+ R --> X1["Validación o guardado pendiente"]
+ X1 --> F1
+ X1 --> C
+ X1 --> O
+ F --> N["Nueva sesión explícita"]
+ N --> F1

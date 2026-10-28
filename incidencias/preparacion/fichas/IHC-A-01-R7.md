@@ -22,7 +22,7 @@ R7 (borrador) → [flujo propuesto](../flujos/IHC-A-01-R7.mmd) → vista de [sim
 
 ## Guion antes/después
 1. Tomar referencia del problema descrito y, si existe un prototipo v1 disponible, reproducirlo sin atribuirlo a un participante.
-2. Abrir `incidencias/preparacion/index.html`, seleccionar IHC-A-01 y ejecutar: **Edición 1→2, total actualizado (ensayo USD 8,50), revisión antes de confirmar.**
+2. Abrir `incidencias/preparacion/index.html`, seleccionar IHC-A-01 y ejecutar: **Edición 1→2, total actualizado (ensayo USD 5,75), revisión antes de confirmar.**
 3. Registrar pantalla, estados, resultado, navegador y resolución con fecha real. No usar una ejecución de ensayo como prueba del incidente oficial.
 4. Verificar manualmente accesibilidad y navegación con teclado cuando aplique.
 

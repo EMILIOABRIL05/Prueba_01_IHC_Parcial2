@@ -1,13 +1,15 @@
 flowchart TD
- A[Inicio] --> B[Menu]
- B --> C[Detalle de producto]
- B --> D[Mi pedido]
- C --> D
- D --> E[Ajustar cantidades]
- E --> D
- D --> F[Revision]
- F -->|Editar| D
- F --> G[Procesando]
- G --> H[Confirmación condicionada]
- G --> I[Error y recuperacion]
- I --> D
+ F1["Inicio"] --> M["Menú"]
+ M --> D["Detalle del producto"]
+ D --> M
+ M --> P["Mi pedido: edición y revisión"]
+ D --> P
+ P --> E1["Editar o cancelar eliminación"]
+ E1 --> P
+ P --> V["Procesando: pedido pendiente"]
+ V --> X1["No confirmado: error recuperable"]
+ X1 --> P
+ X1 --> V
+ V --> C["Acuse con identificador y desglose"]
+ C --> N["Hacer otro pedido: carrito vacío"]
+ N --> M

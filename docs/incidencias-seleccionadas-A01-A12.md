@@ -1,43 +1,19 @@
-# Integración de incidencias seleccionadas: CaféU A01 y Dashboard UX A12
+# Dos incidencias seleccionadas: A01 CaféU y A12 Dashboard UX
 
-## Alcance y autenticidad
+## A01: precio cambia al editar · Issue #17
 
-Se eligió una incidencia para cada sistema. Los cambios son **funcionales en el prototipo v2 compartido** (`assets/app.js`) y no sustituyen la evidencia del anuncio oficial del docente. La versión v1 sigue reproduciendo los defectos históricos para comparar.
+R7 exige recalcular subtotales y total, explicar la diferencia y solicitar revisión antes de confirmar. En v2, USD 4,25 pasa a USD 5,75 al agregar un café adicional; diferencia +USD 1,50. `cartChanged` invalida revisión ante cantidad, alta o eliminación; `cartSignature` comprueba que el pedido revisado siga vigente. El envío captura productos, precios y total; el acuse no toma un carrito posterior modificado.
 
-### A01 · Total al editar — Issue #17
+[Ficha](tarjetas/IHC-A-01.md) → [Flujo](../diagramas/IHC-A-01-flujo.mmd) → Mi pedido / revisión → total, diferencia y botón He revisado → [wireframe](../wireframes/IHC-A-01-revision-R7.svg) → [capturas](../evidencias/ejecucion-actual/README.md).
 
-- **R7:** al variar una cantidad se actualizan subtotales y total; se informa total anterior, nuevo y diferencia; una revisión explícita es necesaria antes de confirmar.
-- **Ejemplo real del catálogo actual:** Café = USD 1,50; sánduche = USD 2,75. Un café más un sánduche totaliza USD 4,25; dos cafés más un sánduche, USD 5,75. Cambio **+USD 1,50**.
-- **Componentes:** Carrito, subtotales, `#total`, `#review-total`, estado `a01ReviewRequired` y protección en `handleConfirm`.
-- **Ramas:** [Flujo principal/editar/error](../diagramas/IHC-A-01-flujo.mmd), [wireframe Lo-Fi R7](../wireframes/IHC-A-01-revision-R7.svg).
-- **Regresión importante:** el límite USD 4,25 corresponde a **A05**, no a A01; se restringió su validación a A05.
+## A12: finalización prematura · Issue #18
 
-### A12 · Finalización prematura — Issue #18
+R7 exige impedir cierre falso, explicar el faltante y permitir corregir sin borrar datos. `finishProblem` valida datos, métricas y tres booleanos verdaderos. El error enfoca la casilla pendiente. Tras Verificando se revalida y guarda; si falla el guardado, se conserva la revisión y no se confirma el cierre. `loadStorage` normaliza datos dañados, conserva los válidos y restaura el cierre completo coherente.
 
-- **R7:** rechazar finalización si falta una verificación; explicar el número del primer ítem pendiente, regresar al checklist y posicionar el foco sobre la casilla; permitir completar sin perder datos.
-- **Componentes:** Checklist, resumen del estado 0/3–3/3, mensaje `role="alert"`, `handleDashboardFinish`, estado `dashboardFinishing` y persistencia `localStorage` (título, código, errores, notas, pasos marcados y etapa actual).
-- **Estados:** Revisión incompleta → error con retorno y foco; completado → verificando → sesión cerrada.
-- **Ramas:** [Flujo principal/editar/error](../diagramas/IHC-A-12-flujo.mmd), [wireframe Lo-Fi R7](../wireframes/IHC-A-12-pendiente-R7.svg).
-- **Privacidad:** introducir solo códigos y datos ficticios o anónimos; los datos del ejemplo se guardan únicamente en el navegador local de la demostración.
+[Ficha](tarjetas/IHC-A-12.md) → [Flujo](../diagramas/IHC-A-12-flujo.mmd) → Revisión / Checklist → validación, aviso, foco y almacenamiento → [wireframe](../wireframes/IHC-A-12-pendiente-R7.svg) → [capturas](../evidencias/ejecucion-actual/README.md).
 
-## Reproducir
+## Git y resultados
 
-Desde la raíz del repositorio:
+Implementación inicial: [PR #19](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/19). Revisión integral: rama `william/correcciones-integrales-documentacion`, commit de código [787a4fd](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/787a4fd22baded030dd132343295b952f6290790). La [ejecución actual](../evidencias/ejecucion-actual/resultado.json) identifica esa revisión y SHA-256 de cada fuente: **41/41 casos de navegador**.
 
-```bash
-python -m http.server 8000
-node tests/verificar_incidentes_r7.cjs
-```
-
-Abrir `http://localhost:8000/prototipo/v2/` y seleccionar A01 o A12. Para comparar, abrir `http://localhost:8000/prototipo/v1/` sin alterar sus defectos base.
-
-## Trazabilidad completa
-
-| Incidencia | Requisito | Flujo | Pantalla | Componente | Wireframe | Prueba |
-|---|---|---|---|---|---|---|
-| A01 | [R7](tarjetas/IHC-A-01.md) | [E1/X1/F1](../diagramas/IHC-A-01-flujo.mmd) | Mi pedido | Total y diferencia + revisión | [Lo-Fi](../wireframes/IHC-A-01-revision-R7.svg) | [Test integrado](../tests/verificar_incidentes_r7.cjs) |
-| A12 | [R7](tarjetas/IHC-A-12.md) | [X1/E1/F1](../diagramas/IHC-A-12-flujo.mmd) | Revisión y Checklist | Validación, alerta, foco y persistencia | [Lo-Fi](../wireframes/IHC-A-12-pendiente-R7.svg) | [Test integrado](../tests/verificar_incidentes_r7.cjs) |
-
-## Evidencia aún necesaria
-
-La verificación técnica disponible está descrita en [pruebas/incidencias-R7-ejecucion.md](../pruebas/incidencias-R7-ejecucion.md). **No** se ha acreditado una sesión presencial, mediciones de participantes, un commit posterior a la hora de anuncio ni capturas de navegador reales. Si el docente exige esos elementos, deben generarse y fecharse durante una ejecución auténtica, no reconstruirse retrospectivamente.
+El [registro de Edge aportado por Emilio](verificacion-navegador-real-A01-A12.md) se incorpora con su procedencia. Las nuevas capturas acreditan una ejecución técnica. Participante, lector de pantalla, revisión personal de PR y hora oficial del anuncio se documentan únicamente cuando existan.

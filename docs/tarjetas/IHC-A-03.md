@@ -1,124 +1,85 @@
-# IHC-A-03 · CaféU · Confirmación privada
+# IHC-A-03 · CaféU · Acuse visible y privacidad
 
-**Ficha de preparación y especificación de diseño.** Los diagnósticos emocionales son hipótesis; esta ficha no acredita por sí sola una ejecución real ni un incidente sorpresa resuelto.
+**Procedencia:** arquitectura base de Emilio Abril y diagnóstico del equipo; revisión integral de William Martínez. Los commits de cada integrante se conservan en Git.
 
-## Persona, tarea y alcance
-
-- **Persona:** Estudiante que comparte dispositivo y sale rápido.
-- **Tarea crítica:** Confirmar pedido y comprobar que se recibió.
-- **Restricción:** No exponer ni guardar datos sensibles.
-- **Fallo descrito en tarjeta docente:** «Listo» sin número ni resumen.
-- **Recurso complementario:** Dashboard UX (touchpoints, momentos de verdad y feedback).
-- Recorrido de diagnóstico: confirmar y verificar recepción sin datos sensibles.
-- Hipótesis de mejora para v2: **El éxito incluye código sintético, resumen y estado recibido**.
+## Persona, tarea y contexto
+- Persona: Estudiante que comparte el dispositivo y debe retirarse.
+- Tarea: Confirmar un pedido y comprobar que se recibió.
+- Restricción: No solicitar ni conservar datos personales o financieros.
+- Fallo de referencia en v1: El resultado dice Listo sin número ni desglose.
+- Complemento entre recursos: se aplica arquitectura confirmar/editar de CaféU y evaluación emocional/Stepper/checklist del Dashboard.
 
 ## Fase 1 · Diagnóstico emocional
-**Ningún valor de esta tabla ha sido medido.** Se proponen touchpoints para diseñar una prueba; la curva en `diagramas/IHC-A-03-curva-antes.svg` es una predicción de diseño.
+Las emociones siguientes son **estimaciones de diseño**, no mediciones de participantes. La curva inicial utiliza la misma escala de -3 a +3 y los mismos valores que esta tabla.
 
-| # | Touchpoint | Importancia | Emoción estimada | Tipo de evidencia |
+| Punto | Touchpoint | Importancia | Emoción estimada | Evidencia |
 |---|---|---|---|---|
-| T1 | Abrir inicio | Punto de contacto | +1 | Estimación, no observación |
-| T2 | Explorar menú | Punto de contacto | +1 | Estimación, no observación |
-| T3 | Consultar detalle | Punto de contacto | 0 | Estimación, no observación |
-| T4 | Agregar producto | Punto de contacto | −2 | Estimación, no observación |
-| T5 | Editar cantidades | Momento de verdad 1 | −2 | Estimación, no observación |
-| T6 | Revisar total y advertencias | Punto de contacto | 0 | Estimación, no observación |
-| T7 | Confirmar solicitud | Punto de contacto | 0 | Estimación, no observación |
-| T8 | Ver resultado | Momento de verdad 2 | 0 | Estimación, no observación |
+| T1 | Abrir inicio | Punto de contacto | +1 | Hipótesis, sin observación humana |
+| T2 | Explorar menú | Punto de contacto | +1 | Hipótesis, sin observación humana |
+| T3 | Consultar detalle | Punto de contacto | 0 | Hipótesis, sin observación humana |
+| T4 | Agregar producto | Punto de contacto | −2 | Hipótesis, sin observación humana |
+| T5 | Editar cantidades | Punto de contacto | −2 | Hipótesis, sin observación humana |
+| T6 | Revisar total y advertencias | Punto de contacto | 0 | Hipótesis, sin observación humana |
+| T7 | Enviar la solicitud y reconocer que sigue pendiente | Momento de verdad 1 | 0 | Hipótesis, sin observación humana |
+| T8 | Leer el identificador y comprobar el detalle recibido | Momento de verdad 2 | 0 | Hipótesis, sin observación humana |
 
-**Momentos de verdad:** T5, cuando identificador no personal puede causar un error decisivo; T8, cuando la persona comprueba el resultado de su tarea.
+**Momentos de verdad:** T7 y T8. Visibilidad del estado, reconocimiento y minimización de datos.
+[Curva inicial](../../diagramas/IHC-A-03-curva-antes.svg). No se presenta una curva posterior como observada sin datos de una sesión.
 
-| ID | Hallazgo candidato | Severidad preliminar | Marco y justificación |
+| ID | Hallazgo candidato | Severidad preliminar | Fundamento |
 |---|---|---|---|
-| P1 | Fallo principal: mensaje Listo sin identificador ni resumen | Alta | Regla de visibilidad del estado vulnerada; la tarea crítica puede resultar incorrecta. |
-| P2 | Retroalimentación insuficiente en transición | Media | Visibilidad del estado de Nielsen: incertidumbre durante procesamiento o cambio. |
-| P3 | Jerarquía dispersa en pantalla y pérdida de contexto | Media | Gestalt y carga cognitiva: obliga a recordar el contexto en lugar de reconocerlo. |
+| P1 | El resultado dice Listo sin número ni desglose | Alta | Visibilidad del estado, reconocimiento y minimización de datos. |
+| P2 | Incertidumbre durante transición o recuperación | Media | Visibilidad del estado: comprobar el mensaje y la posibilidad de recuperar. |
+| P3 | Jerarquía o agrupación puede aumentar esfuerzo de búsqueda | Media | Gestalt y carga cognitiva: validar proximidad, orden y reconocimiento en la tarea concreta. |
 
-Se preparan borradores de Issue en `github/issues/IHC-A-03-P1.md`, P2 y P3; deben publicarse con asignación y reproducibilidad real durante la sesión.
+Borradores: `github/issues/IHC-A-03-P1.md`, P2 y P3. Solo los Issues publicados y enlazados acreditan seguimiento en GitHub.
 
 ## Fase 2 · Requisitos verificables
 
 | ID | Requisito | Criterio de aceptación |
 |---|---|---|
-| R01 | Completar «Confirmar pedido y comprobar que se recibió» mediante ruta de inicio a resultado. | Inicio → acción → revisión → resultado sin pantallas externas. |
-| R02 | Resolver condición crítica: Resultado muestra identificador simulado, desglose y estado recibido. | Resultado muestra identificador simulado, desglose y estado recibido. Repetir el fallo inicial en v1 y comprobar que no ocurre en v2 para el escenario. |
-| R03 | Editar o cancelar antes de enviar sin borrar datos pertinentes. | Tras modificar, el carrito refleja últimas cantidades y selección. Después de editar o cancelar, los datos pertinentes siguen disponibles. |
-| R04 | Distinguir solicitud pendiente, error y éxito de forma inequívoca. Los estados normal y de edición también se identifican. | No indicar éxito antes de confirmación; error ofrece reintento. Cada estado muestra texto descriptivo y se distingue visual y semánticamente. |
-| R05 | Operar controles esenciales con teclado y foco visible. | Tab alcanza controles, Enter activa y Escape permite cancelar donde aplique. |
-| R06 | Cumplir restricción contextual: No exponer ni guardar datos sensibles. La información crítica debe comprenderse a 360 px cuando corresponda. | No solicita ni conserva número personal, cédula o teléfono. Texto legible, acciones esenciales visibles y ruta de recuperación identificable. |
+| R01 | Completar la tarea: Confirmar un pedido y comprobar que se recibió. | Recorrer Inicio, Menú, Detalle, Mi pedido y acuse; se permite volver antes de enviar. |
+| R02 | El acuse identifica el pedido y muestra sus productos, cantidades y total, sin datos personales. | El recibo utiliza la instantánea del envío. Hacer otro pedido vacía el carrito y produce otra referencia; regresar al carrito no reenvía el pedido recibido. |
+| R03 | Editar, cancelar o regresar sin perder datos pertinentes. | Cancelar o Escape desde el aviso mantiene productos; editar conserva las otras cantidades. |
+| R04 | Comunicar estado normal, validación, procesamiento, error y resultado. | Pendiente no es éxito; un error ofrece recuperación y un acuse identifica el pedido. |
+| R05 | Permitir teclado, foco visible y nombres semánticos de las acciones. | Tab y Enter operan los controles; Escape cancela el diálogo o vuelve de Detalle; la edición conserva el foco. |
+| R06 | Cumplir la restricción contextual: No solicitar ni conservar datos personales o financieros. | El recibo utiliza la instantánea del envío. Hacer otro pedido vacía el carrito y produce otra referencia; regresar al carrito no reenvía el pedido recibido. |
 
-### Arquitectura de información
-
-- [Sitemap](../../diagramas/IHC-A-03-sitemap.mmd) con todas las páginas y regreso.
-- [User flow](../../diagramas/IHC-A-03-flujo.mmd): **F1** principal, **E1** edición, **X1** error.
-- **Secuencia principal:** Inicio → menú → detalle → carrito → revisión → pendiente → acuse.
-- **Condición principal a comprobar:** Resultado muestra identificador simulado, desglose y estado recibido.
-- **Recuperación:** mostrar el problema en texto, ofrecer una ruta de edición y conservar los datos pertinentes.
-- Ramas: F1 Inicio→Menú→Detalle→Carrito→Procesamiento→Confirmación; E1 edición Carrito→Menú/Carrito; X1 error→Carrito/Reintento.
-
-### Componentes
-
-Navegación y título de pantalla, Revisar y enviar, editor de pedido y estados de envío, indicador de estado, aviso textual, botones etiquetados y foco visible.
-
-- Componentes clave: navegación, acuse explícito y desglose sin identidad, feedback de error, botón de acción, resumen visible, controles accesibles.
-
-### Matriz de trazabilidad
+### Arquitectura, componentes y trazabilidad
+- [Sitemap](../../diagramas/IHC-A-03-sitemap.mmd).
+- [Flujo F1/E1/X1](../../diagramas/IHC-A-03-flujo.mmd).
+- Componente crítico: Recibo, identificador por intención y nuevo pedido.
+- Implementación: `handleConfirm / pendingOrder / receipt / startNewOrder` en `assets/app.js`, con estilos en `assets/styles.css`.
 
 | Requisito | Flujo | Pantalla | Componente | Wireframe |
 |---|---|---|---|---|
-| R01 | F1 | Mi pedido; Inicio/Acción | Navegación / catálogo / pedido; acuse explícito y desglose sin identidad | [inicio](../../wireframes/IHC-A-03-inicio.svg) |
-| R02 | F1/X1 | Revisar y enviar; Recibo | Control y validación específica; acuse explícito y desglose sin identidad | [accion](../../wireframes/IHC-A-03-accion.svg) |
-| R03 | E1 | Mi pedido; Error/Confirmación | Editor y botón regresar; acuse explícito y desglose sin identidad | [accion](../../wireframes/IHC-A-03-accion.svg) |
-| R04 | F1/X1 | Acuse de recibo | Indicadores de estado y acuse; acuse explícito y desglose sin identidad | [confirmacion](../../wireframes/IHC-A-03-confirmacion.svg) / [error](../../wireframes/IHC-A-03-error.svg) |
-| R05 | F1/E1 | Carrito; Inicio/Acción | Botones etiquetados y foco; acuse explícito y desglose sin identidad | [accion](../../wireframes/IHC-A-03-accion.svg) |
-| R06 | X1/F1/E1 | Revisar y enviar; Error/Confirmación | Alerta o limitación contextual; acuse explícito y desglose sin identidad | [error](../../wireframes/IHC-A-03-error.svg) / [confirmacion](../../wireframes/IHC-A-03-confirmacion.svg) |
+| R01 | F1 | Inicio y menú | Recibo, identificador por intención y nuevo pedido | [inicio](../../wireframes/IHC-A-03-inicio.svg) |
+| R02 | F1/E1/X1 | Mi pedido / Detalle | Recibo, identificador por intención y nuevo pedido | [accion](../../wireframes/IHC-A-03-accion.svg) |
+| R03 | E1 | Edición y retorno | Recibo, identificador por intención y nuevo pedido | [accion](../../wireframes/IHC-A-03-accion.svg) |
+| R04 | F1/E1/X1 | Procesando / error / acuse | Recibo, identificador por intención y nuevo pedido | [confirmacion](../../wireframes/IHC-A-03-confirmacion.svg) |
+| R05 | F1/E1/X1 | Controles de la etapa actual | Recibo, identificador por intención y nuevo pedido | [accion](../../wireframes/IHC-A-03-accion.svg) |
+| R06 | F1/E1/X1 | Estado crítico y recuperación | Recibo, identificador por intención y nuevo pedido | [error](../../wireframes/IHC-A-03-error.svg) |
 
-### Cuatro wireframes Lo-Fi
+## Fase 3 · Prototipos y estados
+- v1: `prototipo/v1/index.html`, implementación independiente que conserva el fallo de referencia.
+- v2: `prototipo/v2/index.html`, aplicación corregida compartida para doce tarjetas.
+- Fidelidad: Lo-Fi en SVG para estructura; media/alta en HTML/CSS/JS para validar interacción real de navegador.
+- El prototipo local no integra pagos, cocina, red de pedidos ni un servicio de investigación real.
+- v1 y v2 tienen catálogos distintos: sánduche USD 2,25 en v1 y USD 2,75 en v2. Comparar comportamiento y calcular cada importe con su catálogo.
 
-- [inicio](../../wireframes/IHC-A-03-inicio.svg)
-- [accion](../../wireframes/IHC-A-03-accion.svg)
-- [error](../../wireframes/IHC-A-03-error.svg)
-- [confirmacion](../../wireframes/IHC-A-03-confirmacion.svg)
+## Fase 4 · Verificación técnica y prueba con participante
+- [Captura técnica v1](../../evidencias/ejecucion-actual/IHC-A-03-v1.png) y [captura técnica v2](../../evidencias/ejecucion-actual/IHC-A-03-v2.png).
+- Casos: `A03-pedido-nuevo-e-identificador` y `IHC-A-03-v2`, ejecutados por `tests/navegador_integral.py` sobre las entradas HTTP reales.
+- [Resultado, entorno y huellas de fuentes](../../evidencias/ejecucion-actual/README.md). Estas comprobaciones no son una sesión humana.
+- [Acta de la tarjeta](../../pruebas/IHC-A-03-sesion.md): registrar participante de otro equipo, tarea sin ayuda, tiempo, errores, pausas, resultado y cita literal cuando se ejecute.
+- La mejora técnica puede comprobarse en código/navegador; la mejora de experiencia exige observación. No se infieren tiempos o satisfacción de las capturas.
 
-### Comprobación técnica al integrar el prototipo
-
-1. Seleccionar IHC-A-03 y ejecutar **F1**; observar estados y resultado.
-2. Probar la ruta **E1** y el error **X1**, preservando información pertinente.
-3. Verificar R02: Resultado muestra identificador simulado, desglose y estado recibido.
-4. Verificar R06: No solicita ni conserva número personal, cédula o teléfono.
-5. Guardar evidencia con versión, fecha, acción y resultado real.
-
-La especificación de arquitectura no acredita por sí misma una observación externa; el prototipo y su preparación de prueba se describen en las fases siguientes.
-
-**Referencia GitHub:** [Issue #2](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/2).
-
-## Fase 3 · Prototipo
-
-- v1: `prototipo/v1/index.html` → seleccionar `IHC-A-03` y reproducir: mensaje Listo sin identificador ni resumen.
-- v2: `prototipo/v2/index.html` → seleccionar `IHC-A-03` → comprobar la hipótesis: El éxito incluye código sintético, resumen y estado recibido.
-- Estados previstos: normal, editando, validando/procesando (CaféU), error y éxito; Dashboard dispone de etapas normales, error de validación y resultado.
-- Herramienta: HTML + CSS + JS, ejecutado localmente, fidelidad media/alta; wireframes SVG de baja fidelidad.
-- Decisión arquitectónica: mismo flujo de control para 12 escenarios, diferencias controladas por tarjeta y versión.
-
-## Fase 4 · Prueba cognitiva
-
-- Guion: `confirmar y verificar recepción sin datos sensibles`. Una persona **de otro equipo** debe completar la tarea sin ayudas.
-- Registrar de manera real: hora, duración, errores, pausas, resultado, cita textual y consentimiento para evidencias.
-- Acta específica (no completada): `pruebas/IHC-A-03-sesion.md`.
-- Hipótesis v2: El éxito incluye código sintético, resumen y estado recibido. **No se debe escribir “mejoró” hasta contar con datos observados**.
-- La curva v2 (`diagramas/IHC-A-03-curva-v2-hipotesis.svg`) es hipotética, no resultado de prueba.
-
-## Fase 5 · Incidencia nueva y defensa
-
-- Esperar el incidente entregado oficialmente y completar `docs/incidencia-sorpresa-plantilla.md`.
-- Demostrar requisito R02, falla/solución y trazabilidad a un Issue/PR genuino.
-- Pregunta preparatoria: ¿cómo compruebas que identificador no personal comunica el estado correcto sin depender solo del aspecto visual?
+## Fase 5 · Incidencia y control de cambios
+- El laboratorio `incidencias/preparacion/` es material de ensayo; no representa incidencias oficiales adicionales asignadas a esta tarjeta.
 
 ## Estado de evidencia
-
-- [x] Diseño de ejemplo y prototipos generados.
-- [ ] Observación externa y mediciones reales.
-- [ ] Capturas de navegador de v1/v2 como evidencia de ejecución.
-- [ ] Issues y PR publicados y revisados en GitHub.
-- [ ] Incidencia recibida y cambio con commit posterior.
-- [ ] Defensa individual realizada.
+- [x] Requisitos, flujo, sitemap, componentes y cuatro Lo-Fi específicos.
+- [x] Pruebas técnicas de navegador y evidencia de la ejecución indicada en su registro.
+- [ ] Sesión humana confirmada con registros originales y consentimiento.
+- [ ] Ensayo con lector de pantalla cuando corresponda.
+- [ ] Revisión personal fundamentada del PR de esta rama por otro integrante.

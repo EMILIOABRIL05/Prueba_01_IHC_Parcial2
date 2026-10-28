@@ -1,23 +1,19 @@
-# Seguimiento de cierre por equipo (verificación posterior necesaria)
+# Estado de cierre tras corrección integral
 
-Este documento distingue comprobaciones técnicas de actividades que **requieren participación humana real**.
+## Completado técnicamente
 
-## Entregas de código y GitHub
+- Correcciones de revisión del pedido, instantánea de envío, aceptación contextual y nuevo pedido.
+- Validadores compartidos, códigos anónimos, métricas, persistencia y cierre A12.
+- Detalle de producto, foco, estado de guardado y layout móvil.
+- 41/41 casos de navegador, capturas actuales y pruebas de regresión.
+- Doce fichas, 74 requisitos, flujos, sitemaps, Lo-Fi y documentación integral.
 
-- Emilio (arquitectura): PR #9 fusionado; Issue #2 cerrado; complemento Figma disponible. Verificar coherencia final R01–R06 con UI integrada.
-- Manuel (diagnóstico): PR #11 fusionado; Issue #1 cerrado. Revisar consistencia de valores de curva emocional frente a tablas y criterios de severidad (no sustituir datos por observaciones inventadas).
-- William (v1): PR #13 fusionado; Issue #3 cerrado. La versión v1 conserva fallos de manera intencional; comprobar rutas y pruebas con navegador/teclado.
-- Pablo (v2): PR #12 fusionado. Verificar todas las mejoras y foco real con navegador, no solo buscar cadenas en el código.
-- Jhonatan (pruebas): PR #10 fusionado; Issue #5 cerrado. Verificar autenticidad del acta de participante externo con el observador; conciliar número de pausas y anonimización, y dejar revisión formal propia en GitHub si falta.
+## Pendientes que requieren actuación real
 
-## Actividades no sustituibles por asistencia automatizada
+- Sesiones con participantes externos, y ratificación del aporte histórico A12 con sus registros originales.
+- Ensayo de A10 con lector de pantalla y registro de la experiencia de uso.
+- Revisión fundamentada del PR de esta rama y de PR ajenos por los integrantes que no la tengan registrada.
+- Sincronización del lienzo Figma con la implementación actual cuando forme parte de la entrega.
+- Hora de anuncio docente si se evalúa la secuencia temporal de la incidencia.
 
-- [ ] Revisión sustantiva de PR por compañero real (en GitHub, no solo Markdown).
-- [ ] Confirmación de prueba presencial de persona de otro equipo con tiempo, errores, pausas y cita genuina; no crearla retrospectivamente sin evidencias.
-- [ ] Validar teclado, foco visible, mensajes de error, viewport 360 y 320 cuando correspondan.
-- [ ] Defensa individual: cada integrante presenta una modificación que realmente comprende y participó en hacer.
-- [ ] Incidencia sorpresa: nuevo Issue, edición, prueba, commit **después** del anuncio, PR y revisión humana.
-
-## Cómo usar este material
-
-El PR de preparación incluye un simulador aparte; no se fusiona como si fuera evidencia de la incidencia oficial. Solo orienta la práctica y la implementación posterior de la tarjeta realmente asignada.
+La guía original contempla defensa oral; el registro del PR #19 indica que se comunicó que no habría defensa en esta evaluación. Las guías se conservan como material de estudio, sin afirmar que se realizó ni agregar una exigencia nueva.

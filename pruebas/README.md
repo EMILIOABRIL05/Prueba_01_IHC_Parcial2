@@ -1,7 +1,7 @@
-# Pruebas cognitivas · instrucciones
+# Cómo registrar las pruebas
 
-- Participante: **de otro equipo**, según enunciado; los cinco integrantes nombrados en `docs/colaboracion.md` pueden hacer pruebas internas preparatorias, pero no sustituyen esa exigencia.
-- Observar sin dar pistas; definir tarea y criterio de éxito; cronometrar desde inicio hasta resultado; anotar errores, pausas y citas **literalmente escuchadas**.
-- Comparar v1 con v2. Anotar orden, dispositivo y diferencias de familiaridad; una sola sesión no establece causalidad.
-- Registrar si la mejora es **observada** (métrica/cita) o **hipótesis**.
-- No completar registros vacíos con resultados ficticios. Las 12 actas se entregan intencionadamente sin mediciones.
+El índice [sesion.md](sesion.md) distingue ejecución técnica, actas por completar y aportes históricos pendientes de validación. Los integrantes y evidencias Git están en [docs/colaboracion.md](../docs/colaboracion.md).
+
+Un participante de otro equipo realiza la tarea sin ayudas. Registrar tiempo, errores, pausas, resultado y cita literal; comparar versiones e identificar sesgo de aprendizaje. Mantener anónima su identidad y enlazar las capturas de esa ejecución.
+
+Las capturas de navegador automatizado demuestran estados técnicos; no reemplazan ni rellenan una sesión con una persona.
