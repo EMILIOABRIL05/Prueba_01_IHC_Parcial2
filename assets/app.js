@@ -24,6 +24,7 @@
     ackAllergens: false,
     dialogOpen: false,
     itemToRemove: null,
+    removalOpenerId: null,
     alertMessage: '',
     dashboardData: {
       title: '',
@@ -144,6 +145,9 @@
 
     app.innerHTML = html;
     bindEvents();
+    app.querySelectorAll('header, main').forEach(function (region) {
+      region.inert = isV2 && state.dialogOpen;
+    });
   }
 
   // --- Renderizado CaféU ---
@@ -224,11 +228,11 @@
           html += '    <div class="cart-item-price">' + formatMoney(p.price) + ' c/u</div>';
           html += '  </div>';
           html += '  <div class="cart-controls">';
-          html += '    <button class="qty-btn" data-action="qty" data-item="' + p.id + '" data-delta="-1" aria-label="Disminuir ' + p.name + '">-</button>';
+          html += '    <button class="qty-btn" id="qty-minus-' + p.id + '" data-action="qty" data-item="' + p.id + '" data-delta="-1" aria-label="Disminuir ' + p.name + '">-</button>';
           html += '    <span class="qty-val">' + c.qty + '</span>';
           html += '    <button class="qty-btn" data-action="qty" data-item="' + p.id + '" data-delta="1" aria-label="Aumentar ' + p.name + '">+</button>';
           if (isV2) {
-            html += '    <button class="btn-remove" data-action="remove" data-item="' + p.id + '" aria-label="Quitar ' + p.name + ' del pedido">Quitar</button>';
+            html += '    <button class="btn-remove" id="remove-' + p.id + '" data-action="remove" data-item="' + p.id + '" aria-label="Quitar ' + p.name + ' del pedido">Quitar</button>';
           } else {
             // v1: botón sin nombre accesible "×"
             html += '    <button class="btn-remove" data-action="remove" data-item="' + p.id + '">×</button>';
@@ -453,7 +457,7 @@
     var p = window.PRODUCTS[state.itemToRemove] || { name: 'producto' };
     var html = '';
     html += '<div class="dialog-backdrop" id="modal-backdrop">';
-    html += '  <div class="dialog-content" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-desc">';
+    html += '  <div class="dialog-content" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-desc">';
     html += '    <h3 id="dialog-title" class="dialog-title">¿Quitar del pedido?</h3>';
     html += '    <p id="dialog-desc" class="dialog-desc">¿Estás seguro de que deseas eliminar <strong>' + p.name + '</strong> de tu carrito? Esta acción no se puede deshacer.</p>';
     html += '    <div class="dialog-actions">';
@@ -548,8 +552,8 @@
 
     // Foco automático en botón aceptar del diálogo modal
     if (state.dialogOpen && isV2) {
-      var okBtn = document.getElementById('remove-ok');
-      if (okBtn) okBtn.focus();
+      var cancelBtn = document.getElementById('remove-cancel');
+      if (cancelBtn) cancelBtn.focus();
     }
   }
 
@@ -559,6 +563,7 @@
     if (!btn) return;
 
     var action = btn.dataset.action;
+    if (isV2 && state.dialogOpen && action !== 'remove-ok' && action !== 'remove-cancel') return;
 
     if (action === 'goto') {
       state.alertMessage = '';
@@ -582,6 +587,10 @@
       var delta = parseInt(btn.dataset.delta, 10);
       var cartItem = state.cart.find(function (c) { return c.id === item; });
       if (cartItem) {
+        if (isV2 && state.cardId === 'IHC-A-02' && delta < 0 && cartItem.qty === 1) {
+          openRemoval(item, btn.id);
+          return;
+        }
         cartItem.qty += delta;
         if (cartItem.qty <= 0) {
           state.cart = state.cart.filter(function (c) { return c.id !== item; });
@@ -592,25 +601,16 @@
     } else if (action === 'remove') {
       var rmId = btn.dataset.item;
       if (isV2) {
-        state.dialogOpen = true;
-        state.itemToRemove = rmId;
-        render();
+        openRemoval(rmId, btn.id);
       } else {
         // v1: borra inmediatamente sin confirmación
         state.cart = state.cart.filter(function (c) { return c.id !== rmId; });
         render();
       }
     } else if (action === 'remove-ok') {
-      if (state.itemToRemove) {
-        state.cart = state.cart.filter(function (c) { return c.id !== state.itemToRemove; });
-      }
-      state.dialogOpen = false;
-      state.itemToRemove = null;
-      render();
+      if (isV2 && state.dialogOpen && state.itemToRemove) closeRemoval(true);
     } else if (action === 'remove-cancel') {
-      state.dialogOpen = false;
-      state.itemToRemove = null;
-      render();
+      if (isV2 && state.dialogOpen) closeRemoval(false);
     } else if (action === 'confirm') {
       handleConfirm();
     } else if (action === 'retry') {
@@ -642,15 +642,59 @@
     }
   });
 
-  // Manejador del teclado para Escape en diálogo (IHC-A-02)
+  // Issue #7: diálogo modal y restitución del foco tras reconstruir el DOM.
+  function openRemoval(itemId, openerId) {
+    if (state.dialogOpen || !state.cart.some(function (c) { return c.id === itemId; })) return;
+    state.itemToRemove = itemId;
+    state.removalOpenerId = openerId || 'remove-' + itemId;
+    state.dialogOpen = true;
+    render();
+  }
+
+  function closeRemoval(confirmed) {
+    var itemId = state.itemToRemove;
+    var openerId = state.removalOpenerId;
+    var index = state.cart.findIndex(function (c) { return c.id === itemId; });
+    if (confirmed) state.cart = state.cart.filter(function (c) { return c.id !== itemId; });
+    state.dialogOpen = false;
+    state.itemToRemove = null;
+    state.removalOpenerId = null;
+    render();
+    var target = !confirmed ? document.getElementById(openerId) : null;
+    if (!target && state.cart.length) {
+      var next = state.cart[Math.min(Math.max(index, 0), state.cart.length - 1)];
+      target = document.getElementById('remove-' + next.id);
+    }
+    if (!target) target = document.querySelector('main [data-action="goto"][data-go="menu"]');
+    if (target) target.focus();
+  }
+
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && state.dialogOpen) {
-      state.dialogOpen = false;
-      state.itemToRemove = null;
-      render();
-      // Restaurar foco al botón quitar
-      var remBtn = document.querySelector('[data-action="remove"]');
-      if (remBtn) remBtn.focus();
+    if (!isV2 || !state.dialogOpen) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeRemoval(false);
+      return;
+    }
+    if (e.key === 'Tab') {
+      var first = document.getElementById('remove-cancel');
+      var last = document.getElementById('remove-ok');
+      if (e.shiftKey && (document.activeElement === first || document.activeElement !== last)) {
+        e.preventDefault();
+        if (last) last.focus();
+      } else if (!e.shiftKey && document.activeElement !== first) {
+        e.preventDefault();
+        if (first) first.focus();
+      }
+    }
+  });
+
+  document.addEventListener('focusin', function (e) {
+    if (!isV2 || !state.dialogOpen) return;
+    var dialog = document.querySelector('[role="dialog"]');
+    if (dialog && !dialog.contains(e.target)) {
+      var cancel = document.getElementById('remove-cancel');
+      if (cancel) cancel.focus();
     }
   });
 
