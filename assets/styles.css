@@ -42,7 +42,7 @@ body[data-version="v1"] .dashboard-card {
 /* En v2 el diseño es completamente responsivo a 360 px */
 body[data-version="v2"] {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-wrap: anywhere;
 }
 
 body[data-version="v2"] * {
@@ -53,6 +53,7 @@ body[data-version="v2"] * {
 body[data-version="v2"] button:focus-visible,
 body[data-version="v2"] input:focus-visible,
 body[data-version="v2"] select:focus-visible,
+body[data-version="v2"] textarea:focus-visible,
 body[data-version="v2"] [tabindex]:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 2px;
@@ -184,7 +185,7 @@ main {
 /* Catálogo de productos */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 16px;
   margin-bottom: 20px;
 }
@@ -548,8 +549,23 @@ main {
   }
   .stepper {
     flex-wrap: wrap;
+    flex-direction: column;
   }
+  .card-selector-group {display: block; min-width: 0; width: 100%;}
+  .card-selector-group label {display: block; margin-bottom: 4px;}
+  .card-selector-group select {width: 100%; min-width: 0;}
+  .sub-nav {flex-wrap: wrap;}
+  .step-item {white-space: normal; text-align: left; flex: 0 1 auto; width: 100%; min-width: 0;}
+  .dashboard-card {padding: 12px !important;}
+  .dialog-actions {flex-wrap: wrap;}
 }
+
+.sr-only {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;}
+.procedure {padding: 12px; margin-bottom: 16px; border-left: 4px solid var(--primary); background: #eff6ff;}
+.procedure h3 {font-size: 1rem; margin-bottom: 6px;}
+.procedure p + p {margin-top: 8px;}
+.save-status {padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 12px;}
+button:disabled {cursor: not-allowed;}
 
 
 /* Incidencia seleccionada A01 R7: subtotales y revisión visible, incluso a 360 px. */
@@ -565,7 +581,10 @@ body[data-version="v2"] .review-change {
   overflow-wrap: anywhere;
 }
 @media (max-width: 480px) {
-  body[data-version="v2"] .cart-row {flex-wrap: wrap;}
-  body[data-version="v2"] .cart-controls {flex-wrap: wrap;}
+  body[data-version="v2"] .cart-row {display: block;}
+  body[data-version="v2"] .cart-controls {flex-wrap: wrap; margin-top: 10px;}
+  body[data-version="v2"] .qty-btn {flex: 0 0 32px;}
   body[data-version="v2"] .cart-summary > div[style*="display:flex"] {flex-wrap: wrap;}
+  body[data-version="v2"] .dashboard-card > div[style*="display:flex"] {flex-wrap: wrap; gap: 8px;}
+  body[data-version="v2"] button {overflow-wrap: normal; flex-shrink: 0;}
 }
