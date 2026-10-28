@@ -1,0 +1,67 @@
+{
+  "sourceArchive": "IHC_12_Tarjetas_Completo_Equipo5.zip",
+  "sourceArchiveSHA256": "b00e6aa5650bd941acc18560db53573a3f14e76dd37a0ad5d7fd66796328f084",
+  "kind": "Capturas incluidas en el ZIP del equipo. No son una ejecución nueva de esta rama.",
+  "files": [
+    {
+      "file": "base-zip/IHC-A-01-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-01-v1.png",
+      "sha256": "740c3712e5de9bfc9841e0eddf93a54bf26a0cd7306a5d0f931f33769ee8d8d6"
+    },
+    {
+      "file": "base-zip/IHC-A-02-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-02-v1.png",
+      "sha256": "1e6be318121e483bbf40f57f0171db5338a0ed001f17c9004e1b21bd1132f099"
+    },
+    {
+      "file": "base-zip/IHC-A-03-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-03-v1.png",
+      "sha256": "adda820a49980c1b481836412fbd275deb1a02cf0a5505e895a9d2abbac9634e"
+    },
+    {
+      "file": "base-zip/IHC-A-04-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-04-v1.png",
+      "sha256": "d84db3fcfd40c55c19a07128de42bf2c5d7e50eb09678405d8def21d45969060"
+    },
+    {
+      "file": "base-zip/IHC-A-05-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-05-v1.png",
+      "sha256": "f2930d006c42e6b2dfb863d7d357a4f34244d145a0c4f22a07ebddce8cd38bbc"
+    },
+    {
+      "file": "base-zip/IHC-A-06-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-06-v1.png",
+      "sha256": "18dfe30e143802ae0b9899781f4759bc2e11fd52f939e96915efd3504dddc471"
+    },
+    {
+      "file": "base-zip/IHC-A-07-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-07-v1.png",
+      "sha256": "769de1136f69169556ef3b050227dddd1659011e1fc6078f97594cd7865b6e6a"
+    },
+    {
+      "file": "base-zip/IHC-A-08-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-08-v1.png",
+      "sha256": "bffc69d09ad1f1f45ec5b8ccbaafb6bac3f1a725ff89ce5c48088e9b5d12babc"
+    },
+    {
+      "file": "base-zip/IHC-A-09-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-09-v1.png",
+      "sha256": "396d988d3c01c71e384b68696ca1d28feb4dc0972a1c871c40154253137402a7"
+    },
+    {
+      "file": "base-zip/IHC-A-10-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-10-v1.png",
+      "sha256": "fec2608d6ee4725710d68ce15e7e979b00837909caaad98ba8efd885982e9e12"
+    },
+    {
+      "file": "base-zip/IHC-A-11-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-11-v1.png",
+      "sha256": "c6631335179b4e3aa9c0e7120a70b629da34e27e920a75c4db34a616fbfa7d85"
+    },
+    {
+      "file": "base-zip/IHC-A-12-v1.png",
+      "origin": "evidencias/capturas-tecnicas/IHC-A-12-v1.png",
+      "sha256": "800dc8fcfb0f27d10cdaea14c9a89e2e1cd1cf05cefb3540874bf425f1592da7"
+    }
+  ]
+}
