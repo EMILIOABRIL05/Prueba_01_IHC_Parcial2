@@ -26,6 +26,10 @@
     itemToRemove: null,
     removalOpenerId: null,
     alertMessage: '',
+    a01ReviewRequired: false,
+    a01PreviousTotal: 0,
+    a01ReviewNote: '',
+    dashboardFinishing: false,
     dashboardData: {
       title: '',
       code: '',
@@ -48,6 +52,9 @@
           }
           if (saved && saved.title) state.dashboardData.title = saved.title;
           if (saved && saved.code) state.dashboardData.code = saved.code;
+          if (saved && typeof saved.errors === 'string') state.dashboardData.errors = saved.errors;
+          if (saved && typeof saved.notes === 'string') state.dashboardData.notes = saved.notes;
+          if (saved && Number.isInteger(saved.dashboardStep) && saved.dashboardStep >= 0 && saved.dashboardStep <= 3) state.dashboardStep = saved.dashboardStep;
         }
       } catch (e) {
         console.warn('LocalStorage error:', e);
@@ -61,7 +68,10 @@
         localStorage.setItem('ihc_a12_state', JSON.stringify({
           checklist: state.dashboardData.checklist,
           title: state.dashboardData.title,
-          code: state.dashboardData.code
+          code: state.dashboardData.code,
+          errors: state.dashboardData.errors,
+          notes: state.dashboardData.notes,
+          dashboardStep: state.dashboardStep
         }));
       } catch (e) {
         console.warn('LocalStorage save error:', e);
@@ -209,7 +219,7 @@
 
       // Alerta de presupuesto para IHC-A-05
       var overBudget = totalActual > 4.25;
-      if (overBudget && isV2) {
+      if (overBudget && isV2 && state.cardId === 'IHC-A-05') {
         html += '<div class="status error" role="alert">';
         html += '  <span><strong>Alerta de presupuesto:</strong> El total actual (' + totalFormatted + ') excede el límite de USD 4,25. Ajuste las cantidades antes de continuar.</span>';
         html += '</div>';
@@ -226,6 +236,7 @@
           html += '  <div class="cart-item-info">';
           html += '    <div class="cart-item-name">' + p.name + '</div>';
           html += '    <div class="cart-item-price">' + formatMoney(p.price) + ' c/u</div>';
+          if (isV2 && state.cardId === 'IHC-A-01') html += '    <div class="cart-item-subtotal">Subtotal: ' + formatMoney(p.price * c.qty) + '</div>';
           html += '  </div>';
           html += '  <div class="cart-controls">';
           html += '    <button class="qty-btn" id="qty-minus-' + p.id + '" data-action="qty" data-item="' + p.id + '" data-delta="-1" aria-label="Disminuir ' + p.name + '">-</button>';
@@ -265,6 +276,15 @@
         html += '    <span id="total" class="summ-total">' + displayedTotal + '</span>';
         html += '  </div>';
 
+        if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewRequired) {
+          var difference = totalActual - state.a01PreviousTotal;
+          html += '  <div class="status info review-change" role="status" aria-live="polite">';
+          html += '    <span>El pedido cambió: total anterior ' + formatMoney(state.a01PreviousTotal) + ', nuevo total ' + totalFormatted + '. ';
+          html += 'Diferencia ' + (difference >= 0 ? '+' : '-') + formatMoney(Math.abs(difference)) + '. Revise antes de confirmar.</span>';
+          html += '  </div><button class="btn-secondary" id="review-total" data-action="review-total">He revisado el nuevo total</button>';
+        } else if (isV2 && state.cardId === 'IHC-A-01' && state.a01ReviewNote) {
+          html += '  <div class="status success" role="status">' + state.a01ReviewNote + '</div>';
+        }
         html += '  <div style="display:flex; justify-content:space-between; gap:12px; margin-top:16px;">';
         html += '    <button class="btn-secondary" data-action="goto" data-go="menu">Seguir comprando</button>';
 
@@ -432,12 +452,21 @@
 
       var checkedCount = state.dashboardData.checklist.filter(function (x) { return x; }).length;
       html += '  <p><strong>Checklist verificado:</strong> ' + checkedCount + ' de 3 ítems</p>';
+      if (isV2 && state.cardId === 'IHC-A-12') {
+        html += '  <p role="status">' + (checkedCount === 3 ? 'Todas las verificaciones obligatorias están completas.' : 'Pendientes: ' + (3 - checkedCount) + ' ítem(s). No se puede finalizar todavía.') + '</p>';
+        if (checkedCount < 3) html += '  <button class="btn-secondary" data-action="step" data-step="1">Completar checklist pendiente</button>';
+      }
       html += '  <p><strong>Errores:</strong> ' + (state.dashboardData.errors || '0') + '</p>';
       html += '</div>';
 
       html += '<div style="margin-top:20px; display:flex; justify-content:space-between;">';
       html += '  <button class="btn-secondary" data-action="prev">Anterior</button>';
-      html += '  <button class="btn-primary" data-action="finish">Finalizar sesión</button>';
+      if (isV2 && state.cardId === 'IHC-A-12' && state.dashboardFinishing) {
+        html += '  <span class="status info" role="status">Verificando checklist…</span>';
+        html += '  <button class="btn-primary" disabled>Verificando…</button>';
+      } else {
+        html += '  <button class="btn-primary" data-action="finish">Finalizar sesión</button>';
+      }
       html += '</div>';
 
     } else if (state.dashboardStep === 4) {
