@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2110" height="1180" viewBox="0 0 2110 1180">
+<rect x="0" y="0" width="2110" height="1180" rx="0" fill="#F5F7F9" />
+<rect x="0" y="0" width="2110" height="13" rx="0" fill="#187D75" />
+<text x="70" y="73" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#187D75">IHC / ARQUITECTURA DE INTERACCIÓN</text>
+<text x="70" y="137" font-family="Arial,sans-serif" font-size="47" font-weight="700" fill="#243440">Tarjeta A-09 · Dashboard UX</text>
+<text x="70" y="178" font-family="Arial,sans-serif" font-size="24" font-weight="400" fill="#425866">Registrar resultados anónimos</text>
+<rect x="1646" y="64" width="388" height="85" rx="16" fill="#E3E9EC" />
+<text x="1670" y="98" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#536672">ENTREGA DE EMILIO ABRIL</text>
+<text x="1670" y="126" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#243440">4 wireframes · Lo-Fi</text>
+<text x="74" y="225" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#243440">01    ENTRADA</text>
+<rect x="65" y="253" width="430" height="632" rx="25" fill="#FFFFFF" stroke="#D4DEE3" stroke-width="2"/>
+<rect x="98" y="266" width="376" height="609" rx="18" fill="#FFFFFF" stroke="#586B77" stroke-width="2"/>
+<rect x="115" y="286" width="340" height="58" rx="8" fill="#E9ECEF" />
+<text x="128" y="318" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#243440">Dashboard UX · A-09</text>
+<text x="128" y="337" font-family="Arial,sans-serif" font-size="10" font-weight="400" fill="#536672">LO-FI · VISTA 360 PX</text>
+<rect x="115" y="371" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="128" y="413" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">CABECERA + UBICACIÓN</text>
+<rect x="115" y="483" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="128" y="525" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Descripción de la tarea</text>
+<rect x="115" y="595" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="128" y="637" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Vista general</text>
+<rect x="115" y="707" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="128" y="749" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Comenzar</text>
+<path d="M500 565 H538" stroke="#187D75" stroke-width="3"/><path d="M530 558 L539 565 L530 572" stroke="#187D75" stroke-width="3" fill="none"/>
+<text x="578" y="225" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#243440">02    ACCIÓN / EDICIÓN</text>
+<rect x="569" y="253" width="430" height="632" rx="25" fill="#FFFFFF" stroke="#D4DEE3" stroke-width="2"/>
+<rect x="602" y="266" width="376" height="609" rx="18" fill="#FFFFFF" stroke="#586B77" stroke-width="2"/>
+<rect x="619" y="286" width="340" height="58" rx="8" fill="#E9ECEF" />
+<text x="632" y="318" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#243440">Dashboard UX · A-09</text>
+<text x="632" y="337" font-family="Arial,sans-serif" font-size="10" font-weight="400" fill="#536672">LO-FI · VISTA 360 PX</text>
+<rect x="619" y="371" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="632" y="413" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">PASO ACTUAL + VOLVER</text>
+<rect x="619" y="483" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="632" y="525" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Control relevante</text>
+<rect x="619" y="595" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="632" y="637" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Editar / revisar</text>
+<rect x="619" y="707" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="632" y="749" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Continuar</text>
+<path d="M1004 565 H1042" stroke="#187D75" stroke-width="3"/><path d="M1034 558 L1043 565 L1034 572" stroke="#187D75" stroke-width="3" fill="none"/>
+<text x="1082" y="225" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#243440">03    ERROR / RECUPERACIÓN</text>
+<rect x="1073" y="253" width="430" height="632" rx="25" fill="#FFFFFF" stroke="#D4DEE3" stroke-width="2"/>
+<rect x="1106" y="266" width="376" height="609" rx="18" fill="#FFFFFF" stroke="#586B77" stroke-width="2"/>
+<rect x="1123" y="286" width="340" height="58" rx="8" fill="#E9ECEF" />
+<text x="1136" y="318" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#243440">Dashboard UX · A-09</text>
+<text x="1136" y="337" font-family="Arial,sans-serif" font-size="10" font-weight="400" fill="#536672">LO-FI · VISTA 360 PX</text>
+<rect x="1123" y="371" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="1136" y="413" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">AVISO DEL SISTEMA</text>
+<rect x="1123" y="483" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="1136" y="525" font-family="Arial,sans-serif" font-size="13" font-weight="400" fill="#243440">Formulario exige nombre real</text>
+<rect x="1123" y="595" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="1136" y="637" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Cómo corregir</text>
+<rect x="1123" y="707" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="1136" y="749" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Volver sin perder datos</text>
+<path d="M1508 565 H1546" stroke="#187D75" stroke-width="3"/><path d="M1538 558 L1547 565 L1538 572" stroke="#187D75" stroke-width="3" fill="none"/>
+<text x="1586" y="225" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#243440">04    CONFIRMACIÓN</text>
+<rect x="1577" y="253" width="430" height="632" rx="25" fill="#FFFFFF" stroke="#D4DEE3" stroke-width="2"/>
+<rect x="1610" y="266" width="376" height="609" rx="18" fill="#FFFFFF" stroke="#586B77" stroke-width="2"/>
+<rect x="1627" y="286" width="340" height="58" rx="8" fill="#E9ECEF" />
+<text x="1640" y="318" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#243440">Dashboard UX · A-09</text>
+<text x="1640" y="337" font-family="Arial,sans-serif" font-size="10" font-weight="400" fill="#536672">LO-FI · VISTA 360 PX</text>
+<rect x="1627" y="371" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="1640" y="413" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">ESTADO FINAL</text>
+<rect x="1627" y="483" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="1640" y="525" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Confirmación verificable</text>
+<rect x="1627" y="595" width="340" height="86" rx="9" fill="#E9EDF0" stroke="#9EADB5" stroke-width="2"/>
+<text x="1640" y="637" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Resumen</text>
+<rect x="1627" y="707" width="340" height="86" rx="9" fill="#F3F5F6" stroke="#9EADB5" stroke-width="2"/>
+<text x="1640" y="749" font-family="Arial,sans-serif" font-size="16" font-weight="400" fill="#243440">Terminar</text>
+<rect x="70" y="914" width="1965" height="198" rx="18" fill="#FFF" stroke="#D9E3E7" stroke-width="2"/>
+<rect x="70" y="914" width="7" height="198" rx="3" fill="#187D75" />
+<text x="106" y="952" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#187D75">RESTRICCIÓN</text>
+<text x="106" y="986" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#243440">No mostrar nombres reales</text>
+<text x="702" y="952" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#187D75">FALLO DE LA TARJETA</text>
+<text x="702" y="986" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#243440">Formulario exige nombre real</text>
+<text x="1323" y="952" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#187D75">ESQUEMA DEL FLUJO</text>
+<text x="1323" y="986" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#243440">Inicio → Acción → Confirmación</text>
+<text x="1323" y="1017" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#243440">Acción → Error → Corregir</text>
+<text x="106" y="1084" font-family="Arial,sans-serif" font-size="15" font-weight="400" fill="#536672">Material preparado con asistencia de IA; no sustituye pruebas con usuarios ni prototipo Figma conectado.</text>
+<text x="1860" y="1146" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#758A95">IHC-A-09</text>
+</svg>
