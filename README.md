@@ -30,6 +30,7 @@ Elegir tarjeta en la cabecera. No se necesita backend ni una instalación de Nod
 - [Decisiones de implementación](docs/decisiones.md), [guía de ejecución](docs/guia-ejecucion.md) y [correcciones de la revisión](docs/correcciones-integrales.md).
 - [Incidencias A01/A12](docs/incidencias-seleccionadas-A01-A12.md).
 - [Colaboración y estado Git](docs/colaboracion.md), [registro consultado](docs/registro-git.json) y [pendientes de cierre](docs/seguimiento-cierre-equipo.md).
+- [Estado posterior al PR #20](docs/estado-post-merge.json), [nueva verificación de main](evidencias/verificacion-post-merge/README.md) y [guía para completar la validación con el equipo](pruebas/GUIA-EJECUCION-EQUIPO.md).
 
 ## Organización del repositorio
 
@@ -111,7 +112,7 @@ La prueba de navegador crea un servidor temporal y guarda la salida en una carpe
 | Pablo Lozada | `idk-Damian` | Base del prototipo v2 y accesibilidad. |
 | Jonathan Gamboa | `Jonathan305g` | Protocolos, aportes de prueba y evidencias anteriores. |
 
-Los PR de las fases originales y de las primeras incidencias están fusionados. Esta rama `william/correcciones-integrales-documentacion` contiene una revisión adicional, organizada por commits; el autor abrirá su PR. Una tabla de responsabilidades no sustituye la revisión personal de un PR ajeno ni una sesión observada.
+Los PR de las fases originales y de las primeras incidencias están fusionados. La rama `william/correcciones-integrales-documentacion` se integró mediante el [PR #20](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/20), fusionado el 28 de octubre de 2026 a las 17:04 (America/Guayaquil), en el commit `49abf9cadd269553594142be02dfb068fa53efc3`. La nueva comprobación de sus 361 archivos dio 41/41 casos de navegador. El PR #20 no tenía revisiones ni comentarios de compañeros al consultar; la fusión no acredita esa actuación personal. La rama `william/actualizacion-cierre-y-validacion` actualiza este registro y las guías de validación, sin cambiar la aplicación.
 
 ## Figma y recursos de la actividad
 
@@ -123,3 +124,5 @@ Los PR de las fases originales y de las primeras incidencias están fusionados. 
 ## Qué falta acreditar con personas
 
 Consultar [pruebas/sesion.md](pruebas/sesion.md): actas auténticas por tarjeta, validación del aporte histórico A12, lector de pantalla cuando corresponda y revisión fundamentada de un PR ajeno por cada integrante. No se completan estas actividades mediante resultados inventados ni copiando las capturas técnicas.
+
+Material preparado: [tareas y registro por tarjeta](pruebas/GUIA-EJECUCION-EQUIPO.md), [recorrido A10 con lector de pantalla](pruebas/A10-lector-de-pantalla.md), [revisión personal de PR](github/pr/GUIA-REVISION-PERSONAL.md) y [contraste Figma/HTML](figma/CONTRASTE-CON-HTML.md). La lectura remota de ambos Figma se intentó, pero el servicio devolvió límite de llamadas del plan Starter; no se declara su correspondencia visual como comprobada.

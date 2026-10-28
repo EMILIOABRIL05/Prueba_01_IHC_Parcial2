@@ -12,7 +12,9 @@
 
 **Repositorio:** [https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2)
 
-**Rama de esta entrega:** `william/correcciones-integrales-documentacion`
+**Rama de esta actualización:** `william/actualizacion-cierre-y-validacion`
+
+**Integración revisada:** [PR #20](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/20), fusionado en main `49abf9cadd269553594142be02dfb068fa53efc3` el 28-10-2026 a las 17:04 -05.
 
 **Código verificado:** [`787a4fd22baded030dd132343295b952f6290790`](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/787a4fd22baded030dd132343295b952f6290790)
 
@@ -38,7 +40,7 @@ La documentación corresponde al contenido del repositorio adjunto. Las pantalla
 
 La revisión detectó dieciocho grupos de problemas. Se corrigieron las brechas de implementación, pruebas y coherencia documental. La falta de una observación humana auténtica se resuelve documentalmente como pendiente, con protocolo y actas; no se inventan datos para marcarla como realizada.
 
-### 1.1 Entregables de esta rama
+### 1.1 Entregables de la revisión integral
 
 - Correcciones del pedido, revisión de importe, alérgenos, navegación, anonimato, métricas, persistencia, foco y estados.
 
@@ -1255,7 +1257,7 @@ La revisión inicial examinó main 5c525296. Esta rama corrige el contenido y el
 - Navegador: Chromium 153.0.8010.0; 41/41 casos; fecha UTC 2026-10-28T21:20:34.474219+00:00.
 - [Reporte y capturas](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/correcciones-integrales-documentacion/evidencias/ejecucion-actual/README.md).
 - [Actas y pendientes humanos](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/correcciones-integrales-documentacion/pruebas/sesion.md).
-- Los commits del equipo se conservan; la rama actual se revisa mediante un PR que abrirá William.
+- Los commits del equipo se conservan. La revisión integral se fusionó por PR #20 como `49abf9c`; no tenía reviews de compañeros al consultar. La nueva ejecución sobre sus 361 archivos completó 41/41 casos.
 
 ## 8. Plan de prueba y resultados
 
@@ -1350,14 +1352,14 @@ El [acta aportada A12](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/b
 
 - Participantes externos y registros originales para las tarjetas que deban acreditarse.
 - Ensayo con lector de pantalla para A10 y navegación completa con tecnologías de asistencia.
-- Revisión fundamentada del PR de esta rama por un compañero real.
+- Revisión fundamentada de un PR ajeno por cada integrante; el PR #20 se fusionó sin reviews registradas al consultar.
 - Hora oficial del anuncio si se exige acreditar el carácter posterior del commit.
 
 ## 9. GitHub, autoría y colaboración
 
-## Colaboración verificable en GitHub
+### Colaboración verificable en GitHub
 
-Repositorio: [https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2). Base revisada: [5c52529](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/5c5252962805b24468a8b98fca8ddd78a6cb84fd). Fecha de consulta y detalles: [registro-git.json](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/correcciones-integrales-documentacion/docs/registro-git.json).
+Repositorio: [https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2). Integración revisada: [49abf9c](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/49abf9cadd269553594142be02dfb068fa53efc3), posterior al PR #20. El [registro original](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/docs/registro-git.json) conserva la consulta previa sobre `5c52529`; el [estado posterior a la fusión](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/docs/estado-post-merge.json) documenta la nueva consulta sin reescribir el registro histórico.
 
 | Persona / cuenta | Rama individual original | Issue de fase | PR de fase | Aporte |
 |---|---|---|---|---|
@@ -1369,17 +1371,21 @@ Repositorio: [https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2](https://g
 
 ### Hallazgos e incidencias
 
-Hallazgos publicados: #6 A01, #7 A02, #8 A12. Extensiones seleccionadas: #17 A01 y #18 A12, abiertas a la fecha consultada. #15 es preparación, no un anuncio oficial. Los 36 borradores en `github/issues/` deben verificarse antes de publicarlos como hallazgos reales.
+Hallazgos publicados: #6 A01, #7 A02, #8 A12. Extensiones seleccionadas: #17 A01 y #18 A12, abiertas y actualizadas con código, PR #20, capturas y resultados de navegador. Su implementación técnica está integrada; se mantienen abiertos los pendientes personales y temporales que aún no se acreditan. #15 es preparación, no un anuncio oficial. Los 36 borradores en `github/issues/` deben verificarse antes de publicarlos como hallazgos reales.
 
 El PR #19 se fusionó y tiene aprobación de Manuel. Su texto «Todo correcto» acredita la existencia de una aprobación, pero no detalla una revisión fundamentada. Pablo sí dejó una observación técnica concreta en PR #9. No se atribuyen a William o Jonathan revisiones externas que no aparecen en GitHub; el documento de revisión de Jonathan es un aporte, no una interacción publicada en el PR.
 
 ### Rama de correcciones
 
-`william/correcciones-integrales-documentacion` parte de main y organiza código, pruebas/evidencias y documentación mediante commits. El autor abrirá su PR. Se conserva la atribución de aportes previos; una corrección posterior no se presenta como trabajo original del compañero.
+`william/correcciones-integrales-documentacion` se fusionó mediante [PR #20](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/20) el 28-10-2026 a las 17:04 (America/Guayaquil). Sus cuatro commits son `787a4fd` (código), `24beaa4` (pruebas/evidencias), `1f5cd01` (documentación) y `e06e679` (PDF y generador); main quedó en `49abf9c`. La nueva rama `william/actualizacion-cierre-y-validacion` parte de esa integración y actualiza únicamente documentación y registro de validación. Se conserva la atribución de aportes previos; una corrección posterior no se presenta como trabajo original del compañero.
+
+Al consultar el PR #20 no había reviews, comentarios inline ni comentarios de conversación. Su fusión por William no equivale a aprobación de otro integrante. Esta comprobación técnica asistida tampoco se atribuye como revisión personal de un compañero.
 
 ### Revisión personal pendiente
 
 Cada integrante debe revisar personalmente un PR ajeno, indicar archivo, caso probado, resultado y observación o aprobación razonada. Una asistencia automatizada puede preparar comprobaciones, pero no acredita esa actuación personal ni una sesión humana.
+
+La [guía de revisión personal](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/github/pr/GUIA-REVISION-PERSONAL.md) propone PR ajenos y casos concretos, con una plantilla que el revisor completa después de probar. No se publican aprobaciones ni comentarios en su nombre.
 
 ### Temporalidad
 
@@ -1397,6 +1403,7 @@ Los commits de GitHub se registran con su SHA y fecha; las fechas UTC se convier
 | [#14](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/14) | william-martinez5101 | fix(A02): mejorar confirmación de eliminación y restauración del foco (#7) | 2026-10-28T17:13:39Z |
 | [#16](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/16) | EMILIOABRIL05 | [IHC][Preparación] Simulador funcional y R7 para 12 incidencias sorpresa | 2026-10-28T17:35:00Z |
 | [#19](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/19) | EMILIOABRIL05 | [IHC][R7] Implementar incidencias elegidas A01 y A12 en v2 | 2026-10-28T17:47:54Z |
+| [#20](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/pull/20) | william-martinez5101 | Correcciones integrales, evidencia actual y PDF | 2026-10-28T22:04:00Z |
 
 ### 9.2 Issues consultados
 
@@ -1414,18 +1421,37 @@ Los commits de GitHub se registran con su SHA y fecha; las fechas UTC se convier
 | [#17](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/17) | [IMPLEMENTACIÓN SELECCIONADA][A01] R7 — CaféU | EMILIOABRIL05 | open |
 | [#18](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/issues/18) | [IMPLEMENTACIÓN SELECCIONADA][A12] R7 — Dashboard UX | EMILIOABRIL05 | open |
 
-### 9.3 Organización de esta rama
+### 9.3 Organización de la revisión integrada y actualización
 
-La rama parte de main y separa corrección funcional, pruebas/evidencias y documentación. Los commits se publican con la cuenta de William y conservan los autores de las fases anteriores. El PDF registra la revisión de código y el estado Git consultado; el commit que agrega el propio PDF se consulta en el historial de la rama, evitando insertar dentro del archivo una referencia circular a su propio hash.
+La revisión integral separó corrección funcional, pruebas/evidencias y documentación en cuatro commits, integrados mediante PR #20. La rama de actualización parte de main 49abf9c y modifica documentación y registros, conservando intacta la aplicación. El commit que agrega este propio PDF se consulta en el historial, evitando una referencia circular a su hash.
 
 Los PR y commits permiten identificar cambios; la defensa de una contribución y la revisión fundamentada son actuaciones personales. Las aprobaciones genéricas se describen como tales. Este documento no publica comentarios ni suplanta revisiones de compañeros.
 
-### 9.4 Commits de código y prueba de esta rama
+### 9.4 Cuatro commits de la revisión integral
 
 | Commit | Cambio |
 |---|---|
 | [787a4fd](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/787a4fd22baded030dd132343295b952f6290790) | fix(ihc): cerrar brechas de revisión, navegación, persistencia y foco |
 | [24beaa4](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/24beaa419eb2bda20a3596eaa50efcae70a54f90) | test(ihc): verificar 41 casos HTTP reales y conservar evidencia actual |
+| [1f5cd01](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/1f5cd016305ab6c81585c9f17667d9be7d49ed0b) | Documentación de las doce tarjetas, arquitectura, evidencia y README |
+| [e06e679](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/commit/e06e6795adbfd6b038af8b63271ef5069821f44f) | PDF de la revisión integral y generador reproducible |
+
+### 9.5 Actualización de seguimiento y validación
+
+Las incidencias #17 y #18 se actualizaron con tareas técnicas verificadas, PR #20 y evidencia. Continúan abiertas porque las actuaciones personales y la temporalidad oficial no se deducen de la implementación. Se conserva #15 como preparación.
+
+El 28-10-2026 a las 17:07:57 -05 se repitió la prueba de navegador: **41/41**, Chromium 153.0.8010.0 y viewport 360 x 800. Los 361 archivos locales coincidieron por SHA Git con main 49abf9c. Se conserva un nuevo reporte, mientras las 33 capturas anteriores mantienen su fecha y procedencia. La nueva revisión no altera las fuentes de la aplicación.
+
+| Frente | Preparación y estado | Actuación que falta |
+|---|---|---|
+| Participantes | Consignas y criterios para las doce tarjetas, medición y actas. | Ejecutar tareas y aportar registros verdaderos; ratificar o repetir A12. |
+| A10 | Protocolo con entorno, nueve pasos, foco y anuncios esperados. | Probar con lector real y registrar lo hablado y observado. |
+| Revisiones | Guía por cuenta propia, PR ajenos y casos propuestos. | Cada compañero publica personalmente su revisión con fecha real. |
+| Figma | Contraste por doce tarjetas y estados R7 preparado. | Lectura bloqueada por cuota Starter en ambos archivos; revisar lienzo o exportación actual. |
+
+La lectura de Figma devolvió «You've reached the Figma MCP tool call limit on the Starter plan». No se obtuvieron capas o capturas remotas, ni se modificaron lienzos o conexiones. El protocolo manual de contraste no se presenta como una inspección realizada.
+
+Recursos para completar el trabajo: [guía del equipo](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/pruebas/GUIA-EJECUCION-EQUIPO.md), [A10 con lector](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/pruebas/A10-lector-de-pantalla.md), [revisión personal](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/github/pr/GUIA-REVISION-PERSONAL.md), [contraste Figma](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/figma/CONTRASTE-CON-HTML.md), [seguimiento](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/docs/seguimiento-cierre-equipo.md) y [reporte posterior](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/actualizacion-cierre-y-validacion/evidencias/verificacion-post-merge/README.md).
 
 ## 10. Guía de ejecución y mantenimiento
 
@@ -1733,4 +1759,4 @@ Las imágenes siguientes proceden de la ejecución automatizada de Chromium indi
 
 
 
-El registro completo de capturas y sus huellas está en [resultado.json](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/correcciones-integrales-documentacion/evidencias/ejecucion-actual/resultado.json). La identidad de la revisión se complementa con los commits de esta rama.
+El registro completo de capturas y sus huellas está en [resultado.json](https://github.com/EMILIOABRIL05/Prueba_01_IHC_Parcial2/blob/william/correcciones-integrales-documentacion/evidencias/ejecucion-actual/resultado.json). La identidad se complementa con los cuatro commits integrados por PR #20 y el registro posterior a su fusión.

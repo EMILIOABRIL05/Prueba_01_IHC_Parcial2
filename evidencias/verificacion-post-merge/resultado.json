@@ -1,0 +1,196 @@
+{
+  "generatedAt": "2026-10-28T22:07:57.110467+00:00",
+  "revision": "49abf9cadd269553594142be02dfb068fa53efc3",
+  "scope": "Navegador Chromium real por HTTP; ejecución automática, sin participantes ni lector de pantalla.",
+  "browser": "153.0.8010.0",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "viewport": {
+    "width": 360,
+    "height": 800
+  },
+  "sourceSha256": {
+    "assets/app.js": "528ccd983a91d161f2e6872e5d3e71c46a8de7c1a49d433ae84c7434fb8861df",
+    "assets/scenarios.js": "7582b6c7a91ebf5438ac202c38614fa62f0d0130b77db1274ef2be0a9434a9b4",
+    "assets/styles.css": "def9a7fbe9d3bbd59e533828f85bc38478d6a6c8c4a18ed5c3ac3b6b62ee2b86",
+    "prototipo/v2/index.html": "7aef3d399eba1d6668719e227426ed6f4490c3e257314ef40056648e8a345ad0",
+    "prototipo/v1/index.html": "04df10d780769ecf7ef5fcf42bd1fd2bff1cddf8e61972e55cd403e613eb1b97",
+    "prototipo/v1/assets/app.js": "69a434e4166855645bd1d1089bbe2fb60090b8c20ac80871f0cc766a670be4e7",
+    "prototipo/v1/assets/scenarios.js": "e1641d2dd870d559fdb9c0aa4e0ce4f75a2eef9ac7905bc7c8f0795557263976",
+    "prototipo/v1/assets/styles.css": "a88d7a5c42610608579fb59bc90f0dc720fbd0c98046512104706dfdbb1f248c"
+  },
+  "passed": 41,
+  "total": 41,
+  "results": [
+    {
+      "case": "IHC-A-01-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-01-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-02-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-02-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-03-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-03-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-04-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-04-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-05-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-05-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-06-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-06-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-07-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-07-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-08-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-08-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-09-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-09-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-10-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-10-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-11-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-11-v2",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-12-v1",
+      "status": "OK"
+    },
+    {
+      "case": "IHC-A-12-v2",
+      "status": "OK"
+    },
+    {
+      "case": "A01-agregar-invalida-revision",
+      "status": "OK"
+    },
+    {
+      "case": "A01-quitar-invalida-revision",
+      "status": "OK"
+    },
+    {
+      "case": "A06-pedido-inmutable-y-sin-reenvio",
+      "status": "OK"
+    },
+    {
+      "case": "A03-pedido-nuevo-e-identificador",
+      "status": "OK"
+    },
+    {
+      "case": "A04-aceptacion-contextual",
+      "status": "OK"
+    },
+    {
+      "case": "A04-detalle-Escape",
+      "status": "OK"
+    },
+    {
+      "case": "A06-cancelar-operacion-al-cambiar-tarjeta",
+      "status": "OK"
+    },
+    {
+      "case": "A12-checklist-persistido-vacio",
+      "status": "OK"
+    },
+    {
+      "case": "A12-JSON-danado",
+      "status": "OK"
+    },
+    {
+      "case": "Dashboard-errores-enteros-no-negativos",
+      "status": "OK"
+    },
+    {
+      "case": "Dashboard-texto-no-inserta-HTML",
+      "status": "OK"
+    },
+    {
+      "case": "Dashboard-datos-invalidos-via-Stepper",
+      "status": "OK"
+    },
+    {
+      "case": "A12-fallo-guardado-y-reintento",
+      "status": "OK"
+    },
+    {
+      "case": "A12-cierre-no-contamina-otra-tarjeta",
+      "status": "OK"
+    },
+    {
+      "case": "A09-limites-de-codigo",
+      "status": "OK"
+    },
+    {
+      "case": "12-tarjetas-controles-dentro-de-360px",
+      "status": "OK"
+    },
+    {
+      "case": "CafeU-carrito-vacio",
+      "status": "OK"
+    }
+  ],
+  "evidencePolicy": "Se conserva el reporte de esta ejecución; las capturas nuevas no se incluyen en esta carpeta. Las 33 capturas previas están en evidencias/ejecucion-actual y corresponden a las mismas fuentes verificadas por SHA-256.",
+  "remoteComparison": {
+    "files": 361,
+    "missing": [],
+    "different": [],
+    "main": "49abf9cadd269553594142be02dfb068fa53efc3"
+  }
+}

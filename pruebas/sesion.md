@@ -23,5 +23,13 @@ El [acta aportada A12](historico/A12-acta-aportada.md) y su [resumen anterior](h
 
 - Participantes externos y registros originales para las tarjetas que deban acreditarse.
 - Ensayo con lector de pantalla para A10 y navegación completa con tecnologías de asistencia.
-- Revisión fundamentada del PR de esta rama por un compañero real.
+- Revisión fundamentada de un PR ajeno por cada integrante. El PR #20 ya se fusionó, pero al consultar no tenía reviews de compañeros.
 - Hora oficial del anuncio si se exige acreditar el carácter posterior del commit.
+
+## Material listo para ejecutar
+
+- [Guía de tareas para las doce tarjetas](GUIA-EJECUCION-EQUIPO.md): preparación, medición, registro de pausas y comparación de versiones.
+- [Recorrido A10 con lector de pantalla](A10-lector-de-pantalla.md): resultado hablado, foco y recuperación a comprobar con la tecnología real.
+- [Guía de revisión personal de PR](../github/pr/GUIA-REVISION-PERSONAL.md): cada revisor usa su cuenta y registra lo que realmente examinó.
+- [Contraste Figma/HTML](../figma/CONTRASTE-CON-HTML.md): correspondencia de pantallas y diferencias que deben verificarse.
+- [Nueva ejecución técnica de main](../evidencias/verificacion-post-merge/README.md): 41/41 casos. Mantiene separado el registro humano.
