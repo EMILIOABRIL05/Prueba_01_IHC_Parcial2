@@ -1,0 +1,10 @@
+flowchart TD
+ A[Inicio y guia] --> B[Datos de sesion]
+ B --> C[Stepper paso actual]
+ C --> D[Checklist incompleto]
+ D --> E[Registro]
+ E --> F[Revision]
+ F -->|Editar| D
+ F --> G[Resumen de cierre]
+ C --> X[Error de validacion]
+ X --> C
